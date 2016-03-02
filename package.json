@@ -1,0 +1,28 @@
+{
+  "name": "pawpaw",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirinapha88/pawpaw.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirinapha88/pawpaw/issues"
+  },
+  "homepage": "https://github.com/sirinapha88/pawpaw#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "knex": "^0.10.0",
+    "locus": "^1.2.0",
+    "method-override": "^2.3.5",
+    "morgan": "^1.7.0",
+    "pg": "^4.5.1"
+  }
+}
