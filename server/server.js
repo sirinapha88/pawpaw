@@ -2,13 +2,13 @@ var express 		= require("express"),
 	app 			= express(),
 	bodyParser 		= require("body-parser"),
 	morgan      	= require("morgan"),
-	routes 			= require("./routes"),
+	Yelp = require('yelp');
 	path 			= require('path'),
 	knex 			= require('../db/knex'),
 	passport 		= require('passport'),
-	FacebookStrategy	= require('passport-facebook').Strategy,
-	config = require('./oauth.js');
-	require('dotenv').load();
+	FacebookStrategy	= require('passport-facebook').Strategy;
+	config = require('../oauth.js');
+	// require('dotenv').load();
 
 var Users = function () {
   return knex('users');
@@ -47,4 +47,19 @@ passport.use(new FacebookStrategy({
     });
   }
  ));
+
+
+var yelp = new Yelp({
+  consumer_key: 'Kdfe5smuWY0MTrYmBspPxw',
+  consumer_secret: 'PFBFDxJrFsA4yxys4GAUMS6bqXU',
+  token: 'I3lxcR-nt3w8l8_s4hC7U30m-2YMXPwz',
+  token_secret: 'I-fUcPniWYQJ930zrgt_mYETpVQ',
+});
  
+ yelp.search({ term: 'food', location: 'Montreal' })
+.then(function (data) {
+  console.log(data.businesses[0]);
+})
+.catch(function (err) {
+  console.error(err);
+});
