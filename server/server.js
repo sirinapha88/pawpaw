@@ -58,8 +58,16 @@ var yelp = new Yelp({
  
  yelp.search({ term: 'food', location: 'Montreal' })
 .then(function (data) {
-  console.log(data.businesses[0]);
+  // console.log(data.businesses[0]);
 })
 .catch(function (err) {
   console.error(err);
 });
+
+yelp.business('yelp-san-francisco')
+  .then(console.log)
+  .catch(console.error);
+
+
+
+
