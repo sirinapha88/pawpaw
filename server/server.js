@@ -56,17 +56,17 @@ var yelp = new Yelp({
   token_secret: 'I-fUcPniWYQJ930zrgt_mYETpVQ',
 });
  
- yelp.search({ term: 'food', location: 'Montreal' })
+ yelp.search({ term: 'dog-hotel', location: 'san-francisco' })
 .then(function (data) {
-  // console.log(data.businesses[0]);
+     console.log(data);
 })
 .catch(function (err) {
   console.error(err);
 });
 
-yelp.business('yelp-san-francisco')
-  .then(console.log)
-  .catch(console.error);
+// yelp.business('dog-san-francisco')
+//   .then(console.log)
+//   .catch(console.error);
 
 
 
