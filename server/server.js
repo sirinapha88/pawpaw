@@ -58,7 +58,7 @@ var yelp = new Yelp({
  
  yelp.search({ term: 'dog-hotel', location: 'san-francisco' })
 .then(function (data) {
-     console.log(data);
+     console.log(data.businesses[0].location);
 })
 .catch(function (err) {
   console.error(err);
