@@ -3,6 +3,8 @@ exports.up = function(knex, Promise) {
  		table.increments();// id serial primary key
  		table.string('name');
  		table.string('email');
+ 		table.string('phone');
+ 		table.string('address');
  		table.string('password');
  		table.string('facebook_id');
  	});
