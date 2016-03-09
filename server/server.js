@@ -48,6 +48,18 @@ passport.use(new FacebookStrategy({
   }
  ));
 
+app.use('/client', express.static(path.join(__dirname, '../client')));
+app.use('/js',express.static(path.join(__dirname, '../client/js')));
+app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
+
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+
+app.get('/', function(req,res){
+  res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
+});
 
 var yelp = new Yelp({
   consumer_key: 'Kdfe5smuWY0MTrYmBspPxw',
@@ -64,10 +76,10 @@ var yelp = new Yelp({
   console.error(err);
 });
 
-// yelp.business('dog-san-francisco')
-//   .then(console.log)
-//   .catch(console.error);
 
+var PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function() {console.log("Listening on localhost:", PORT)});
 
 
 
