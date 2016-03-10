@@ -2,38 +2,39 @@
 <html ng-app="pawpawHotel">
 <head>
 	<title>Paw Paw Hotel</title>
-	
+	<!-- Css Page -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/client/css/style.css">
 </head>
 <body>
-  	<div class="container-fluid">  
-		<nav class="navbar navbar-default" id='navbar'>
-	          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	              <ul class="nav navbar-nav" id='left-nav-items'>
-	                  <li><a href="/tvshows/popular">Popular</a>
-	                  </li>
-	                  <li><a href="/tvshows/topRated">Highly Rated</a>
-	                  </li>
-	              </ul>
-	              <ul class='nav navbar-nav navbar-right' id='right-nav-items'>
-	                  <li><a href="/users/profile">Profile</a>
-	                  </li>
-	                  <li><a ng-href="/#/login" id='loginButton'><strong>Login</strong></a></li>
-	                 <li><a ng-href="/#/signup" id='loginButton'><strong>Signup</strong></a></li>
-	              </ul>
-	          </div>
-	    </nav>
+  	 	<!-- HEADER -->
+	<nav class="navbar navbar-default" id='navbar'>
+        <div class="container-fluid">
+        	<div class="navbar-header">
+	        	<a class="navbar-brand" href="/#/" id='header'>
+     				<img src="/client/images/Drawing.png" id="Logo" alt="">
+     			</a>
+    		</div>
+              
+          	<ul class='nav navbar-nav navbar-right'>
+              	<li><a ng-href="/#/profile"><strong>Profile</strong></a></li>
+              	<li><a ng-href="/#/login" id='loginButton'><strong>Login</strong></a></li>
+             	<li><a ng-href="/#/signup" id='loginButton'><strong>Signup</strong></a></li>
+          	</ul>
+        </div>
+    </nav>
 	    <div ng-view> </div>
+	    <!-- FOOTER -->
 	    <div class="navbar navbar-default" id='footer'>
-		<h5 id='footerText' Tum <i class="fa fa-cog fa-xs fa-spin ">Sirinapha Dube</i></h5>
-	</div>
-    </div>
+			<h5 id='footerText'><i class="fa fa-cog fa-xs fa-spin ">Sirinapha Dube</i></h5>
+		</div>
+   	<!-- AngularJS -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"> </script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"> </script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.min.js"></script>
+	<!-- Javascript -->
 	<script type="text/javascript" src="/client/js/app.js"></script>
 	<script type="text/javascript" src="/client/js/controllers.js"></script>
 

@@ -1,11 +1,12 @@
 body {
   font-size: 16px;
-  background: black;
+  background: white;
 }
 .navbar {
     border-radius: 0;
     margin: 0;
     padding-bottom: 1em;
+    background: #90C830;
 }
 
 .container-fluid {
@@ -45,6 +46,33 @@ body {
     padding-top: 2px;
     padding-bottom: 2px;
 }
+.container-queryform .widget-query {
+    width: 100%;
+    margin-bottom: 0;
+}
+.widget-query{
+    background-color: #eae8e0;
+    border-color: #ccc;
+    box-shadow: 0 0 12px 0 #4e4e4e;
+    min-width: 298px !important;
+    max-width: 600px;
+    outline: none;
+    color: #4e4e4e;
+}
+.cont {
+    background-color: #f5f4f0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 12px;
+}
+
+.widget-query fieldset {
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 1px #f5f4f0;
+    padding: 7px 15px 6px;
+    position: relative;
+}
+
 #mainImg{
     width: 1150px;
 }
@@ -201,7 +229,7 @@ section.module.content {
   padding: 40px 0;
 }
 section.module.parallax {
-  height: 600px;
+  height: 400px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -220,18 +248,16 @@ section.module.parallax h1 {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 section.module.parallax-1 {
-  background-image: url('../images/concertPic.jpg');
+  background-image: url('../images/Pet-Friendly-Page.jpg');
     /*width: 1600px;*/
 }
 section.module.parallax-2 {
-  background-image: url("../images/eatdrinkSF_interior_bright.jpg");
+  background-image: url("../images/pet-friendly-apartments.jpg");
 }
 section.module.parallax-3 {
-  background-image: url("../images/giants_fans.jpg");
+  background-image: url("../images/western-hills-pet-friendly.jpg");
 }
-section.module.parallax-4{
-    background-image: url('http://www.ez8motels.com/files/111/EZ8.jpg');
-}
+
 @media all and (min-width: 600px) {
   section.module h2 {
     font-size: 42px;
@@ -243,7 +269,7 @@ section.module.parallax-4{
     font-size: 96px;
   }
 }
-@media all and (min-width: 960px) {
+@media all and (min-width: 700px) {
   section.module.parallax h1 {
     font-size: 160px;
   }

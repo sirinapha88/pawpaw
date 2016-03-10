@@ -3,7 +3,7 @@ var app = angular.module("pawpawHotel", ["ngRoute", "ngResource"]);
 app.config(function($routeProvider, $locationProvider, $httpProvider){
 	$routeProvider
 	.when("/", {
-		templateUrl: "client/views/index.html",
+		templateUrl: "/client/views/templates/landing.html",
 		controller: "Landing",
 	})
 	.when("/login",{
