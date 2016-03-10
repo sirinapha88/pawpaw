@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
  		table.string('phone');
  		table.string('imgURL');
  		table.json('address');
+ 		table.string('zipcode');
  		table.json('room_type');
  		table.json('categories');
  	});
