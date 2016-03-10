@@ -54,8 +54,8 @@ body {
     background-color: #eae8e0;
     border-color: #ccc;
     box-shadow: 0 0 12px 0 #4e4e4e;
-    min-width: 298px !important;
-    max-width: 600px;
+    min-width: 300px !important;
+    max-width: 350px;
     outline: none;
     color: #4e4e4e;
 }
@@ -71,6 +71,36 @@ body {
     box-shadow: 0 1px #f5f4f0;
     padding: 7px 15px 6px;
     position: relative;
+}
+
+.widget-query-dates label, .widget-query-room-number label {
+    font-size: 1.333em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 3px;
+}
+
+.cta.cta-active {
+   background-position: 50%;
+    border: 1px solid #bbe9ff;
+    border-bottom-color: #30a0fd;
+    border-left-color: #95cffe;
+    border-right-color: #95cffe;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px #30a0fd,1px 1px 0.5px 1px rgba(60,163,227,0.3);
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.5;
+    margin: 0 2px 4px;
+    overflow: hidden;
+    padding: 2px 10px;
+    position: relative;
+    vertical-align: middle;
+    width: auto;
+}
 }
 
 #mainImg{
