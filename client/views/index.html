@@ -2,8 +2,7 @@
 <html ng-app="pawpawHotel">
 <head>
 	<title>Paw Paw Hotel</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"> </script>
-	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"> </script>
+	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -22,10 +21,8 @@
 	              <ul class='nav navbar-nav navbar-right' id='right-nav-items'>
 	                  <li><a href="/users/profile">Profile</a>
 	                  </li>
-	                  <li><a href="/users/login">Login</a>
-	                  </li>
-	                  <li><a href="/users/signup">Signup</a>
-	                  </li>
+	                  <li><a ng-href="/#/login" id='loginButton'><strong>Login</strong></a></li>
+	                 <li><a ng-href="/#/signup" id='loginButton'><strong>Signup</strong></a></li>
 	              </ul>
 	          </div>
 	    </nav>
@@ -34,6 +31,11 @@
 		<h5 id='footerText' Tum <i class="fa fa-cog fa-xs fa-spin ">Sirinapha Dube</i></h5>
 	</div>
     </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"> </script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"> </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-resource.min.js"></script>
+	<script type="text/javascript" src="/client/js/app.js"></script>
+	<script type="text/javascript" src="/client/js/controllers.js"></script>
 
 </body>
 </html>
