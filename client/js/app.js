@@ -18,4 +18,8 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 		templateUrl: "client/views/templates/landing.html",
 		controller: "Dashboard",
 	})
+	.when("/search", {
+		templateUrl: "client/views/templates/search.html",
+		controller: "Searching",
+	})
 });

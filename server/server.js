@@ -67,14 +67,20 @@ var yelp = new Yelp({
   token: 'I3lxcR-nt3w8l8_s4hC7U30m-2YMXPwz',
   token_secret: 'I-fUcPniWYQJ930zrgt_mYETpVQ',
 });
- 
- yelp.search({ term: 'dog-hotel', location: 'san-francisco' })
-.then(function (data) {
-     console.log(data.businesses[0]);
+
+app.get('/search', function(req,res){
+  yelp.search({ term: 'dog-hotel', location: 'san-francisco' })
+    .then(function (data) {
+      console.log(data.businesses[0].name);
+      res.json(data.businesses[0])
+  })
+  .catch(function (err) {
+    console.error(err);
+  });
 })
-.catch(function (err) {
-  console.error(err);
-});
+
+ 
+ 
 
 
 var PORT = process.env.PORT || 3000;
