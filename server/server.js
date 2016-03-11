@@ -48,6 +48,8 @@ passport.use(new FacebookStrategy({
   }
  ));
 
+var hotelRoute = require('./routes/hotels');
+var users = require('./routes/users');
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
@@ -61,25 +63,9 @@ app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
-var yelp = new Yelp({
-  consumer_key: process.env.CONSUMERKEY,
-  consumer_secret: process.env.CONSUMERSECRET,
-  token: process.env.TOKEN,
-  token_secret: process.env.TOKENSECRET
-});
+app.use('/search', hotelRoute);
 
-app.get('/search', function(req,res){
-  yelp.search({ term: 'dog-hotel', location: 'san-francisco' })
-    .then(function (data) {
-      console.log(data.businesses[0].name);
-      res.json(data.businesses)
-  })
-  .catch(function (err) {
-    console.error(err);
-  });
-})
-
- 
+app.use('/user',users);
  
 
 

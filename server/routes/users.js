@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('../db/knex');
+var knex = require('../../db/knex');
 var bcrypt = require('bcrypt');
 
 var Users = function () {
@@ -26,3 +26,5 @@ router.post('/login', function(req,res){
 router.get('/profile', function(req,res){
 
 });
+
+module.exports = router;
