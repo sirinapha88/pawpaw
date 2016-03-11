@@ -1,5 +1,9 @@
 <div class="hotel-wrap" ng-repeat="hotel in hotels">
 	<h2>{{hotel.name}}</h2>
 	<img ng-src="{{hotel.image_url}}">
-	
+	<p>{{hotel.location.address}}</p>
+	<p>{{hotel.location.city}}</p>
+	<p>Zipcode: {{hotel.location.postal_code}}</p>
+	<h4>Phone: {{hotel.phone}}</h4>
+	<h4>Rating: {{hotel.rating}}</h4>
 </div>
