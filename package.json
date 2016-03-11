@@ -18,6 +18,7 @@
   "homepage": "https://github.com/sirinapha88/pawpaw#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "knex": "^0.10.0",
     "locus": "^1.2.0",

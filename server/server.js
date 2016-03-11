@@ -8,7 +8,7 @@ var express 		= require("express"),
 	passport 		= require('passport'),
 	FacebookStrategy	= require('passport-facebook').Strategy;
 	config = require('../oauth.js');
-	// require('dotenv').load();
+	require('dotenv').load();
 
 var Users = function () {
   return knex('users');
@@ -62,10 +62,10 @@ app.get('/', function(req,res){
 });
 
 var yelp = new Yelp({
-  consumer_key: 'Kdfe5smuWY0MTrYmBspPxw',
-  consumer_secret: 'PFBFDxJrFsA4yxys4GAUMS6bqXU',
-  token: 'I3lxcR-nt3w8l8_s4hC7U30m-2YMXPwz',
-  token_secret: 'I-fUcPniWYQJ930zrgt_mYETpVQ',
+  consumer_key: process.env.CONSUMERKEY,
+  consumer_secret: process.env.CONSUMERSECRET,
+  token: process.env.TOKEN,
+  token_secret: process.env.TOKENSECRET
 });
 
 app.get('/search', function(req,res){
