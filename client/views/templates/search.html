@@ -1,5 +1,5 @@
-<div class="hotel-wrap" >
-	<h2>{{hotelName}}</h2>
-	<img ng-src="{{hotelPic}}">
+<div class="hotel-wrap" ng-repeat="hotel in hotels">
+	<h2>{{hotel.name}}</h2>
+	<img ng-src="{{hotel.image_url}}">
 	
 </div>

@@ -72,7 +72,7 @@ app.get('/search', function(req,res){
   yelp.search({ term: 'dog-hotel', location: 'san-francisco' })
     .then(function (data) {
       console.log(data.businesses[0].name);
-      res.json(data.businesses[0])
+      res.json(data.businesses)
   })
   .catch(function (err) {
     console.error(err);
