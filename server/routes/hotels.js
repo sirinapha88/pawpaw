@@ -1,7 +1,7 @@
 var express = require('express');
-var router = express.Router();
-var knex = require('../../db/knex');
-var Yelp = require('yelp');
+var router 	= express.Router();
+var knex 	= require('../../db/knex');
+var Yelp 	= require('yelp');
 
 
 var yelp = new Yelp({

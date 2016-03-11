@@ -1,14 +1,14 @@
-var express 		= require("express"),
-	app 			= express(),
-	bodyParser 		= require("body-parser"),
-	morgan      	= require("morgan"),
-	Yelp = require('yelp');
-	path 			= require('path'),
-	knex 			= require('../db/knex'),
-	passport 		= require('passport'),
-	FacebookStrategy	= require('passport-facebook').Strategy;
-	config = require('../oauth.js');
-	require('dotenv').load();
+var express 		      = require("express"),
+	  app 			        = express(),
+	  bodyParser 		    = require("body-parser"),
+	  morgan      	    = require("morgan"),
+	  Yelp              = require('yelp');
+	  path 			        = require('path'),
+	  knex 			        = require('../db/knex'),
+	  passport 		      = require('passport'),
+	  FacebookStrategy	= require('passport-facebook').Strategy;
+	  config            = require('../oauth.js');
+	  require('dotenv').load();
 
 var Users = function () {
   return knex('users');
