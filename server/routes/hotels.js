@@ -12,7 +12,7 @@ var yelp = new Yelp({
 });
 
 router.get('/', function(req,res){
-  yelp.search({ term: 'dog-hotel', location: 'san-francisco' })
+  yelp.search({ term: 'pet-hotel', location: 'los-angelis' })
     .then(function (data) {
       console.log(data.businesses[0].name);
       res.json(data.businesses)

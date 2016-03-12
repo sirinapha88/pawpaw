@@ -65,7 +65,7 @@ app.get('/', function(req,res){
 
 app.use('/search', hotelRoute);
 
-app.use('/user',users);
+app.use('/', users);
  
 
 

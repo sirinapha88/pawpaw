@@ -8,7 +8,7 @@ var Users = function () {
 };
 
 router.get('/signup', function(req,res){
-
+	 res.render('client/views/templates/signup');
 });
 
 router.post('/signup', function(req,res){
