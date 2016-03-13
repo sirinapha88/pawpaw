@@ -8,6 +8,7 @@ var express 		      = require("express"),
 	  passport 		      = require('passport'),
 	  FacebookStrategy	= require('passport-facebook').Strategy;
 	  config            = require('../oauth.js');
+    google            = require('googleapis');
 	  require('dotenv').load();
 
 var Users = function () {
@@ -61,6 +62,10 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
+});
+
+app.get('/google',function(req,res){
+
 });
 
 app.use('/search', hotelRoute);
