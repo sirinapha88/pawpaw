@@ -13,17 +13,11 @@
 		<fieldset>
 			<div class='input-group date' id='datetimepicker6'>
 				<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check in</label>
-				
-                <input type='text' class="form-control" maxlength="30" placeholder="MM/DD/YYYY"/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            
+                <input type='date' class="form-control fa fa-calendar-o" maxlength="20" placeholder="MM/DD/YYYY"/>
+            </div>
+        	<div class='input-group date'>
 				<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check out</label>
-                <input type='text' class="form-control" placeholder="MM/DD/YYYY"/>
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
+                <input type='date' class="form-control fa fa-calendar-o" maxlength="20"  placeholder="MM/DD/YYYY"/>            
             </div>
     	</fieldset>
 		<fieldset>
@@ -37,7 +31,7 @@
 			<input id="rooms" type="number" min="1" max="5"  name="q-destination" required="true"></input>
 		</fieldset>
 		
-		<button type="submit" class="cta cta-strong">Search</button>
+		<button type="submit" class="btn btn-success">Search</button>
 	</form>	
 </div>
 
