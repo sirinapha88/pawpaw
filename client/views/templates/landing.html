@@ -1,36 +1,48 @@
-<section class="module parallax parallax-1">
-	    <div class="container-fluid">
-	      <h1></h1>
-	    </div>
-</section>
+<div class="petIMG" style="height: 700px">	</div>  
+	
 <div class="cout widget-query">
 	<h1>Hotel search</h1>
 	<form>
 		<fieldset>
-			<input type="text" name="q-destination" required="true"></input>
-			<button type="button" class="cta cta-geo" aria-label="Use my current location">
-				<i class="fa fa-crosshairs fa-2x fa-spin" style="color: green"></i>
+			<input type="text" name="q-destination" placeholder="City or Zipcode" required="true"></input>
+			 <button type="submit" class="btn btn-success">
+				<i class="fa fa-crosshairs fa-2x" style="color: white;"></i>
 			</button>
 			<label for="qf-0q-destination">Destination, hotel, landmark or address</label>
 		</fieldset>
 		<fieldset>
-			<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check in</label>
-			<input type="text" name="q-destination" required="true"></input>
-		</fieldset>
+			<div class='input-group date' id='datetimepicker6'>
+				<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check in</label>
+				
+                <input type='text' class="form-control" maxlength="30" placeholder="MM/DD/YYYY"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            
+				<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check out</label>
+                <input type='text' class="form-control" placeholder="MM/DD/YYYY"/>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+    	</fieldset>
 		<fieldset>
-			<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check out</label>
-			<input type="text" name="q-destination" required="true"></input>
-		</fieldset>
-		<fieldset>
-			<label for="qf-0q-localised-check-in" id="widget-query-label-2">room</label>
-			<input type="text" name="q-destination" required="true"></input>
+			<label for="qf-0q-localised-check-in" >rooms</label>
+			<input id="rooms" type="number" min="1" max="5"  name="q-destination" required="true"></input>
+			
+			<label for="qf-0q-localised-check-in" >Dog</label>
+			<input id="rooms" type="number" min="1" max="5"  name="q-destination" required="true"></input>
+
+			<label for="qf-0q-localised-check-in" >Cat</label>
+			<input id="rooms" type="number" min="1" max="5"  name="q-destination" required="true"></input>
 		</fieldset>
 		
 		<button type="submit" class="cta cta-strong">Search</button>
 	</form>	
 </div>
+
 <div>
-	<section class="module parallax parallax-2">
+	<section class="petIMG2" style="height: 700px">
 	    <div class="container-fluid">
 	      	<h1></h1>
 	    </div>
@@ -44,3 +56,19 @@
     	</div>
   	</section>
 </div>
+
+
+<script type="text/javascript">
+//     $(function () {
+//         $('#datetimepicker6').datetimepicker();
+//         $('#datetimepicker7').datetimepicker({
+//             useCurrent: false //Important! See issue #1075
+//         });
+//         $("#datetimepicker6").on("dp.change", function (e) {
+//             $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+//         });
+//         $("#datetimepicker7").on("dp.change", function (e) {
+//             $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+//         });
+//     });
+// </script>

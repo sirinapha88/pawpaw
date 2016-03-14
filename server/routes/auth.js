@@ -1,7 +1,7 @@
-var express = requie("express");
+var express = require("express");
 var router = express.Router();
 var passport = require("passport");
-var knex = require("../db/knex");
+var knex = require("../../db/knex");
 var bcrypt = require("bcrypt");
 
 var User = function(){
@@ -10,10 +10,11 @@ var User = function(){
 
 router.get('/facebook',
 	passport.authenticate('facebook'), function(req, res){
+		console.log(res);
 });
 
 router.get('/facebook/callback',
-	passport.authenticate('facebook', { failureRedirect: '/login' }),
+	passport.authenticate('facebook', { failureRedirect: '/#/login' }),
 	function(req, res) {
     // Successful authentication
 	    console.log(req.user.facebook_id);

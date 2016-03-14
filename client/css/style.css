@@ -1,12 +1,36 @@
 body {
   font-size: 16px;
-  background: white;
+  background: white;  
 }
 .navbar {
     border-radius: 0;
-    margin: 0;
+    margin-bottom: 0;
     padding-bottom: 1em;
     background: #90C830;
+}
+.petIMG{
+  background-image: url("../images/Pet-Friendly-Page.jpg");
+  height: 400px;
+  background-size:cover;
+  background-repeat:no-repeat;
+   -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  margin-top: -2%;
+}
+
+.petIMG2{
+  background-image: url("../images/pet-friendly-apartments.jpg");
+  height: 500px;
+  background-size: cover;
+  background-repeat:no-repeat;
+  position: center;
+}
+
+
+#rooms { width: 6em }
+#signup-form {
+  height: 700px;
 }
 
 .container-fluid {
@@ -48,22 +72,28 @@ body {
 }
 .container-queryform .widget-query {
     width: 100%;
-    margin-bottom: 0;
+    
 }
 .widget-query{
     background-color: #eae8e0;
     border-color: #ccc;
     box-shadow: 0 0 12px 0 #4e4e4e;
-    min-width: 300px !important;
-    max-width: 350px;
+    /*min-width: 300px !important;*/
+    max-width: 550px;
     outline: none;
     color: #4e4e4e;
+    position: absolute;
+    top: 400px;
+    margin-left: .5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+   
 }
 .cont {
     background-color: #f5f4f0;
     border-radius: 4px;
     border: 1px solid #ccc;
-    margin-bottom: 12px;
+
 }
 
 .widget-query fieldset {
@@ -127,16 +157,16 @@ body {
 }
 
 #eventName {
-  width: 500px;
+  width: 400px;
   height: 38px;
-    padding: 8px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555555;
-    background-color: #ffffff;
-    background-image: none;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555555;
+  background-color: #ffffff;
+  background-image: none;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
 }
 
 #musicCategory{
@@ -278,8 +308,8 @@ section.module.parallax h1 {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 section.module.parallax-1 {
-  background-image: url('../images/Pet-Friendly-Page.jpg');
-    /*width: 1600px;*/
+  
+   /* background-image: url("../images/Pet-Friendly-Page.jpg");*/
 }
 section.module.parallax-2 {
   background-image: url("../images/pet-friendly-apartments.jpg");

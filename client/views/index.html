@@ -2,6 +2,7 @@
 <html ng-app="pawpawHotel">
 <head>
 	<title>Paw Paw Hotel</title>
+
 	<!-- Css Page -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
@@ -19,16 +20,15 @@
     		</div>
               
           	<ul class='nav navbar-nav navbar-right'>
-              	<li><a ng-href="/#/profile" id='loginButton'><strong>Profile</strong></a></li>
-              	<li><a ng-href="/#/login" id='loginButton'><strong>Login</strong></a></li>
-             	<li><a ng-href="/#/signup" id='loginButton'><strong>Signup</strong></a></li>
-          	</ul>
+              	<li><a ng-href="/#/login" id='loginButton'><strong>Sign in</strong></a></li>
+              	<li><a ng-href="/#/signup" id='loginButton'><strong>Sign up</strong></a></li>
+            </ul>
         </div>
     </nav>
-	    <div ng-view> </div>
+	    <div ng-view class="main"> </div>
 	    <!-- FOOTER -->
 	    <div class="navbar navbar-default" id='footer'>
-			<h5 id='footerText'><i class="fa fa-cog fa-xs fa-spin ">Sirinapha Dube</i></h5>
+			<h5 id='footerText'><i class="fa fa-cog fa-xs">Sirinapha Dube</i></h5>
 		</div>
    	<!-- AngularJS -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"> </script>

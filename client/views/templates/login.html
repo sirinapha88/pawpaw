@@ -1,18 +1,24 @@
-<form id='login-form' action='/#/login' method='POST'>
-    <h4 id='login-here'> LOGIN USING EMAIL: </h4>
-    <br>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" name="email" value="" class="form-control" id="exampleInputEmail1" placeholder="Email">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" name="password" value="" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-default" id='signup-btn'>Login</button>
-</form>
-<br>
-<h4 id='fb-signup'> LOGIN USING FACEBOOK: </h4>
-<a href="/auth/facebook">
-  <img id='fb-btn' src='http://www.bon-app.com/bonapp2/images/social-media/facebook-login-button.png'>
-</a>
+<div class="row" id="signup-form">
+  <div class="col-md-2"></div>
+  <div class="col-md-4">
+    <h4 id='fb-signup'> LOGIN USING FACEBOOK: </h4>
+    <a href="/auth/facebook">
+      <img id='fb-btn' src='http://www.bon-app.com/bonapp2/images/social-media/facebook-login-button.png'>
+    </a>
+  </div>
+  <div class="col-md-4">
+    <form id='login-form' action='/#/login' method='POST'>
+      <h4 id='login-here'> LOGIN USING EMAIL: </h4>
+      <br>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" name="email" value="" class="form-control" id="exampleInputEmail1" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="password" value="" class="form-control" id="exampleInputPassword1" placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-default" id='signup-btn'>Login</button>
+    </form>
+  </div>     
+</div>

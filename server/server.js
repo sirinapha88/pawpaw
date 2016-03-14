@@ -7,8 +7,9 @@ var express 		      = require("express"),
 	  knex 			        = require('../db/knex'),
 	  passport 		      = require('passport'),
 	  FacebookStrategy	= require('passport-facebook').Strategy;
-	  config            = require('../oauth.js');
+	  config            = require('../oauth.js'),
     google            = require('googleapis');
+    var request = require('request');
 	  require('dotenv').load();
 
 var Users = function () {
@@ -51,6 +52,8 @@ passport.use(new FacebookStrategy({
 
 var hotelRoute = require('./routes/hotels');
 var users = require('./routes/users');
+var auth = require('./routes/auth');
+
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
@@ -64,11 +67,18 @@ app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
-app.get('/google',function(req,res){
+// app.get('/google',function(req,res){
+//   request.get('https://www.googleapis.com/customsearch/v1?q=dog&key=AIzaSyBA6fxUJxQ_tdCCCpVpKVlLACUd45C3NLc', function(err, response, body){
+//     var input = JSON.parse(body);
+//     console.log(input);
+//     // topRates = searchRes.results;
+//     // res.render("tvshows/newRelease" , {topRates:topRates});
+//   });
 
-});
+// });
 
 app.use('/search', hotelRoute);
+app.use('/auth', auth);
 
 app.use('/', users);
  
