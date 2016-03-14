@@ -79,14 +79,14 @@ body {
     border-color: #ccc;
     box-shadow: 0 0 12px 0 #4e4e4e;
     /*min-width: 300px !important;*/
-    max-width: 550px;
+    max-width: 600px;
     outline: none;
     color: #4e4e4e;
     position: absolute;
-    top: 400px;
+    top: 350px;
     margin-left: .5%;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
    
 }
 .cont {

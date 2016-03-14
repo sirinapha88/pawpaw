@@ -1,9 +1,20 @@
-<div class="hotel-wrap" ng-repeat="hotel in hotels">
-	<h2>{{hotel.name}}</h2>
-	<img ng-src="{{hotel.image_url}}">
-	<p>{{hotel.location.address}}</p>
-	<p>{{hotel.location.city}}</p>
-	<p>Zipcode: {{hotel.location.postal_code}}</p>
-	<h4>Phone: {{hotel.phone}}</h4>
-	<h4>Rating: {{hotel.rating}}</h4>
+<div class="container-fluid">
+	<div class="row">
+		<div class="well" ng-repeat="hotel in hotels">
+			<table class="table table-bordered">
+				<a ng-href="{{hotel.name}}"<h3>{{hotel.name}}</h3></a>
+				<p>{{hotel.location.address}}</p>
+				<p>{{hotel.location.city}}</p>
+				<p>Zipcode: {{hotel.location.postal_code}}</p>
+				<img ng-src="{{hotel.image_url}}" style="height: 200px; width: 300px;">
+				<h4>Phone: {{hotel.phone}}</h4>
+				<h4>Rating: {{hotel.rating}}</h4>
+			</table>
+			<div class="hotel-price">
+			<h2>$50</h2>
+		</div>
+		
+		</div>
+		
+	</div>
 </div>
