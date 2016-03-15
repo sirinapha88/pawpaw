@@ -7,7 +7,7 @@ exports.up = function(knex, Promise) {
  		table.string('address');
  		table.string('city');
  		table.string('zipcode');
- 		table.json('imgURL');		
+ 		table.string('imgURL');		
  		table.json('room_Rate');
  		table.string('pet_type');
  	});

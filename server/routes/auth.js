@@ -14,16 +14,11 @@ router.get('/facebook',
 });
 
 router.get('/facebook/callback',
-	passport.authenticate('facebook', { failureRedirect: '/#/login' }),
-	function(req, res) {
-    // Successful authentication
-	    console.log(req.user.facebook_id);
-	    if(req.isAuthenticated()){
-	    	console.log("I am authenticated");
-	    }
-	    res.cookie('userID', req.user.id, { signed: true });
-	    res.redirect('/users/profile');
-});
+	passport.authenticate('facebook', {
+        successRedirect: '/#',
+        failureRedirect: '/'
+    })
+);
 
 router.get('/logout', function(req, res){
   res.clearCookie('userID');

@@ -8,6 +8,7 @@ var express 		      = require("express"),
 	  passport 		      = require('passport'),
 	  FacebookStrategy	= require('passport-facebook').Strategy;
 	  config            = require('../oauth.js');
+    var cookieParser = require('cookie-parser');
     var google = require('google');
     var request = require('request');
 	  require('dotenv').load();
@@ -15,6 +16,8 @@ var express 		      = require("express"),
 var Users = function () {
   return knex('users');
 };
+
+app.use(passport.initialize());
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -58,7 +61,7 @@ var gHotel = require('./routes/gHotel');
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
 app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
-
+app.use(cookieParser(process.env.SECRET));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -74,14 +77,7 @@ app.get('/', function(req,res){
 });
 
 
- 
-app.get('/hotel', function(req, res) {
-  // knex('user_events').where({id: req.params.id}).then(function(data) {
-    res.send(data);
-  // })
-})
-
-
+app.use(passport.session());
 var PORT = process.env.PORT || 3000;
 
 app.listen(PORT, function() {console.log("Listening on localhost:", PORT)});
