@@ -4,6 +4,7 @@ var knex 	= require('../../db/knex');
 var Yelp 	= require('yelp');
 
 
+
 var yelp = new Yelp({
   consumer_key: process.env.CONSUMERKEY,
   consumer_secret: process.env.CONSUMERSECRET,
@@ -14,13 +15,14 @@ var yelp = new Yelp({
 router.get('/', function(req,res){
   yelp.search({ term: 'pet-hotel', location: 'los-angelis' })
     .then(function (data) {
-      console.log(data.businesses[0].name);
+      // console.log(data.businesses[0]);
       res.json(data.businesses)
   })
   .catch(function (err) {
     console.error(err);
   });
-})
+});
+
 
 
 module.exports = router;

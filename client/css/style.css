@@ -74,6 +74,17 @@ body {
     width: 100%;
     
 }
+
+.widget-carousel-title-1{
+    display: block!important;
+    font-size: 26px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0px 8px 12px;
+    color: #4e4e4e;
+    line-height: 30px;
+}
+
 .widget-query{
     background-color: #eae8e0;
     border-color: #ccc;
@@ -191,6 +202,7 @@ body {
 
 div.thumbnail {
   min-height: 40.25em;
+  float: left;
 }
 
 #Logo {

@@ -14,9 +14,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 		templateUrl: "client/views/templates/signup.html",
 		controller: "Login",
 	})
-	.when("/dashboard", {
-		templateUrl: "client/views/templates/landing.html",
-		controller: "Dashboard",
+	.when("/gHotel", {
+		templateUrl: "client/views/templates/hotel.html",
+		controller: "Searching",
 	})
 	.when("/search", {
 		templateUrl: "client/views/templates/search.html",

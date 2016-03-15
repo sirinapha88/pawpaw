@@ -7,8 +7,8 @@ var express 		      = require("express"),
 	  knex 			        = require('../db/knex'),
 	  passport 		      = require('passport'),
 	  FacebookStrategy	= require('passport-facebook').Strategy;
-	  config            = require('../oauth.js'),
-    google            = require('googleapis');
+	  config            = require('../oauth.js');
+    var google = require('google');
     var request = require('request');
 	  require('dotenv').load();
 
@@ -53,6 +53,7 @@ passport.use(new FacebookStrategy({
 var hotelRoute = require('./routes/hotels');
 var users = require('./routes/users');
 var auth = require('./routes/auth');
+var gHotel = require('./routes/gHotel');
 
 app.use('/client', express.static(path.join(__dirname, '../client')));
 app.use('/js',express.static(path.join(__dirname, '../client/js')));
@@ -62,26 +63,23 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+app.use('/gHotel', gHotel);
+app.use('/search', hotelRoute);
+app.use('/auth', auth);
+
+app.use('/', users);
 
 app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
-// app.get('/google',function(req,res){
-//   request.get('https://www.googleapis.com/customsearch/v1?q=dog&key=AIzaSyBA6fxUJxQ_tdCCCpVpKVlLACUd45C3NLc', function(err, response, body){
-//     var input = JSON.parse(body);
-//     console.log(input);
-//     // topRates = searchRes.results;
-//     // res.render("tvshows/newRelease" , {topRates:topRates});
-//   });
 
-// });
-
-app.use('/search', hotelRoute);
-app.use('/auth', auth);
-
-app.use('/', users);
  
+app.get('/hotel', function(req, res) {
+  // knex('user_events').where({id: req.params.id}).then(function(data) {
+    res.send(data);
+  // })
+})
 
 
 var PORT = process.env.PORT || 3000;

@@ -1,16 +1,18 @@
-<div class="jumbotron">
+<div class="container-fluid">
 	<div class="row">
-		<div class="col-md-offset-4 col-md-4">
-			<div class="thumbnail">
-			  <img ng-src="{{hotel.img}}" alt="...">
-			    <div class="caption">
-			      <h4 id='thumbnailLabel'>{{event.title}}</h4>
-			      <p>{{event.description | limitTo: 275}}...</p>
-			      <p>
-			        <a href="#" class="btn btn-primary form-control" role="button">Save</a>
-			      </p>
-			    </div>
-			</div>
+		<div class="well" ng-repeat="hotel in gHotels">
+			<table class="table table-bordered">
+				<a ng-href="{{hotel.name}}"<h3>{{hotel.name}}</h3></a>
+				<p>{{hotel.formatted_address}}</p>					
+				<img {{hotel.photos[0].html_attributions[0]}}" style="height: 200px; width: 300px;">
+				
+				<h4>Rating: {{hotel.rating}}</h4>
+			</table>
+			<div class="hotel-price">
+			<h2>$50</h2>
 		</div>
+		
+		</div>
+		
 	</div>
 </div>
