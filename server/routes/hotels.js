@@ -15,6 +15,7 @@ var yelp = new Yelp({
 router.get('/', function(req,res){
   yelp.search({ term: 'pet-hotel', location: 'los-angelis' })
     .then(function (data) {
+      console.log("this is from yelp " + data.businesses.length);
       // console.log(data.businesses[0]);
       res.json(data.businesses)
   })

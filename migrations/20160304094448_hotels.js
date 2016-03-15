@@ -3,11 +3,11 @@ exports.up = function(knex, Promise) {
  		table.increments();// id serial primary key
  		table.string('name');
  		table.string('phone');
- 		table.string('imgURL');
- 		table.json('address');
+ 		table.string('address');
  		table.string('zipcode');
- 		table.json('room_type');
- 		table.json('categories');
+ 		table.json('imgURL');		
+ 		table.json('room_Rate');
+ 		table.string('pet_type');
  	});
 };
 

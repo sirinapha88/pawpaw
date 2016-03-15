@@ -1,36 +1,37 @@
 var express = require('express');
 var router 	= express.Router();
 var knex 	= require('../../db/knex');
-// var google = require('google');
 var request = require('request');
-
-// google.resultsPerPage = 10
-// var nextCounter = 0
-
-// google('pet hotel', function (err, res){
-//   if (err) console.error(err)
-//   	console.log(res.links)
-
-  // for (var i = 0; i < res.links.length; ++i) {
-  //   var link = res.links[i];
-  //   console.log(link.title + ' - ' + link.href)
-  //   console.log(link.description + "\n")
-  // }
-
-  // if (nextCounter < 4) {
-  //   nextCounter += 1
-  //   if (res.next) res.next()
-  // }
-// })
 
 router.get('/', function(req,res){
 	var key = process.env.GOOGLEKEY;
 	request.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=pet+hotel+in+SanFrancisco&key=' + 
-		key, function(err, response, body){
-		
+	key, function(err, response, body){		
 		var input = JSON.parse(body);
-		
-		console.log(input.results[1].photos[0]);
+			
+		for (var i = 0; i < input.results.length; i++) {	
+			var insertHotels = [];
+			var placeId = input.results[i].place_id;			
+			
+			request.get('https://maps.googleapis.com/maps/api/place/details/json?placeid=' + placeId + '&key=' + 
+			key, function(err, response, body){
+				
+				var data = JSON.parse(body);
+				var hotel = {};
+				console.log(data);
+
+				hotel.name = data.result.name;
+				hotel.address = data.result.formatted_address;
+				hotel.phoneNum =  data.result.formatted_phone_number;
+				hotel.imgUrl = data.result.photos;
+				
+			
+				insertHotels.push(hotel);
+				
+			});
+			console.log(insertHotels);
+		}
+	
 		res.json(input.results)
 	});
 });
