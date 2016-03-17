@@ -11,8 +11,11 @@ router.get('/signup', function(req,res){
 	 res.render('client/views/templates/signup');
 });
 
-router.post('/signup', function(req,res){
-Users().where('email', req.body.email).first().then(function(user){
+router.post('/signup', function(req,res,next){
+  console.log(req.body.name);
+  console.log(req.body.email);
+  console.log(req.body.password);
+  Users().where('email', req.body.email).first().then(function(user){
     if(!user) {
       var hash = bcrypt.hashSync(req.body.password, 8);
       Users().insert({
@@ -21,7 +24,7 @@ Users().where('email', req.body.email).first().then(function(user){
         password: hash
       }, 'id').then(function(id) {
         res.cookie('userID', id[0], { signed: true });
-        res.redirect('login?userID=' + id[0]);
+        res.redirect('/');
       });
     } else {
       res.status(409);

@@ -12,7 +12,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 	})
 	.when("/signup",{
 		templateUrl: "client/views/templates/signup.html",
-		controller: "Login",
+		controller: "SignupCtrl",
 	})
 	.when("/gHotel", {
 		templateUrl: "client/views/templates/hotel.html",
