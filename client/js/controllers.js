@@ -10,14 +10,12 @@ app.controller("Searching", function($scope, $rootScope, $routeParams, $http, $l
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {
-
     $scope.User = {};
     $scope.errorMessage = '';
 
     $scope.register = function() {
         $http.post('/signup', $scope.User)
         	.success(function(data) {
-        		console.log("this is from client" + data)
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;

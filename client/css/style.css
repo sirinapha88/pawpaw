@@ -9,7 +9,7 @@ body {
     background: #90C830;
 }
 .petIMG{
-  background-image: url("../images/Pet-Friendly-Page.jpg");
+  background-image: url("../images/pet-friendly-apartments.jpg");
   height: 400px;
   background-size:cover;
   background-repeat:no-repeat;
@@ -20,7 +20,7 @@ body {
 }
 
 .petIMG2{
-  background-image: url("../images/pet-friendly-apartments.jpg");
+  background-image: url("../images/Pet-Friendly-Page.jpg");
   height: 500px;
   background-size: cover;
   background-repeat:no-repeat;
@@ -86,16 +86,16 @@ body {
 }
 
 .widget-query{
-    background-color: #eae8e0;
+    background-color: transparent;
     border-color: #ccc;
     box-shadow: 0 0 12px 0 #4e4e4e;
     /*min-width: 300px !important;*/
-    max-width: 600px;
+    max-width: 1000px;
     outline: none;
-    color: #4e4e4e;
-    position: absolute;
-    top: 350px;
-    margin-left: .5%;
+    color: white;
+    position: relative;
+    top: 250px;
+    margin-left: 10%;
     padding-top: 10px;
     padding-bottom: 10px;
    
@@ -117,7 +117,7 @@ body {
 .widget-query-dates label, .widget-query-room-number label {
     font-size: 1.333em;
     font-weight: bold;
-    display: block;
+    display: inline;
     margin-bottom: 3px;
 }
 
@@ -201,7 +201,7 @@ body {
 }
 
 div.thumbnail {
-  min-height: 40.25em;
+
   float: left;
 }
 

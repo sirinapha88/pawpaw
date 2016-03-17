@@ -23,6 +23,7 @@
     "express": "^4.13.4",
     "google": "^2.0.0",
     "googleapis": "^2.1.7",
+    "gulp": "^3.9.1",
     "knex": "^0.10.0",
     "locus": "^1.2.0",
     "method-override": "^2.3.5",

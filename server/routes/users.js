@@ -12,9 +12,6 @@ router.get('/signup', function(req,res){
 });
 
 router.post('/signup', function(req,res,next){
-  console.log(req.body.name);
-  console.log(req.body.email);
-  console.log(req.body.password);
   Users().where('email', req.body.email).first().then(function(user){
     if(!user) {
       var hash = bcrypt.hashSync(req.body.password, 8);
@@ -26,20 +23,20 @@ router.post('/signup', function(req,res,next){
         res.cookie('userID', id[0], { signed: true });
         res.redirect('/');
       });
-    } else {
+    } 
+    else {
       res.status(409);
       res.redirect('login?error=You have already signed up. Please login.');
     }
   });
 });
 
-
 router.get('/login', function(req,res){
 	res.render('client/views/templates/login');
 });
 
 router.post('/login', function(req,res){
-Users().where({
+  Users().where({
     email: req.body.email,
   }).first().then(function(user){
     if(user) {
@@ -51,7 +48,7 @@ Users().where({
         res.redirect('/profile?error=Invalid Email or Password.');
       }
     }
-     else {
+    else {
       res.redirect('/signup?error=Invalid Email or Password.');
     }
   });

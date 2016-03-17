@@ -1,48 +1,60 @@
-<div class="petIMG" style="height: 700px">	</div>  
+<div class="petIMG" style="height: 700px">	
+	<div class="container-fluid">	
+		<div class="cout widget-query">
+			<h1>Hotel search</h1>
+			<form>
+				<fieldset>
+				<div id="locationField" id="widget-query-label-2">
+		      		<input id="autocomplete" class="form-control fa fa-calendar-o" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
+				</div>
+					<label for="qf-0q-destination">Destination, hotel, landmark or address</label>
+				</fieldset>
+				<fieldset>
+					<div class='input-group date'>
+						<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check in</label>
+		                <input type='date' class="form-control fa fa-calendar-o" maxlength="20" placeholder="MM/DD/YYYY"/>
+		            </div>
+		        	<div class='input-group date'>
+						<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check out</label>
+		                <input type='date' class="form-control fa fa-calendar-o" maxlength="20"  placeholder="MM/DD/YYYY"/>            
+		            </div>
+		    	</fieldset>
+				<fieldset>
+					<label for="qf-0q-localised-check-in" >rooms</label>
+					<input id="rooms" type="number" min="1" max="5"  name="q-destination"></input>				
+					<label for="qf-0q-localised-check-in" >Dog</label>
+					<input id="rooms" type="number" min="1" max="5"  name="q-destination"></input>
 
-<div class="container-fluid">	
-<div class="cout widget-query">
-	<h1>Hotel search</h1>
-	<form>
-		<fieldset>
-			<input type="text" name="q-destination" placeholder="City or Zipcode" required="true"></input>
-			 <button type="submit" class="btn btn-success">
-				<i class="fa fa-crosshairs fa-2x" style="color: white;"></i>
-			</button>
-			<label for="qf-0q-destination">Destination, hotel, landmark or address</label>
-		</fieldset>
-		<fieldset>
-			<div class='input-group date' id='datetimepicker6'>
-				<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check in</label>
-                <input type='date' class="form-control fa fa-calendar-o" maxlength="20" placeholder="MM/DD/YYYY"/>
-            </div>
-        	<div class='input-group date'>
-				<label for="qf-0q-localised-check-in" id="widget-query-label-2">Check out</label>
-                <input type='date' class="form-control fa fa-calendar-o" maxlength="20"  placeholder="MM/DD/YYYY"/>            
-            </div>
-    	</fieldset>
-		<fieldset>
-			<label for="qf-0q-localised-check-in" >rooms</label>
-			<input id="rooms" type="number" min="1" max="5"  name="q-destination" required="true"></input>
-			
-			<label for="qf-0q-localised-check-in" >Dog</label>
-			<input id="rooms" type="number" min="1" max="5"  name="q-destination" required="true"></input>
-
-			<label for="qf-0q-localised-check-in" >Cat</label>
-			<input id="rooms" type="number" min="1" max="5"  name="q-destination" required="true"></input>
-		</fieldset>
-		
-		<button type="submit" class="btn btn-success">Search</button>
-	</form>	
+					<label for="qf-0q-localised-check-in" >Cat</label>
+					<input id="rooms" type="number" min="1" max="5"  name="q-destination"></input>
+				</fieldset>		
+				<button type="submit" class="btn btn-info" style="margin-left: 30px;">Search</button>
+			</form>	
+		</div>  <!-- end div cout widget-query -->
+	</div> <!-- end div container-fluid -->
 </div>
-</div>
-<div class="popular">
-	<h2 id="widget-carousel-title-1">Today's most popular hotel deals</h2>
-	<div class="thumbnail">
-		<img src="/client/images/pet1.jpeg" alt="...">
-		<img src="/client/images/pet2.jpeg" alt="...">
+<section class="module content">
+	<div class="container-fluid">
+	<h2 id="widget-carousel-title-1" style="position: center;">Today's most popular hotel deals</h2>
+		<div class="row" id='musicCategory'>
+	        <div class="col-sm-3 col-md-4">			
+				<div class="thumbnail">
+					<img src="/client/images/pet1.jpeg" alt="...">				
+				</div>
+			</div>	
+	        <div class="col-sm-3 col-md-4">			
+				<div class="thumbnail">				
+					<img src="/client/images/pet2.jpeg" alt="...">
+				</div>
+			</div>		
+	        <div class="col-sm-3 col-md-4">		
+				<div class="thumbnail">				
+					<img src="/client/images/western-hills-pet-friendly.jpg" alt="...">
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
+</section>
 
 <div>
 	<section class="petIMG2" style="height: 700px">
@@ -52,10 +64,10 @@
 	</section>
 </div>
 
-<div>
+<!-- <div>
   	<section class="module parallax parallax-3">
     	<div class="container-fluid">
      		<h1></h1>
     	</div>
   	</section>
-</div>
+</div> -->

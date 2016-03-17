@@ -68,7 +68,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(passport.session());
 
-app.use('/gHotel', gHotel);
+// app.use('/gHotel', gHotel);
 app.use('/search', hotelRoute);
 app.use('/auth', auth);
 app.use('/', users);
