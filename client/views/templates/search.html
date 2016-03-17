@@ -1,20 +1,23 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="well" ng-repeat="hotel in hotels">
+		<div class="well">
 			<table class="table table-bordered">
-				<a ng-href="{{hotel.name}}"<h3>{{hotel.name}}</h3></a>
-				<p>{{hotel.location.address}}</p>
-				<p>{{hotel.location.city}}</p>
-				<p>Zipcode: {{hotel.location.postal_code}}</p>
-				<img ng-src="{{hotel.image_url}}" style="height: 200px; width: 300px;">
-				<h4>Phone: {{hotel.phone}}</h4>
-				<h4>Rating: {{hotel.rating}}</h4>
+				<tbody>
+			      <tr class="space" ng-repeat="hotel in hotels| filter:categorySearch | filter: nameSearch | orderBy: sortByPrice">
+			        <td><img ng-src="{{hotel.image_url}}" width="300" height="200"></td>
+			        <td class="tdContainer"><h3>{{hotel.name}}
+			        	<span class="pull-right">$85 
+		        			<button type="button" class="btn btn-info" ng-click="addToBag(item,quantity)">Book</button>
+			        	</span>
+			        	</h3>	     
+			        	<h5>{{hotel.location.display_address}}</h5> 		        				       
+			        	<h5>Phone: {{hotel.phone}}</h5>
+			        	<h5>Rating: {{hotel.rating}}</h5>		          			
+		        	</td>
+			      </tr>
+			    </tbody>
 			</table>
-			<div class="hotel-price">
-			<h2>$50</h2>
 		</div>
-		
-		</div>
-		
 	</div>
 </div>
+
