@@ -1,7 +1,7 @@
 app.controller("Searching", function($scope, $rootScope, $routeParams, $http, $location){
-	
+
 	$scope.searchHotel = function() {
-		$http.get("/search").then(function(data){
+		$http.get("/search").success(function(data){
 			console.log(data);
 			$scope.hotels = data;
 			 $location.path('/search');
