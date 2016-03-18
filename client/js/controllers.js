@@ -1,19 +1,22 @@
 app.controller("Searching", function($scope, $rootScope, $routeParams, $http, $location){
+    $scope.Hotels= {};
 
-	$scope.searchHotel = function() {
+	$scope.searchHotel = function(query) {
 		$http.get("/search").success(function(data){
+            console.log(query);
 			console.log(data);
 			$scope.hotels = data;
 			 $location.path('/search');
 		}).error(function(err) {
                 $scope.errorMessage = err;
             });
+    };
 
-	    // $http.get("/gHotel").success(function(data){
-	    // 	console.log("this is from controller " + data);
-	    // 	$scope.gHotels = data;
-	    // })
-	};
+    // $http.get("/gHotel").success(function(data){
+    // 	console.log("this is from controller " + data);
+    // 	$scope.gHotels = data;
+    // });
+	
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {

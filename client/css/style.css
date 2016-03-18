@@ -31,7 +31,11 @@ body {
   margin-top: 10px;
 }
 
-#rooms { width: 6em }
+#rooms { 
+  width: 6em;
+  color: grey; 
+}
+
 #signup-form {
   height: 700px;
 }
