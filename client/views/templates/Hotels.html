@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="Searching">
 	<div class="row">
 		<div class="well">
 			<table class="table table-bordered">
@@ -7,7 +7,7 @@
 			        <td><img ng-src="{{hotel.image_url}}" width="300" height="200"></td>
 			        <td class="tdContainer"><h3>{{hotel.name}}
 			        	<span class="pull-right">$85 
-		        			<button type="button" class="btn btn-info" ng-click="addToBag(item,quantity)">Book</button>
+		        			<button type="button" class="btn btn-info" ng-click="getHotel(hotel.id)">Book</button>
 			        	</span>
 			        	</h3>	     
 			        	<h5>{{hotel.location.display_address}}</h5> 		        				       

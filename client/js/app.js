@@ -19,7 +19,15 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 		controller: "Searching",
 	})
 	.when("/search", {
-		templateUrl: "client/views/templates/search.html",
+		templateUrl: "client/views/templates/Hotels.html",
 		controller: "Searching",
+	})
+	.when("/Hotels", {
+		templateUrl: "client/views/templates/Hotels.html",
+		controller: "Searching",
+	})
+	.when('/hotel/:id', {
+		templateUrl: "client/views/templates/hotelId.html",
+		controller: "HotelDetail"
 	})
 });

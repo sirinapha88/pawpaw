@@ -2,14 +2,14 @@ app.controller("Searching", function($scope, $rootScope, $routeParams, $http, $l
     $scope.Hotels= {};
 
 	$scope.searchHotel = function(query) {
-		$http.get("/search").success(function(data){
-            console.log(query);
+        console.log(query);
+		$http.get("/search").success(function(data){          
 			console.log(data);
 			$scope.hotels = data;
-			 $location.path('/search');
+			$location.path('/Hotels');
 		}).error(function(err) {
-                $scope.errorMessage = err;
-            });
+            $scope.errorMessage = err;
+        });
     };
 
     // $http.get("/gHotel").success(function(data){
@@ -18,6 +18,16 @@ app.controller("Searching", function($scope, $rootScope, $routeParams, $http, $l
     // });
 	
 });
+
+app.controller("HotelDetail", function($scope, $rootScope, $routeParams, $http, $location) {
+
+    var id = $routeParams.id;
+    $scope.getHotel = function(){
+        $http.get('/hotel/'+id).then(function(data) {
+            $scope.hotelDetail=theGreaterParser(data)[0];
+        });
+    };
+}) 
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {
     $scope.User = {};
