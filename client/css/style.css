@@ -117,6 +117,10 @@ body {
     position: relative;
 }
 
+.input-group date{
+  float: left;
+}
+
 .widget-query-dates label, .widget-query-room-number label {
     font-size: 1.333em;
     font-weight: bold;
@@ -145,7 +149,28 @@ body {
     vertical-align: middle;
     width: auto;
 }
+div {
+    display: block;
+}
+    .hotel-wrap {
+    border: 3px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0px 1px 0 #ccc;
+    position: relative;
 
+}
+
+ .price {
+    display: block;
+    margin-bottom: 4px;
+    margin-top: -2px;
+    line-height: 1;
+
+}
+.description-hotel {
+    padding: 14px 16px 16px 16px;
+    width: 75%;
+}
 
 #mainImg{
     width: 1150px;
@@ -187,24 +212,9 @@ body {
     margin-bottom: 20px;
     width: 100%;
 }
-#musicLabel{
-    text-align: center;
-}
-#sportsLabel{
-    text-align: center;
-}
-#foodLabel{
-    text-align: center;
-}
-#myEventsLabel{
-    text-align: center;
-}
-#myEventsCategory{
-    margin-bottom: 20px;
-}
+
 
 div.thumbnail {
-
   float: left;
 }
 
