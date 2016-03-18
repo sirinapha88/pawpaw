@@ -8,7 +8,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 	})
 	.when("/login",{
 		templateUrl: "client/views/templates/login.html",
-		controller: "Login",
+		controller: "LoginCtrl",
 	})
 	.when("/signup",{
 		templateUrl: "client/views/templates/signup.html",

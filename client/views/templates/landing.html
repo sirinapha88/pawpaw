@@ -1,8 +1,8 @@
 <div class="petIMG" style="height: 700px">	
 	<div class="container-fluid">	
-		<div class="cout widget-query">
+		<div class="cout widget-query" >
 			<h1>Hotel search</h1>
-			<form>
+			<form ng-controller="Searching">
 				<fieldset>
 				<div id="locationField" id="widget-query-label-2">
 		      		<input id="autocomplete" class="form-control fa fa-calendar-o" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
@@ -28,7 +28,7 @@
 					<label for="qf-0q-localised-check-in" >Cat</label>
 					<input id="rooms" type="number" min="1" max="5"  name="q-destination"></input>
 				</fieldset>		
-				<button type="submit" class="btn btn-info" style="margin-left: 30px;">Search</button>
+				<button class="btn btn-info" style="margin-left: 30px" ng-click="searchHotel()">Search</button>
 			</form>	
 		</div>  <!-- end div cout widget-query -->
 	</div> <!-- end div container-fluid -->

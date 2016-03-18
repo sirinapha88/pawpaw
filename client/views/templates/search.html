@@ -3,7 +3,7 @@
 		<div class="well">
 			<table class="table table-bordered">
 				<tbody>
-			      <tr class="space" ng-repeat="hotel in hotels| filter:categorySearch | filter: nameSearch | orderBy: sortByPrice">
+			      <tr class="space" ng-repeat="hotel in hotels">
 			        <td><img ng-src="{{hotel.image_url}}" width="300" height="200"></td>
 			        <td class="tdContainer"><h3>{{hotel.name}}
 			        	<span class="pull-right">$85 
