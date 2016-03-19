@@ -13,9 +13,9 @@
 			</form>
 		</div>
 	</section>
-
-	<div class="row">
-			<table class="table table-bordered">
+	<div class="seperate"></div>
+	<!-- <div class="row"> -->
+			<!-- <table class="table table-bordered">
 				<tbody>
 			      <tr class="space" ng-repeat="hotel in hotels | filter:categorySearch | orderBy: sortByPrice">
 			        <td><img ng-src="{{hotel.image_url}}" width="300" height="200"></td>
@@ -30,28 +30,30 @@
 		        	</td>
 			      </tr>
 			    </tbody>
-			</table>
-	</div>
-<!-- <div class="hotel-wrap">
-	<div class="well">
-		<div class="description-hotel" ng-repeat="hotel in hotels">
+			</table> -->
+	<!-- </div> -->
+<div class="hotel-wrap">
+	
+		<div class="description-hotel well" ng-repeat="hotel in hotels | filter:categorySearch | orderBy: sortByPrice">
 			<h3 class="p-name">
 				<a href="">{{hotel.name}}</a>
 			</h3>
+			<div class="price pull-right" >
+				<span class="pull-right">$85 
+        			<button type="button" class="btn btn-info" ng-click="getHotel(hotel.id)">Book</button>
+	        	</span>
+			</div>
 			<p>{{hotel.location.display_address}}</p>
 			<p>Phone: {{hotel.phone}}</p>
+			<h5>Rating: {{hotel.rating}}</h5>
 			<div class="img-detail">
 				<div class="img">
 					<img ng-src="{{hotel.image_url}}" width="300" height="200">
 				</div>
 			</div>
-			<div class="price pull-right" >
-				<span class="pull-right">$85 
-        			<button type="button" class="btn btn-info" ng-click="addToBag(item,quantity)">Book</button>
-	        	</span>
-			</div>
+			
 		</div>
 	</div>
-	</div> -->
+	
 </div>
 
