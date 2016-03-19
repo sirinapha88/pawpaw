@@ -1,5 +1,5 @@
-<div class="container"><h1>My Shopping bag
-		<span class="pull-right">Order Total: {{getSubTotal()/100 | currency}} </span></h1>
+<div class="container"><h1>Your booking: 
+		<!-- <span class="pull-right">Order Total: {{getSubTotal()/100 | currency}} </span></h1> -->
 	</div>
 	<div>
 		<table class="table table-bordered" >
@@ -11,12 +11,12 @@
 		      	</tr>
 		    </thead>
 		    <tbody>
-		      	<tr ng-repeat="order in getOrder">			        
-			        <td class="tdContainer"><h3>{{order.item.name}}</h3>
-			        	<img ng-src="{{order.item.imageUrl}}">	        	
-			        	<h5>Caffeine Scale: {{order.item.caffeineScale}}</h5>
-			        	<h5>Ingredients: {{order.item.ingredients}}</h5> 		        	
-			        	<h5>Rate: {{order.item.rating}} </h5>
+		      	<tr ng-repeat="hotel in hotels">			        
+			        <td class="tdContainer"><h3>{{hotel.name}}</h3>
+			        	<img ng-src="{{hotel.image_url}}">	        	
+			        	<h5>{{hotel.location.display_address}}</h5>
+			        	<h5>Phone: {{hotel.phone}}</h5> 		        	
+			        	<h5>Rating: {{hotel.rating}}</h5>
 			        </td>
 			        <td>
 						<span ng-hide="editMode"><h5>{{order.quantity}}</h5></span>		       	
