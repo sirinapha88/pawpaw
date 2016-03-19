@@ -1,0 +1,42 @@
+<div class="container"><h1>My Shopping bag
+		<span class="pull-right">Order Total: {{getSubTotal()/100 | currency}} </span></h1>
+	</div>
+	<div>
+		<table class="table table-bordered" >
+		    <thead>
+		      	<tr>
+			        <th>Product</th>
+			        <th>Quantity</th>
+			        <th>Sub Total</th>
+		      	</tr>
+		    </thead>
+		    <tbody>
+		      	<tr ng-repeat="order in getOrder">			        
+			        <td class="tdContainer"><h3>{{order.item.name}}</h3>
+			        	<img ng-src="{{order.item.imageUrl}}">	        	
+			        	<h5>Caffeine Scale: {{order.item.caffeineScale}}</h5>
+			        	<h5>Ingredients: {{order.item.ingredients}}</h5> 		        	
+			        	<h5>Rate: {{order.item.rating}} </h5>
+			        </td>
+			        <td>
+						<span ng-hide="editMode"><h5>{{order.quantity}}</h5></span>		       	
+				        <input type="number" min="1" ng-model="order.quantity" ng-show="editMode">
+			        </td>
+			        <td>{{(order.quantity) * (order.item.price)/100 | currency}}</td>
+			        <td>
+			        	<span>
+				        	<button type="submit" class="btn btn-warning" ng-hide="editMode" ng-click="editMode = true; editItem(order.item)">Edit
+							</button>
+						</span>
+						<span>
+				        	<button type="submit" class="btn btn-warning" ng-show="editMode" ng-click="editMode = false">Save
+							</button>
+						</span>
+			        	<button type="button" class="btn btn-danger" ng-click="removeItem(order)">Remove</button>
+			        </td>
+		      	</tr>
+		    </tbody>
+		</table>
+		<span class="pull-right">
+			<button type="button" class="btn btn" ng-click="placeOrder()">Place Order</button>
+		</span>

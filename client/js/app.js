@@ -27,7 +27,11 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 		controller: "HotelList",
 	})
 	.when('/hotel/:id', {
-		templateUrl: "client/views/templates/hotelID.html",
+		templateUrl: "client/views/templates/hotelDetails.html",
 		controller: "HotelDetail"
+	})
+	.when("/booking", {
+		templateUrl: "client/views/templates/booking.html",
+		controller: "BookingCtrl"
 	})
 });
