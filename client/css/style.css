@@ -1,6 +1,12 @@
 body {
   font-size: 16px;
   background: white;  
+  color: #4e4e4e;
+    
+    line-height: 135%;
+    font-family: arial,helvetica,sans-serif;
+    
+
 }
 .navbar {
     border-radius: 0;
@@ -26,10 +32,48 @@ body {
   background-repeat:no-repeat;
   position: center;
 }
-.space{
-  margin-bottom: 10px;
-  margin-top: 10px;
+table {
+    border-collapse: separate;
+    border-spacing: 0 3em;
 }
+
+td {
+    padding-top: .5em;
+    padding-bottom: .8em;
+}
+
+/*#sort{ 
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  position: relative;
+  z-index: 2;
+}
+#basic-sort {
+    display: block;
+}
+.offscreen {
+    position: absolute;
+    left: -999em;
+}
+#basic-sort select {
+    width: 100%;
+}
+*/
+
+select{
+  border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 0 1px #f5f4f0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: #4e4e4e;
+    font-size: 1em;
+    margin: 3px 0;
+    padding: 5px 10px 4px 7px;
+}
+
 
 #rooms { 
   width: 6em;

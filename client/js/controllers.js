@@ -1,15 +1,17 @@
-app.controller("Searching", function($scope, $rootScope, $routeParams, $http, $location){
-    $scope.Hotels= {};
-
+app.controller("Searching", function($scope,cartService, $rootScope, $routeParams, $http, $location){
+  
+    $scope.cart = [];
 	$scope.searchHotel = function(query) {
         console.log(query);
 		$http.get("/search").success(function(data){          
 			console.log(data);
-			$scope.hotels = data;
-			$location.path('/Hotels');
-		}).error(function(err) {
-            $scope.errorMessage = err;
-        });
+            cartService.cart.push(data);				
+            console.log(cartService.cart);  
+            $location.path('/Hotels');
+		})
+        // .error(function(err) {
+        //     $scope.errorMessage = err;
+        // });
     };
 
     // $http.get("/gHotel").success(function(data){
@@ -17,6 +19,11 @@ app.controller("Searching", function($scope, $rootScope, $routeParams, $http, $l
     // 	$scope.gHotels = data;
     // });
 	
+});
+
+app.controller("HotelList",function($scope, cartService, $location){
+    $scope.hotels = cartService.cart[0];
+    $location.path('/Hotels');
 });
 
 app.controller("HotelDetail", function($scope, $rootScope, $routeParams, $http, $location) {

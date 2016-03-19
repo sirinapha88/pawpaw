@@ -1,6 +1,20 @@
-<div class="container-fluid" ng-controller="Searching">
+<div class="container-fluid">
+	<section id="tools-menu"></section>
+		<div id="sort">
+			<p class="sort-label"></p>
+			<form name="basic-sort" id="basic-sort" method="get" action="" autocomplete="off">
+				<label for="sort-order" class="offscreen">Sort by</label>
+				<select name="sort-order" id="sort-order">
+					<option id="opt_BEST_SELLER" value="" selected="selected" data-unselected-label="Our favorites">Favorites</option>
+					<option id="opt_GUEST_RATING" value="GUEST_RATING">Guest rating</option>
+					<option id="opt_PRICE_HIGHEST_FIRST" value="PRICE_HIGHEST_FIRST">Price (high to low)</option>
+					<option id="opt_PRICE" value="PRICE">Price (low to high)</option>
+				</select>
+			</form>
+		</div>
+	</section>
+
 	<div class="row">
-		<div class="well">
 			<table class="table table-bordered">
 				<tbody>
 			      <tr class="space" ng-repeat="hotel in hotels">
@@ -17,7 +31,6 @@
 			      </tr>
 			    </tbody>
 			</table>
-		</div>
 	</div>
 <!-- <div class="hotel-wrap">
 	<div class="well">

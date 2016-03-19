@@ -1,5 +1,5 @@
-app.service('bagService', function(){
+app.service('cartService', function(){
   	return {
-    	bag: []
+    	cart: []
   	};
 });
