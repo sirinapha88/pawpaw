@@ -34,7 +34,7 @@ app.controller("HotelDetail", function($scope, $rootScope, $routeParams, $http, 
 }); 
 
 app.controller("BookingCtrl", function($scope,cartService, $rootScope, $routeParams, $http, $location){
-    $scope.hotels = cartService.cart[0[0]];
+    $scope.hotels = cartService.cart[0];
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {
