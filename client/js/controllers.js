@@ -24,19 +24,19 @@ app.controller("HotelList",function($scope, cartService, $location){
     $location.path('/Hotels');
     
     $scope.getHotel = function(data){
-        console.log(data);
         $location.path('/hotel');
     };
 });
 
 app.controller("HotelDetail", function($scope, $rootScope, $routeParams, $http, $location) {
-
     var id = $routeParams.id;
-    console.log(id);
-    
+    $scope.booked = function(){
+        $location.path('/booking');
+    }  
 }); 
 
 app.controller("BookingCtrl", function($scope,cartService, $rootScope, $routeParams, $http, $location){
+    console.log("in booking");
     $scope.hotels = cartService.cart[0];
 });
 
