@@ -26,7 +26,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 		templateUrl: "client/views/templates/Hotels.html",
 		controller: "HotelList",
 	})
-	.when('/hotel/:id', {
+	.when('/hotel', {
 		templateUrl: "client/views/templates/hotelDetails.html",
 		controller: "HotelDetail"
 	})

@@ -4,9 +4,9 @@ app.controller("Searching", function($scope,cartService, $rootScope, $routeParam
 	$scope.searchHotel = function(query) {
         console.log(query);
 		$http.get("/search").success(function(data){          
-			console.log(data);
+			// console.log(data);
             cartService.cart.push(data);				
-            console.log(cartService.cart);  
+            // console.log(cartService.cart);  
             $location.path('/Hotels');
 		})
     };
@@ -15,22 +15,25 @@ app.controller("Searching", function($scope,cartService, $rootScope, $routeParam
     // 	console.log("this is from controller " + data);
     // 	$scope.gHotels = data;
     // });
+
 	
 });
 
 app.controller("HotelList",function($scope, cartService, $location){
     $scope.hotels = cartService.cart[0];
     $location.path('/Hotels');
+    
+    $scope.getHotel = function(data){
+        console.log(data);
+        $location.path('/hotel');
+    };
 });
 
 app.controller("HotelDetail", function($scope, $rootScope, $routeParams, $http, $location) {
 
     var id = $routeParams.id;
-    $scope.getHotel = function(){
-        $http.get('/hotel/'+id).then(function(data) {
-            $scope.hotelDetail=theGreaterParser(data)[0];
-        });
-    };
+    console.log(id);
+    
 }); 
 
 app.controller("BookingCtrl", function($scope,cartService, $rootScope, $routeParams, $http, $location){
