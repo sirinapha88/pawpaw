@@ -1,6 +1,6 @@
 app.controller("Searching", function($scope,cartService, $rootScope, $routeParams, $http, $location){
     $scope.cart = [];
-    
+
 	$scope.searchHotel = function(query) {
         console.log(query);
 		$http.get("/search").success(function(data){          
@@ -33,8 +33,8 @@ app.controller("HotelDetail", function($scope, $rootScope, $routeParams, $http, 
     };
 }); 
 
-app.controller("BookingCtrl", function($scope,location){
-
+app.controller("BookingCtrl", function($scope,location, cartService){
+    $scope.booking = carService.bag;
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {
