@@ -1,14 +1,14 @@
 <div class="container-fluid">
-	<section id="tools-menu"></section>
+	<section id="tools-menu">
 		<div id="sort">
 			<p class="sort-label"></p>
 			<form name="basic-sort" id="basic-sort" method="get" action="" autocomplete="off">
 				<label for="sort-order" class="offscreen">Sort by</label>
-				<select name="sort-order" id="sort-order">
-					<option id="opt_BEST_SELLER" value="" selected="selected" data-unselected-label="Our favorites">Favorites</option>
-					<option id="opt_GUEST_RATING" value="GUEST_RATING">Guest rating</option>
-					<option id="opt_PRICE_HIGHEST_FIRST" value="PRICE_HIGHEST_FIRST">Price (high to low)</option>
-					<option id="opt_PRICE" value="PRICE">Price (low to high)</option>
+				<select name="sort-order" id="sort-order" ng-model="sortByPrice">
+					<option id="opt_BEST_SELLER" value="favorite" selected="selected" data-unselected-label="Our favorites">Favorites</option>
+					<option id="opt_GUEST_RATING" value="-rating">Guest rating</option>
+					<option id="opt_PRICE_HIGHEST_FIRST" value="price">Price (high to low)</option>
+					<option id="opt_PRICE" value="price">Price (low to high)</option>
 				</select>
 			</form>
 		</div>
@@ -17,7 +17,7 @@
 	<div class="row">
 			<table class="table table-bordered">
 				<tbody>
-			      <tr class="space" ng-repeat="hotel in hotels">
+			      <tr class="space" ng-repeat="hotel in hotels | filter:categorySearch | orderBy: sortByPrice">
 			        <td><img ng-src="{{hotel.image_url}}" width="300" height="200"></td>
 			        <td class="tdContainer"><h3>{{hotel.name}}
 			        	<span class="pull-right">$85 
