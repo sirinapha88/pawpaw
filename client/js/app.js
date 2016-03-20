@@ -18,10 +18,6 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 		templateUrl: "client/views/templates/hotel.html",
 		controller: "Searching",
 	})
-	// .when("/search", {
-	// 	templateUrl: "client/views/templates/Hotels.html",
-	// 	controller: "Searching",
-	// })
 	.when("/Hotels", {
 		templateUrl: "client/views/templates/Hotels.html",
 		controller: "HotelList",
