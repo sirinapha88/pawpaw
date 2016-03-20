@@ -2,7 +2,8 @@ app.controller("Searching", function($scope,cartService, $rootScope, $routeParam
     $scope.cart = [];
 
 	$scope.searchHotel = function(query) {
-        console.log(query);
+        var city = query.split(',');
+        console.log(city[0])
 		$http.get("/search").success(function(data){          
 			// console.log(data);
             cartService.cart.push(data);				
