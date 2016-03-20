@@ -4,8 +4,9 @@ body {
   color: #4e4e4e;
   line-height: 135%;
   font-family: arial,helvetica,sans-serif;
-    
-
+}
+html {
+    font-family: arial,helvetica,sans-serif;
 }
 .navbar {
     border-radius: 0;
@@ -140,10 +141,16 @@ select{
     display: block!important;
     font-size: 26px;
     font-weight: normal;
-    margin: 0;
+    
+   
     padding: 0px 8px 12px;
     color: #4e4e4e;
     line-height: 30px;
+}
+title{
+   text-align: center;
+   display: block;
+   margin: 0 auto;
 }
 
 .widget-query{

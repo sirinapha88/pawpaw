@@ -20,7 +20,8 @@
     		</div>
               
           	<ul class='nav navbar-nav navbar-right'>
-              	<li><a ng-href="/#/login" id='loginButton'><strong>Sign in</strong></a></li>
+              	<li><a ng-href="/#/login" id='loginButton' ng-hide="currentUserSignedIn"><strong>Sign in</strong></a>
+              	<span ng-show="currentUserSignedIn">{{currentUser.name}}</span></li>
               	<li><a ng-href="/#/signup" id='loginButton'><strong>Sign up</strong></a></li>
             </ul>
         </div>
