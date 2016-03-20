@@ -12,5 +12,5 @@ app.service('loginService', function ($location,$http) {
         } else {
             $scope.signedin = false;
         }
-    };
+   
 });
