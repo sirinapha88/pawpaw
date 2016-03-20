@@ -1,18 +1,14 @@
 angular.module( "ngAutocomplete", [])
   .directive('ngAutocomplete', function($parse) {
     return {
-
       scope: {
         details: '=',
         ngAutocomplete: '=',
         options: '='
       },
-
       link: function(scope, element, attrs, model) {
-
         //options for autocomplete
         var opts
-
         //convert options provided to opts
         var initOpts = function() {
           opts = {}
@@ -32,7 +28,6 @@ angular.module( "ngAutocomplete", [])
           }
         }
         initOpts()
-
         //create new autocomplete
         //reinitializes on every change of the options provided
         var newAutocomplete = function() {
@@ -47,7 +42,6 @@ angular.module( "ngAutocomplete", [])
           })
         }
         newAutocomplete()
-
         //watch options provided to directive
         scope.watchOptions = function () {
           return scope.options
