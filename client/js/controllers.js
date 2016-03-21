@@ -36,17 +36,20 @@ app.controller("HotelList",function($scope,cartService,hotelService, $rootScope,
 
 app.controller("HotelDetail", function($scope, hotelService,$rootScope, $routeParams, $http, $location) {
     $scope.details = hotelService.hotelDetail[0];
-    console.log("thisis detail" + hotelService.hotelDetail[0])
+    console.log(hotelService.hotelDetail[0])
 
     $scope.booked = function(id){
-
         $location.path('/booking');
     }  
 }); 
 
-app.controller("BookingCtrl", function($scope,cartService, $rootScope, $routeParams, $http, $location){
-    console.log("in booking");
-    $scope.hotels = cartService.cart[0];
+app.controller("BookingCtrl", function($scope,hotelService, $rootScope, $routeParams, $http, $location){
+    $scope.details = hotelService.hotelDetail[0];
+
+    $scope.placeOrder = function(){
+        $location.path('/');
+    }
+    
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {

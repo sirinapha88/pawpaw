@@ -1,29 +1,20 @@
-<div class="container"><h1>Your booking: 
-		<!-- <span class="pull-right">Order Total: {{getSubTotal()/100 | currency}} </span></h1> -->
+<div class="jumbotron">
+	<div class="row" ng-repeat="detail in details">
+		<div class="col-md-offset-4 col-md-4">
+			<div class="thumbnail">
+			  <img ng-src="{{detail.imgURL.photos[0]}}" alt="...">
+			    <div class="caption">
+			      <h4 id='thumbnailLabel'>{{detail.name}}</h4>
+			      <p>{{detail.address}}</p>
+			      <p>{{detail.description | limitTo: 275}}...</p>
+			      <p>
+			        <button type="button" class="btn btn-info" ng-click="placeOrder()">Place Order</button>
+			      </p>
+			    </div>
+			</div>
+		</div>
 	</div>
-	<div>
-		<table class="table table-bordered" >
-		    <thead>
-		      	<tr>
-			        <th>Product</th>
-			        <th>Quantity</th>
-			        <th>Sub Total</th>
-		      	</tr>
-		    </thead>
-		    <tbody>
-		      	<tr ng-repeat="hotel in hotels">			        
-			        <td class="tdContainer"><h3>{{hotel.name}}</h3>
-			        	<img ng-src="{{hotel.image_url}}">	        	
-			        	<h5>{{hotel.location.display_address}}</h5>
-			        	<h5>Phone: {{hotel.phone}}</h5> 		        	
-			        	<h5>Rating: {{hotel.rating}}</h5>
-			        </td>
-			        <td>
-						<span ng-hide="editMode"><h5>{{order.quantity}}</h5></span>		       	
-				        <input type="number" min="1" ng-model="order.quantity" ng-show="editMode">
-			        </td>
-			        <td>{{(order.quantity) * (order.item.price)/100 | currency}}</td>
-			        <td>
+</div>
 			        	<span>
 				        	<button type="submit" class="btn btn-warning" ng-hide="editMode" ng-click="editMode = true; editItem(order.item)">Edit
 							</button>
@@ -33,10 +24,4 @@
 							</button>
 						</span>
 			        	<button type="button" class="btn btn-danger" ng-click="removeItem(order)">Remove</button>
-			        </td>
-		      	</tr>
-		    </tbody>
-		</table>
-		<span class="pull-right">
-			<button type="button" class="btn btn" ng-click="placeOrder()">Place Order</button>
-		</span>
+	
