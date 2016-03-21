@@ -45,12 +45,12 @@
         			<button type="button" class="btn btn-info" ng-click="getHotel(hotel.id)">Book</button>
 	        	</span>
 			</div>
-			<p>{{hotel.location.display_address}}</p>
+			<p>{{hotel.address}}, {{hotel.city}}, {{hotel.zipcode}}</p>
 			<p>Phone: {{hotel.phone}}</p>
 			<h5>Rating: {{hotel.rating}}</h5>
 			<div class="img-detail">
 				<div class="img">
-					<img ng-src="{{hotel.imgURL.photos[0]}}" width="300" height="200">
+					<img ng-src="{{hotel.imgURL.photos[0]}}" width="300" height="200">{{hote.room_Rate.room_detail[0].desc}}
 				</div>
 			</div>
 			
