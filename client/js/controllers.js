@@ -4,8 +4,8 @@ app.controller("Searching", function($scope,cartService, $rootScope, $routeParam
 	$scope.searchHotel = function(query) {
         var city = query.split(',');
         console.log(city[0])
-		$http.get("/search").success(function(data){          
-			// console.log(data);
+		$http.get("/search/" + city).success(function(data){          
+			console.log(data);
             cartService.cart.push(data);				
             // console.log(cartService.cart);  
             $location.path('/Hotels');
@@ -20,18 +20,26 @@ app.controller("Searching", function($scope,cartService, $rootScope, $routeParam
 	
 });
 
-app.controller("HotelList",function($scope, cartService, $location){
+app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
     $scope.hotels = cartService.cart[0];
     $location.path('/Hotels');
+    $scope.hotelDetail = [];
     
-    $scope.getHotel = function(data){
-        $location.path('/hotel');
+    $scope.getHotel = function(id){
+        $http.get("/search/hotel/" + id).success(function(data){
+            // console.log(data)
+            hotelService.hotelDetail.push(data);
+             $location.path('/hotel/:' + id);
+        })      
     };
 });
 
-app.controller("HotelDetail", function($scope, $rootScope, $routeParams, $http, $location) {
-    var id = $routeParams.id;
-    $scope.booked = function(){
+app.controller("HotelDetail", function($scope, hotelService,$rootScope, $routeParams, $http, $location) {
+    $scope.details = hotelService.hotelDetail[0];
+    console.log("thisis detail" + hotelService.hotelDetail[0])
+
+    $scope.booked = function(id){
+
         $location.path('/booking');
     }  
 }); 

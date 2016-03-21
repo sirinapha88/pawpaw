@@ -10,15 +10,27 @@ var yelp = new Yelp({
   token_secret: process.env.TOKENSECRET
 });
 
-router.get('/', function(req,res){
-  yelp.search({ term: 'pet-hotel', location: 'san-francisco' })
-    .then(function (data) {
-      // console.log(data.businesses[0])
-      res.json(data.businesses)
+var Hotels = function () {
+  return knex('hotels');
+};
+
+router.get('/:searchString', function(req,res){
+  var hotelSearch = req.params.searchString.split(',');
+  console.log("this is backend" + hotelSearch[0])
+  Hotels().where({city:hotelSearch[0]}).then(function(data){
+    
+    res.json(data);
   })
-  .catch(function (err) {
-    console.error(err);
-  });
+  
 });
+
+router.get('/hotel/:id', function(req, res) {
+  console.log(req.params.id)
+  Hotels().where({id: req.params.id}).then(function(data) {
+    console.log(data)
+    res.json(data);
+  })
+});
+
 
 module.exports = router;

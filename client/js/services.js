@@ -4,6 +4,13 @@ app.service('cartService', function(){
   	};
 });
 
+
+app.service('hotelService', function(){
+  	return {
+    	hotelDetail: []
+  	};
+});
+
 app.service('loginService', function ($location,$http) {
         
         if (null != username && 0 != username.length && 

@@ -77,11 +77,6 @@ app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/views', 'index.html'));
 });
 
-app.get('/hotel/:id', function(req, res) {
-  // knex('user_events').where({id: req.params.id}).then(function(data) {
-    res.send(data);
-  // })
-});
 
 
 // catch 404 and forward to error handler

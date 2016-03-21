@@ -1,6 +1,5 @@
 exports.up = function(knex, Promise) {
 	return knex.schema.createTable('hotels', function(table){
-
  		table.increments();// id serial primary key
  		table.string('placeId');
  		table.string('name');
@@ -11,7 +10,6 @@ exports.up = function(knex, Promise) {
  		table.string('zipcode');
  		table.json('imgURL').nullable();	
  		table.json('room_Rate');
- 		table.string('pet_type');
  		table.string('rating').nullable();
  		table.string("latitude");
   		table.string("longitude");
