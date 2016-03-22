@@ -5,7 +5,7 @@
 			<form >
 				<fieldset>
 				<div>
-		      		<input class="form-control fa fa-map-marker" name="city" placeholder="Enter your address" type="text" ng-autocomplete="result1"></input>
+		      		<input class="form-control fa fa-map-marker" name="city" placeholder="Enter your address" type="text" ng-autocomplete="Hotels.city"></input>
 				</div>
 
 					<label for="qf-0q-destination">Destination, hotel, landmark or address</label>
@@ -29,7 +29,7 @@
 					<label for="qf-0q-localised-check-in" >Cat</label>
 					<input id="rooms" type="number" min="0" max="5"  name="numCat" ng-model="Hotles.numCat"></input>
 				</fieldset>		
-				<button class="btn btn-info" style="margin-left: 30px" ng-click="searchHotel(result1)">Search</button>
+				<button class="btn btn-info" style="margin-left: 30px" ng-click="searchHotel(Hotels)">Search</button>
 			</form>	
 		</div>  <!-- end div cout widget-query -->
 	</div> <!-- end div container-fluid -->

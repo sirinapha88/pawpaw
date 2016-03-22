@@ -4,6 +4,12 @@ app.service('cartService', function(){
   	};
 });
 
+app.service('requestService', function(){
+    return {
+      request: []
+    };
+});
+
 
 app.service('hotelService', function(){
   	return {

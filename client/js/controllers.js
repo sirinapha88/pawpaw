@@ -1,9 +1,12 @@
-app.controller("Searching", function($scope,cartService, $rootScope, $routeParams, $http, $location){
+app.controller("Searching", function($scope,cartService,requestService, $rootScope, $routeParams, $http, $location){
     $scope.cart = [];
+    $scope.request = [];
 
 	$scope.searchHotel = function(query) {
-        var city = query.split(',');
-        console.log(city[0])
+        var city = query.city.split(',');
+        requestService.request.push(query);
+        console.log(query)
+        console.log(city)
 		$http.get("/search/" + city).success(function(data){          
 			console.log(data);
             cartService.cart.push(data);				
@@ -43,9 +46,9 @@ app.controller("HotelDetail", function($scope, hotelService,$rootScope, $routePa
     }  
 }); 
 
-app.controller("BookingCtrl", function($scope,hotelService, $rootScope, $routeParams, $http, $location){
+app.controller("BookingCtrl", function($scope,hotelService, requestService,$rootScope, $routeParams, $http, $location){
     $scope.details = hotelService.hotelDetail[0];
-
+    $scope.cusRequest = requestService.request[0];
     $scope.placeOrder = function(){
         $location.path('/');
     }
