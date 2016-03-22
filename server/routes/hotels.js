@@ -33,7 +33,7 @@ router.get('/hotel/:id', function(req, res) {
 });
 
 router.post('/hotel',function(req,res){
-  console.log(req.params);
+  console.log(req.body);
 });
 
 module.exports = router;
