@@ -32,7 +32,7 @@ router.get('/hotel/:id', function(req, res) {
   })
 });
 
-router.post('/hotel/',function(req,res){
+router.post('/hotel',function(req,res){
   console.log(req);
 });
 

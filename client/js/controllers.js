@@ -52,7 +52,7 @@ app.controller("BookingCtrl", function($scope,hotelService, requestService,$root
     $scope.User = {};
     $scope.placeOrder = function(hotel){
         console.log(hotel);
-        $http.post('/hotel/:', $scope.User)
+        $http.post('/hotel', $scope.User)
             .success(function(data) {
                 $location.path('/');
             }).error(function(err) {
