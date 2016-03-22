@@ -1,17 +1,23 @@
-<div class="jumbotron">
-	<div class="row" ng-repeat="detail in details">
-		<div class="col-md-offset-4 col-md-4">
-			<div class="thumbnail">
-			  <img ng-src="{{detail.imgURL.photos[0]}}" alt="...">
-			    <div class="caption">
-			      <h4 id='thumbnailLabel'>{{detail.name}}</h4>
-			      <p>{{detail.address}}</p>
-			      <p>{{detail.description | limitTo: 275}}...</p>
-			      <p>
-			        <button type="button" class="btn btn-info" ng-click="booked()">Book</button>
-			      </p>
-			    </div>
+<div class="container-fluid">
+	<div class="description-hotel well" ng-repeat="detail in details">
+		
+			<h3 class="p-name">
+				<a href="">{{detail.name}}</a>
+			</h3>
+			<div class="price pull-right" >
+				<span class="pull-right">{{detail.room_Rate.room_detail[0].rate[0]}} 
+        			<button type="button" class="btn btn-info" ng-click="booked(detail.id)">Book</button>
+	        	</span>
 			</div>
+			<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}</p>
+			<p>Phone: {{detail.phone}}</p>
+			<h5>Rating: {{detail.rating}}</h5>
+			<div class="img-detail">
+				<div class="img">
+					<img ng-src="{{detail.imgURL.photos[0]}}" width="300" height="200" display= "inline-block"><p>{{detail.room_Rate.room_detail[0].desc}}</p>
+					<p>{{detail.room_Rate.room_detail[0].detail}}</p>
+				</div>
+			</div>
+			
 		</div>
 	</div>
-</div>
