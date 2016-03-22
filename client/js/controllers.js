@@ -49,8 +49,14 @@ app.controller("HotelDetail", function($scope, hotelService,$rootScope, $routePa
 app.controller("BookingCtrl", function($scope,hotelService, requestService,$rootScope, $routeParams, $http, $location){
     $scope.details = hotelService.hotelDetail[0];
     $scope.cusRequest = requestService.request[0];
-    $scope.placeOrder = function(){
-        $location.path('/');
+    
+    $scope.placeOrder = function(hotel){
+        $http.post('/hotel/:' + id)
+            .success(function(data) {
+                $location.path('/');
+            }).error(function(err) {
+                $scope.errorMessage = err;
+            });
     }
     
 });
