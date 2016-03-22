@@ -12,18 +12,18 @@
 
 	            <div class="form-group">
 	                <label for="exampleInputEmail1">Mobile phone number</label>
-	                <input type="text" name="phone" value=""  class="form-control" id="exampleInputEmail1" placeholder="Mobile phone number" ng-model="User.email" required>
+	                <input type="text" name="phone" class="form-control" id="exampleInputEmail1" placeholder="Mobile phone number" ng-model="User.phone" required>
 	            </div>
 
 				<fieldset>
 				<h3>Payment details</h3>
 				<div class="form-group">
 	                <label for="exampleInputPassword1">Cardholder name</label>
-	                <input type="text" name="Cardholder_name" class="form-control" id="exampleInputPassword1" placeholder="Cardholder name" ng-model="User.password" required>
+	                <input type="text" name="Cardholder_name" class="form-control" id="exampleInputPassword1" placeholder="Cardholder name" ng-model="User.Cardholder_name" required>
 	            </div>
 	            <div class="form-group">
 	                <label for="exampleInputPassword1">Debit/Credit card number</label>
-	                <input type="text" name="card_number" class="form-control" id="exampleInputPassword1" placeholder="Debit/Credit card number" ng-model="User.password" required>
+	                <input type="text" name="card_number" class="form-control" id="exampleInputPassword1" placeholder="Debit/Credit card number" ng-model="User.card_number" required>
 	            </div>				
 				</fieldset>
 				<fieldset>
@@ -33,7 +33,7 @@
 					<input id="rooms" type="number" value="1" min="0" max="5"  name="numDog" ng-model="Hotels.numDog"></input>
 				</fieldset>
 	            <p>
-		        	<button type="button" class="btn btn-danger" width="300" height="200" display= "inline-block" ng-click="placeOrder(hotel)">Complete Booking</button>
+		        	<button type="button" class="btn btn-danger" width="300" height="200" display= "inline-block" ng-click="placeOrder()">Complete Booking</button>
 		      	</p>
 		    </form>
 	  	</div>
