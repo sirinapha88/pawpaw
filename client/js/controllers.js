@@ -8,9 +8,7 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
         console.log(query)
         console.log(city)
 		$http.get("/search/" + city).success(function(data){          
-			console.log(data);
             cartService.cart.push(data);				
-            // console.log(cartService.cart);  
             $location.path('/Hotels');
 		})
     };
@@ -30,7 +28,6 @@ app.controller("HotelList",function($scope,cartService,hotelService, $rootScope,
     
     $scope.getHotel = function(id){
         $http.get("/search/hotel/" + id).success(function(data){
-            // console.log(data)
             hotelService.hotelDetail.push(data);
              $location.path('/hotel/:' + id);
         })      
