@@ -32,5 +32,8 @@ router.get('/hotel/:id', function(req, res) {
   })
 });
 
+router.pot('/hotel/:id',function(req,res){
+  console.log(req);
+});
 
 module.exports = router;
