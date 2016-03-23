@@ -31,10 +31,6 @@ router.get('/hotel/:id', function(req, res) {
 });
 
 router.post('/hotel',function(req,res,next){
-  console.log(req.body.user.name);
-  console.log(req.body.user.phone);
-  console.log(req.body.hotel[0].room_Rate.room_detail[0].room_type);
-  console.log(req.body.hotel[0].id);
   knex("users").where('email', req.body.user.email).first().then(function(user){
     if(!user) {
       var hash = bcrypt.hashSync(req.body.user.password, 8);
@@ -44,10 +40,11 @@ router.post('/hotel',function(req,res,next){
           email: req.body.user.email,
           password: hash
         },'id').then(function(id){
+          console.log(id);
           knex("reservations").insert
             ({
               user_id: req.body.user.id,
-              hotel_id: req.body.hotel.id,
+              hotel_id: req.body.hotel[0].id,
               room_type: req.body.hotel[0].room_Rate.room_detail[0].room_type, 
               rate_paid: req.body.hotel[0].room_Rate.room_detail[0].rate.oneSize,
               pet_type: req.body.request.numDog,
@@ -59,19 +56,20 @@ router.post('/hotel',function(req,res,next){
             })
           })
     } else {
+      console.log(req.body)
       knex("reservations").insert
       ({
         user_id: req.body.user.id,
-        hotel_id: req.body.hotel.id,
-        room_type: req.body.hotel.room_Rate, 
-        rate_paid: req.body.hotel.room_Rate,
+        hotel_id: req.body.hotel[0].id,
+        room_type: req.body.hotel[0].room_Rate.room_detail[0].room_type, 
+        rate_paid: req.body.hotel[0].room_Rate.room_detail[0].rate.oneSize,
         pet_type: req.body.request.numDog,
         checkin: req.body.request.checkin,
         checkout: req.body.request.checkout,
       })
     }
   }).then(function(){
-    res.redirect('/complete');
+    res.redirect('/#/complete');
   });
 });
 
