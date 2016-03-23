@@ -1,61 +1,42 @@
 <div class="container-fluid">
 	<section id="tools-menu">
-		<div id="sort">
+		<div id="sort" class="well">
 			<p class="sort-label"></p>
 			<form name="basic-sort" id="basic-sort" method="get" action="" autocomplete="off">
 				<label for="sort-order" class="offscreen">Sort by</label>
 				<select name="sort-order" id="sort-order" ng-model="sortByPrice">
-					<option id="opt_BEST_SELLER" value="favorite" selected="selected" data-unselected-label="Our favorites">Favorites</option>
 					<option id="opt_GUEST_RATING" value="-rating">Guest rating</option>
-					<option id="opt_PRICE_HIGHEST_FIRST" value="price">Price (high to low)</option>
-					<option id="opt_PRICE" value="-price">Price (low to high)</option>
+					<option id="opt_PRICE_HIGHEST_FIRST" value="-room_Rate.room_detail[0].rate.oneSize">Price (high to low)</option>
+					<option id="opt_PRICE" value="room_Rate.room_detail[0].rate.oneSize">Price (low to high)</option>
 				</select>
+				<!-- <select name="sort-order" id="sort-order" ng-model="sortByRate">
+					<option id="opt_GUEST_RATING" value="-rating">Guest rating</option>
+					<option id="opt_GUEST_RATING" value="rating">Guest rating</option>					
+				</select> -->
 			</form>
 		</div>
 	</section>
-	<div class="seperate">
 		
-	</div>
-	<!-- <div class="row"> -->
-			<!-- <table class="table table-bordered">
-				<tbody>
-			      <tr class="space" ng-repeat="hotel in hotels | filter:categorySearch | orderBy: sortByPrice">
-			        <td><img ng-src="{{hotel.image_url}}" width="300" height="200"></td>
-			        <td class="tdContainer"><h3>{{hotel.name}}
-			        	<span class="pull-right">$85 
-		        			<button type="button" class="btn btn-info" ng-click="getHotel(hotel.id)">Book</button>
-			        	</span>
-			        	</h3>	     
-			        	<h5>{{hotel.location.display_address}}</h5> 		        				       
-			        	<h5>Phone: {{hotel.phone}}</h5>
-			        	<h5>Rating: {{hotel.rating}}</h5>		          			
-		        	</td>
-			      </tr>
-			    </tbody>
-			</table> -->
-	<!-- </div> -->
-<div class="hotel-wrap">
-	
-		<div class="description-hotel well" ng-repeat="hotel in hotels | filter:categorySearch | orderBy: sortByPrice">
-			<h3 class="p-name">
-				<a href="">{{hotel.name}}</a>
-			</h3>
-			<div class="price pull-right" >
-				<span class="pull-right">{{hotel.room_Rate.room_detail[0].rate.oneSize | currency}} 
-        			<button type="button" class="btn btn-info" ng-click="getHotel(hotel.id)">Choose Hotel</button>
-	        	</span>
+	<div class="description-hotel well" ng-repeat="hotel in hotels | filter:sortByRate | orderBy: sortByPrice">
+		<h3 class="p-name">
+			<a href="">{{hotel.name}}</a>
+		</h3>
+		<div class="price pull-right" >
+			<span class="pull-right">
+				<h3 ng-model="hotel.room_Rate.room_detail[0].rate.oneSize">{{hotel.room_Rate.room_detail[0].rate.oneSize | currency}} </h3>
+    			<button type="button" class="btn btn-info" ng-click="getHotel(hotel.id)">Choose Hotel</button>
+    			<h4>Rating: {{hotel.rating}}</h4>	
+        	</span>
+		</div>
+		<p>{{hotel.address}}, {{hotel.city}}, {{hotel.zipcode}}</p>
+		<p>Phone: {{hotel.phone}}</p>
+		
+			<img ng-src="{{hotel.imgURL.photos[0]}}" width="350" height="250" display= "inline-block">
+			<div style="display:inline-block; margin-left: 20px;">
+  				<p style="font-size: 15px;">{{hotel.room_Rate.room_detail[0].desc}}</p>
 			</div>
-			<p>{{hotel.address}}, {{hotel.city}}, {{hotel.zipcode}}</p>
-			<p>Phone: {{hotel.phone}}</p>
-			<h5>Rating: {{hotel.rating}}</h5>
-			<div class="img-detail">
-				<div class="img">
-					<img ng-src="{{hotel.imgURL.photos[0]}}" width="300" height="200" display= "inline-block"><p>{{hotel.room_Rate.room_detail[0].desc}}</p>
-				</div>
-			</div>
-			
 		</div>
 	</div>
 	
-</div>
+
 

@@ -44,10 +44,9 @@ td {
     padding-top: .5em;
     padding-bottom: .8em;
 }
-.seperate{
+.sort{
   height: 100px;
   width: 200%;
-  background-color: #006600;
 }
 .module content {
     padding: -20px 0;
