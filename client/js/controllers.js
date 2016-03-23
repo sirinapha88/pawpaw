@@ -5,58 +5,59 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
 	$scope.searchHotel = function(query) {
         var city = query.city.split(',');
         requestService.request.push(query);
-        console.log(query)
-        console.log(city)
 		$http.get("/search/" + city).success(function(data){          
             cartService.cart.push(data);				
             $location.path('/Hotels');
 		})
     };
-
     // $http.get("/gHotel").success(function(data){
     // 	console.log("this is from controller " + data);
     // 	$scope.gHotels = data;
-    // });
-
-	
+    // });	
 });
 
 app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
     $scope.hotels = cartService.cart[0];
+    // console.log(cartService.cart[0])
     $location.path('/Hotels');
     $scope.hotelDetail = [];
     
     $scope.getHotel = function(id){
         $http.get("/search/hotel/" + id).success(function(data){
-            hotelService.hotelDetail.push(data);
+            cartService.cart.push(data);
+            console.log(cartService.cart)
              $location.path('/hotel/:' + id);
         })      
     };
 });
 
-app.controller("HotelDetail", function($scope, hotelService,$rootScope, $routeParams, $http, $location) {
-    $scope.details = hotelService.hotelDetail[0];
-    console.log(hotelService.hotelDetail[0])
-
+app.controller("HotelDetail", function($scope, cartService,$rootScope, $routeParams, $http, $location) {
+    $scope.details = cartService.cart[1];
+    console.log(cartService.cart[1]);
     $scope.booked = function(id){
         $location.path('/booking');
     }  
 }); 
 
-app.controller("BookingCtrl", function($scope,hotelService, requestService,$rootScope, $routeParams, $http, $location){
-    $scope.details = hotelService.hotelDetail[0];
+app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){
+    $scope.details = cartService.cart[1];
     $scope.cusRequest = requestService.request[0];
+    console.log(requestService.request[0])
     $scope.User = {};
+    
     $scope.placeOrder = function(hotel){
-        console.log(hotel);
-        $http.post('/search/hotel', $scope.User)
+        var postData = {
+            user: $scope.User,
+            hotel: cartService.cart[1],
+            request: requestService.request[0]
+        }
+        $http.post('/search/hotel', postData)
             .success(function(data) {
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;
             });
     }
-    
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {
