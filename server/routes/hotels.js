@@ -34,9 +34,8 @@ router.post('/hotel',function(req,res,next){
   console.log(req.body.user.name);
   console.log(req.body.user.phone);
   console.log(req.body.hotel[0].room_Rate.room_detail[0].room_type);
-  console.log(req.body.hotel[0].room_Rate.room_detail[0].rate.oneSize);
+  console.log(req.body.hotel[0].id);
   knex("users").where('email', req.body.user.email).first().then(function(user){
-    console.log(user);
     if(!user) {
       var hash = bcrypt.hashSync(req.body.user.password, 8);
       knex("users").insert({
@@ -44,7 +43,7 @@ router.post('/hotel',function(req,res,next){
           phone: req.body.user.phone,
           email: req.body.user.email,
           password: hash
-        }).then(function(thisUser){
+        },'id').then(function(id){
           knex("reservations").insert
             ({
               user_id: req.body.user.id,
@@ -54,8 +53,11 @@ router.post('/hotel',function(req,res,next){
               pet_type: req.body.request.numDog,
               checkin: req.body.request.checkin,
               checkout: req.body.request.checkout,
+            }).catch(function(error) {
+             console.log("err")
+             console.log(error)
             })
-        })
+          })
     } else {
       knex("reservations").insert
       ({
