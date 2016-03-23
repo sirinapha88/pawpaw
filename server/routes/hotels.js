@@ -16,6 +16,7 @@ var Hotels = function () {
 };
 
 router.get('/:searchString', function(req,res){
+  
   var hotelSearch = req.params.searchString.split(',');
   Hotels().where({city:hotelSearch[0]}).then(function(data){
     res.json(data);
