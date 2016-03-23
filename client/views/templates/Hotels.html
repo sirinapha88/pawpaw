@@ -8,7 +8,7 @@
 					<option id="opt_BEST_SELLER" value="favorite" selected="selected" data-unselected-label="Our favorites">Favorites</option>
 					<option id="opt_GUEST_RATING" value="-rating">Guest rating</option>
 					<option id="opt_PRICE_HIGHEST_FIRST" value="price">Price (high to low)</option>
-					<option id="opt_PRICE" value="price">Price (low to high)</option>
+					<option id="opt_PRICE" value="-price">Price (low to high)</option>
 				</select>
 			</form>
 		</div>
@@ -41,7 +41,7 @@
 				<a href="">{{hotel.name}}</a>
 			</h3>
 			<div class="price pull-right" >
-				<span class="pull-right">{{hotel.room_Rate.room_detail[0].rate.oneSize}} 
+				<span class="pull-right">{{hotel.room_Rate.room_detail[0].rate.oneSize | currency}} 
         			<button type="button" class="btn btn-info" ng-click="getHotel(hotel.id)">Choose Hotel</button>
 	        	</span>
 			</div>
