@@ -13,6 +13,7 @@ router.get('/signup', function(req,res){
 
 router.post('/signup', function(req,res,next){
   Users().where('email', req.body.email).first().then(function(user){
+    console.log(user);
     if(!user) {
       var hash = bcrypt.hashSync(req.body.password, 8);
       Users().insert({
