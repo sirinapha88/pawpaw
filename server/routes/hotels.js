@@ -69,7 +69,7 @@ router.post('/hotel',function(req,res,next){
       })
     }
   }).then(function(){
-    res.redirect('/');
+    res.redirect('/complete');
   });
 });
 
