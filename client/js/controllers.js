@@ -5,7 +5,8 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
 	$scope.searchHotel = function(query) {
         var city = query.city.split(',');
         requestService.request.push(query);
-		$http.get("/search/" + city).success(function(data){          
+		$http.get("/search/" + city).success(function(data){   
+        console.log(data);       
             cartService.cart.push(data);				
             $location.path('/Hotels');
 		})
@@ -53,6 +54,7 @@ app.controller("BookingCtrl", function($scope,cartService, requestService,$rootS
         }
         $http.post('/search/hotel', postData)
             .success(function(data) {
+
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;
