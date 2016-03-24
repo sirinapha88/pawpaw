@@ -42,25 +42,16 @@
 						<label for="qf-0q-localised-check-in" >Security code</label>
 						<input id="rooms" type="text" name="code" ng-model="User.code"></input>
 						<label for="qf-0q-localised-check-in" >Expiration date*</label>
+						
 						<select>
-							<option value="">Month</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
+							<option class="service-small">Month</option>
+							 <option ng-repeat="month in [1,2,3,4,5,6,7,8,9,10,11,12]">{{ month }}</option>
+						</select>
+						<select>
+							<option>Year</option>
+							 <option ng-repeat="year in [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025]">{{ year }}</option>
 						</select>
 						
-						<!-- <input id="ExpDate" type="number" value="1"  min="1" max="12" name="numRoom" ng-model="User.numRoom"></input>		 -->		
-						<label for="qf-0q-localised-check-in" >Year</label>
-						<input id="rooms" type="number" value="1" min="0" max="5"  name="numDog" ng-model="User.numDog"></input>
 					</fieldset>
 		            <p>
 			        	<button type="button" class="btn btn-danger" width="300" height="200" display= "inline-block" ng-click="placeOrder(User)">Complete Booking</button>
