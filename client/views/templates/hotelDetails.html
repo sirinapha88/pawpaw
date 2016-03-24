@@ -15,12 +15,21 @@
 			
 			<div class="img-detail">
 				<div class="img">
-				<div slideshow>
-					<div slide ng-repeat="slide in slides">
-						<img ng-src="{{slide}}" width="300" height="200" display= "inline-block">
-					</div>
+				<div class="container slider">
+				    <img ng-repeat="slide in slides" class="slide"
+				        ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide}}" idth="300" height="200" display= "inline-block">
+
+				    <nav class="nav">
+				        <div class="wrapper">
+				            <ul class="dots">
+				                <li class="dot" ng-repeat="slide in slides">
+				                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+				                      ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+				            </ul>
+				        </div>
+    				</nav>
 				</div>
-					<img ng-src="{{detail.imgURL.photos[0]}}" width="300" height="200" display= "inline-block">
+					<!-- <img ng-src="{{detail.imgURL.photos[0]}}" width="300" height="200" display= "inline-block"> -->
 					<div style="display:inline-block; margin-left: 20px;">
   						<p style="font-size: 15px;">{{detail.room_Rate.room_detail[0].desc}}</p>
 					</div>

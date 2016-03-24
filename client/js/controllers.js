@@ -6,7 +6,7 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
         var city = query.city.split(',');
         requestService.request.push(query);
 		$http.get("/search/" + city).success(function(data){   
-        console.log(data);       
+        // console.log(data);       
             cartService.cart.push(data);				
             $location.path('/Hotels');
 		})
@@ -26,7 +26,7 @@ app.controller("HotelList",function($scope,cartService,hotelService, $rootScope,
     $scope.getHotel = function(id){
         $http.get("/search/hotel/" + id).success(function(data){
             cartService.cart.push(data);
-            console.log(cartService.cart)
+            // console.log(cartService.cart)
              $location.path('/hotel/:' + id);
         })      
     };
@@ -35,7 +35,19 @@ app.controller("HotelList",function($scope,cartService,hotelService, $rootScope,
 app.controller("HotelDetail", function($scope,cartService,$rootScope, $routeParams, $http, $location) {
     $scope.details = cartService.cart[1];
     console.log(cartService.cart[1]);
-    $scope.slides = cartService.cart[1].imgURL.photos;
+    console.log(cartService.cart[1][0].imgURL)
+    $scope.slides = cartService.cart[1][0].imgURL.photos;
+    
+    $scope.currentIndex = 0;
+
+    $scope.setCurrentSlideIndex = function (index) {
+        $scope.currentIndex = index;
+    };
+
+    $scope.isCurrentSlideIndex = function (index) {
+        return $scope.currentIndex === index;
+    };
+
     $scope.booked = function(id){
         $location.path('/booking');
     }  
