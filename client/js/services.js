@@ -17,6 +17,7 @@ app.service('hotelService', function(){
   	};
 });
 
+
 app.service('loginService', function ($location,$http) {
         
         if (null != username && 0 != username.length && 

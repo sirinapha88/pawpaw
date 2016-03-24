@@ -32,13 +32,15 @@ app.controller("HotelList",function($scope,cartService,hotelService, $rootScope,
     };
 });
 
-app.controller("HotelDetail", function($scope, cartService,$rootScope, $routeParams, $http, $location) {
+app.controller("HotelDetail", function($scope,cartService,$rootScope, $routeParams, $http, $location) {
     $scope.details = cartService.cart[1];
     console.log(cartService.cart[1]);
+    $scope.slides = cartService.cart[1].imgURL.photos;
     $scope.booked = function(id){
         $location.path('/booking');
     }  
 }); 
+
 
 app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
@@ -69,6 +71,7 @@ app.controller('SignupCtrl', function ($scope, $http, $location) {
     $scope.register = function() {
         $http.post('/signup', $scope.User)
         	.success(function(data) {
+                console.log(data)
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;
@@ -83,6 +86,7 @@ app.controller('LoginCtrl', function ($scope, $http, $location) {
    	$scope.login = function() {
         $http.post('/login', $scope.User)
         	.success(function(data) {
+                console.log(data)
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;

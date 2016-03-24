@@ -34,4 +34,5 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 		templateUrl: "client/views/templates/complete.html",
 		controller: "Searching"
 	})
+	
 });
