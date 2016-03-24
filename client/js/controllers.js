@@ -19,7 +19,6 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
 
 app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
     $scope.hotels = cartService.cart[0];
-    // console.log(cartService.cart[0])
     // var descToSpit = getDesc(cartService.cart[0])
     $location.path('/Hotels');
     $scope.hotelDetail = [];

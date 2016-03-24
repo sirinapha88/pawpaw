@@ -1,7 +1,7 @@
 <div class="container-fluid" >
 	<div class="description-hotel well" ng-repeat="detail in details">		
 		<h3 class="p-name">
-			<a href="">{{detail.name}}</a>
+			<a href="" style="margin-left: 20px;">{{detail.name}}</a>
 		</h3>
 		<div class="price pull-right" >
 			<span class="pull-right">
@@ -21,7 +21,7 @@
 				</div>
         	</span>
 		</div>
-		<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}&nbsp;Tel: {{detail.phone}}</p>
+		<p style="margin-left: 20px;">{{detail.address}}, {{detail.city}}, {{detail.zipcode}}&nbsp;Tel: {{detail.phone}}</p>
 			
 		<div class="container slider">
 		    <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
@@ -30,7 +30,7 @@
 
 		    <a class="arrow prev" href="" ng-click="nextSlide()"></a>
 		    <a class="arrow next" href="" ng-click="prevSlide()"></a>
-		    <nav class="nav">
+		    <nav class="navImg">
 		        <div class="wrapper">
 		            <ul class="dots">
 		                <li class="dot" ng-repeat="slide in slides">
