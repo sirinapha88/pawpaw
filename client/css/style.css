@@ -151,9 +151,8 @@ title{
 }
 
 .widget-query{
-    /*background-color: transparent;*/
-    border-color: #ccc;
-    box-shadow: 0 0 12px 0 #4e4e4e;
+    background-color: opacity 0.4;
+    box-shadow: 0 0 12px 5px white;
     /*min-width: 300px !important;*/
     max-width: 1000px;
     outline: none;
@@ -174,47 +173,13 @@ title{
 
 .widget-query fieldset {
     border-bottom: 1px solid #ccc;
+    border-color: black;
     box-shadow: 0 1px #f5f4f0;
     padding: 7px 15px 6px;
     position: relative;
 }
 
-.input-group date{
-  float: left;
-}
-
-.widget-query-dates , .widget-query-room-number  {
-    font-size: 1.333em;
-    font-weight: bold;
-    display: inline;
-    margin-bottom: 3px;
-}
-
-.cta.cta-active {
-   background-position: 50%;
-    border: 1px solid #bbe9ff;
-    border-bottom-color: #30a0fd;
-    border-left-color: #95cffe;
-    border-right-color: #95cffe;
-    border-radius: 2px;
-    box-shadow: 0 0 0 1px #30a0fd,1px 1px 0.5px 1px rgba(60,163,227,0.3);
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 1.5;
-    margin: 0 2px 4px;
-    overflow: hidden;
-    padding: 2px 10px;
-    position: relative;
-    vertical-align: middle;
-    width: auto;
-}
-div {
-    display: block;
-}
-    .hotel-wrap {
+ .hotel-wrap {
     border: 3px solid #fff;
     border-radius: 4px;
     box-shadow: 0px 1px 0 #ccc;
@@ -222,40 +187,12 @@ div {
 
 }
 
- .price {
-    display: block;
-    margin-bottom: 4px;
-    margin-top: -2px;
-    line-height: 1;
-
-}
-.description-hotel {
-    padding: 14px 16px 16px 16px;
-    
-    /*border-style: groove;*/
-}
 
 #mainImg{
     width: 1150px;
 }
 #navbar{
     margin-bottom: 0px;
-}
-#search-box{
-    margin-top: 20px;
-    margin-left: 33%;
-    margin-bottom: 2%;  
-}
-#searchBtn{
-  padding-left: 10px;
-  padding-right: 10px;
-  height: 37.9861px;
-  border: 1px solid #CCCCCC;
-  border-radius:5px;
-}
-
-#searchBtn:hover {
-  box-shadow: 0 0 0 .1em #CCCCCC;
 }
 
 #eventName {
@@ -271,7 +208,7 @@ div {
   border-radius: 4px;
 }
 
-#musicCategory{
+#hotelCategory{
     margin-bottom: 20px;
     width: 100%;
 }
@@ -292,27 +229,11 @@ div.thumbnail > img {
 #thumbnailLabel{
     text-align: center;
 }
-#thumbnailBtn{
-    margin-left: 82%;
-    font-size: 9px;
-    margin-top: 27%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-#removeBtn{
-    margin-left: 78%;
-    font-size: 9px;
-    margin-top: 27%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-}
+
 #myEventsCategory{
     margin-bottom: 20px;
 }
-#thumbnailLabel{
-    text-align: center;
-}
+
 #thumbnailBtn{
     margin-left: 82%;
     font-size: 9px;
@@ -320,16 +241,8 @@ div.thumbnail > img {
     padding-top: 2px;
     padding-bottom: 2px;
 }
-#removeBtn{
-    margin-left: 78%;
-    font-size: 9px;
-    margin-top: 27%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
-#popLabel{
-    text-align: center;
-}
+
+
 #footer{
     color: white;
     text-align: center;
@@ -340,9 +253,7 @@ div.thumbnail > img {
     color: white;
     text-align: center;
 }
-.fa-spin {
-    animation: fa-spin 4s infinite linear;
-}
+  
 #signupLabel{
     text-align: center;
 }
@@ -350,6 +261,7 @@ div.thumbnail > img {
     margin-left: 47%;
     margin-bottom: 50px;
 }
+
 #loginSpacing{
     padding-top: 20px;
     padding-bottom: 50px;

@@ -13,11 +13,11 @@
 				<fieldset>
 					<div class='input-group date'>
 						<label for="qf-0q-localised-check-in" style="font-size: 12pt;">Check in</label>
-		                <input type='date' class="form-control fa fa-calendar-o" maxlength="20" name="checkin" ng-model="Hotels.checkin" placeholder="MM/DD/YYYY"/>
+		                <input type='date' class="form-control fa fa-calendar-o" name="checkin" ng-model="Hotels.checkin" placeholder="MM/DD/YYYY"/>
 		            </div>
 		        	<div class='input-group date'>
 						<label for="qf-0q-localised-check-in" style="font-size: 12pt;">Check out</label>
-		                <input type='date' class="form-control fa fa-calendar-o" name="checkout"  maxlength="20"  placeholder="MM/DD/YYYY"/ ng-model="Hotels.checkout">            
+		                <input type='date' class="form-control fa fa-calendar-o" name="checkout" ng-model="Hotels.checkout" placeholder="MM/DD/YYYY"/>            
 		            </div>
 		    	</fieldset>
 				<fieldset>
@@ -27,8 +27,6 @@
 						<option value="1">1</option>
 						<option value="2">2</option>
 						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
 					</select>
 					<label for="qf-0q-localised-check-in" style="font-size: 12pt;">Dog</label>
 					<select ng-model="Hotels.numDog" style="width: 60px;">
@@ -55,7 +53,7 @@
 	<div class="container-fluid">
 
 	
-		<div class="row" id='musicCategory'>
+		<div class="row" id='hotelCategory'>
 	        <div class="col-sm-3 col-md-4">			
 				<div class="thumbnail">
 					<img src="/client/images/pet1.jpeg" alt="...">				
