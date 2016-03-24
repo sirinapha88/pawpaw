@@ -151,7 +151,7 @@ title{
 }
 
 .widget-query{
-    background-color: transparent;
+    /*background-color: transparent;*/
     border-color: #ccc;
     box-shadow: 0 0 12px 0 #4e4e4e;
     /*min-width: 300px !important;*/

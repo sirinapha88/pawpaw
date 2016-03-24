@@ -26,27 +26,46 @@
 	                <label for="exampleInputEmail1">Zipcode</label>
 	                <input type="text" name="zipcode" value=""  class="form-control" id="exampleInputEmail1" placeholder="Zipcode" ng-model="User.zipcode" required>
 	            </div>
-
-				<fieldset>
-				<h3>Payment details</h3>
-				<div class="form-group">
-	                <label for="exampleInputPassword1">Cardholder name</label>
-	                <input type="text" name="Cardholder_name" class="form-control" id="exampleInputPassword1" placeholder="Cardholder name" ng-model="User.Cardholder_name" required>
-	            </div>
-	            <div class="form-group">
-	                <label for="exampleInputPassword1">Debit/Credit card number</label>
-	                <input type="text" name="card_number" class="form-control" id="exampleInputPassword1" placeholder="Debit/Credit card number" ng-model="User.card_number" required>
-	            </div>				
-				</fieldset>
-				<fieldset>
-					<label for="qf-0q-localised-check-in" >Expiration date*</label>
-					<input id="ExpDate" type="number" value="1"  min="1" max="12" name="numRoom" ng-model="User.numRoom"></input>				
-					<label for="qf-0q-localised-check-in" >Year</label>
-					<input id="rooms" type="number" value="1" min="0" max="5"  name="numDog" ng-model="User.numDog"></input>
-				</fieldset>
-	            <p>
-		        	<button type="button" class="btn btn-danger" width="300" height="200" display= "inline-block" ng-click="placeOrder(User)">Complete Booking</button>
-		      	</p>
+				<div class="payment well">
+					<fieldset>
+					<h3>Payment details</h3>
+					<div class="form-group">
+		                <label for="exampleInputPassword1">Cardholder name</label>
+		                <input type="text" name="Cardholder_name" class="form-control" id="exampleInputPassword1" placeholder="Cardholder name" ng-model="User.Cardholder_name" required>
+		            </div>
+		            <div class="form-group">
+		                <label for="exampleInputPassword1">Debit/Credit card number</label>
+		                <input type="text" name="card_number" class="form-control" id="exampleInputPassword1" placeholder="Debit/Credit card number" ng-model="User.card_number" required>
+		            </div>				
+					</fieldset>
+					<fieldset>
+						<label for="qf-0q-localised-check-in" >Security code</label>
+						<input id="rooms" type="text" name="code" ng-model="User.code"></input>
+						<label for="qf-0q-localised-check-in" >Expiration date*</label>
+						<select>
+							<option value="">Month</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>
+						
+						<!-- <input id="ExpDate" type="number" value="1"  min="1" max="12" name="numRoom" ng-model="User.numRoom"></input>		 -->		
+						<label for="qf-0q-localised-check-in" >Year</label>
+						<input id="rooms" type="number" value="1" min="0" max="5"  name="numDog" ng-model="User.numDog"></input>
+					</fieldset>
+		            <p>
+			        	<button type="button" class="btn btn-danger" width="300" height="200" display= "inline-block" ng-click="placeOrder(User)">Complete Booking</button>
+			      	</p>
+			    </div>
 		    </form>
 	  	</div>
 	  	<div class="col-xs-6 col-md-4" ng-repeat="detail in details">
@@ -60,6 +79,12 @@
 			      	<p>Check in: {{cusRequest.checkin | date:'yyyy-MM-dd'}}</p>
 			      	<p>Check out: {{cusRequest.checkout | date:'yyyy-MM-dd'}}</p>
 			      	<p>{{cusRequest.numRoom}} {{detail.room_Rate.room_detail[0].room_type}} </p>
+			      	<div style="display:inline-block";>
+			      		<p>Total to pay: </p>
+			      	</div>
+			      	<div style="display:inline-block;">
+			      		<h3> {{detail.room_Rate.room_detail[0].rate.oneSize | currency:undefined:0}}</h3>
+			      	</div>
 			    </div>
 			</div>
 	  	</div>
