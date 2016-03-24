@@ -20,8 +20,10 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
 app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
     $scope.hotels = cartService.cart[0];
     // console.log(cartService.cart[0])
+    // var descToSpit = getDesc(cartService.cart[0])
     $location.path('/Hotels');
     $scope.hotelDetail = [];
+    // $scope.hotelDesc = descToSpit;
     
     $scope.getHotel = function(id){
         $http.get("/search/hotel/" + id).success(function(data){
@@ -56,8 +58,18 @@ function getPhoto(photos){
 
 function getDetail(details){
     var detail = details.split(/[.,]+/);
+    console.log(detail)
     return detail;
 }
+
+// function getDesc(desc){
+//      console.log(desc.length)
+//     var detail;
+//     for(var i = 0; i<desc.length; i++){
+//          detail = desc[i].room_Rate.room_detail[0].desc.split(/[.,]+/);
+//     }
+//     return detail;
+// }
 
 
 app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){

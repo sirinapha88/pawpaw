@@ -5,9 +5,7 @@ body {
   line-height: 135%;
   font-family: arial,helvetica,sans-serif;
 }
-html {
-    font-family: arial,helvetica,sans-serif;
-}
+
 .navbar {
     border-radius: 0;
     margin-bottom: 0;
@@ -185,7 +183,7 @@ title{
   float: left;
 }
 
-.widget-query-dates label, .widget-query-room-number label {
+.widget-query-dates , .widget-query-room-number  {
     font-size: 1.333em;
     font-weight: bold;
     display: inline;
