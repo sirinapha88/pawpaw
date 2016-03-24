@@ -36,12 +36,32 @@ app.controller("HotelList",function($scope,cartService,hotelService, $rootScope,
 
 app.controller("HotelDetail", function($scope,cartService,$rootScope, $routeParams, $http, $location) {
     $scope.details = cartService.cart[1];
-    console.log(cartService.cart[1][0].room_Rate.room_detail[0].detail);
-    var images = getPhoto(cartService.cart[1][0].imgURL.photos)
-    var detailToSplit = getDetail(cartService.cart[1][0].room_Rate.room_detail[0].detail)
-    console.log(detailToSplit)
+    var images = getPhoto(cartService.cart[1][0].imgURL.photos);
+    var detailToSplit = getDetail(cartService.cart[1][0].room_Rate.room_detail[0].detail);
     $scope.slides = images;
-    $scope.displayDetail = detailToSplit
+    $scope.displayDetail = detailToSplit;
+
+     $scope.direction = 'left';
+        $scope.currentIndex = 0;
+
+        $scope.setCurrentSlideIndex = function (index) {
+            $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
+            $scope.currentIndex = index;
+        };
+
+        $scope.isCurrentSlideIndex = function (index) {
+            return $scope.currentIndex === index;
+        };
+
+        $scope.prevSlide = function () {
+            $scope.direction = 'left';
+            $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+        };
+
+        $scope.nextSlide = function () {
+            $scope.direction = 'right';
+            $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
+        };
     
     $scope.booked = function(id){
         $location.path('/booking');
@@ -70,6 +90,42 @@ function getDetail(details){
 //     }
 //     return detail;
 // }
+
+app.animation('.slide-animation', function () {
+        return {
+            beforeAddClass: function (element, className, done) {
+                var scope = element.scope();
+
+                if (className == 'ng-hide') {
+                    var finishPoint = element.parent();
+                    if(scope.direction !== 'right') {
+                        finishPoint = -finishPoint;
+                    }
+                    TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
+                }
+                else {
+                    done();
+                }
+            },
+            removeClass: function (element, className, done) {
+                var scope = element.scope();
+
+                if (className == 'ng-hide') {
+                    element.removeClass('ng-hide');
+
+                    var startPoint = element.parent();
+                    if(scope.direction === 'right') {
+                        startPoint = -startPoint;
+                    }
+
+                    TweenMax.fromTo(element, 0.5, { left: startPoint }, {left: 0, onComplete: done });
+                }
+                else {
+                    done();
+                }
+            }
+        };
+    });
 
 
 app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){

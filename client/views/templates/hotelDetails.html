@@ -5,7 +5,7 @@
 		</h3>
 		<div class="price pull-right" >
 			<span class="pull-right">
-				<h3 style="margin-left: 20px; font-weight: 400;">{{detail.room_Rate.room_detail[0].rate.oneSize | currency:undefined:0}}</h3> 
+				<h3 style="margin-left: 30px; font-weight: 400;">{{detail.room_Rate.room_detail[0].rate.oneSize | currency:undefined:0}}</h3> 
     			<button type="button" class="btn btn-info" style="width: 110px;" ng-click="booked(detail.id)">Book</button>
     			<div ng-show="{{detail.rating}} < 4" style="margin-top: 10px; margin-left: 10px;">
 					<img ng-src="https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png">
@@ -21,15 +21,25 @@
 				</div>
         	</span>
 		</div>
-		<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}</p>
-		<p>Phone: {{detail.phone}}</p>
+		<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}&nbsp;Tel: {{detail.phone}}</p>
 			
-		<div class="img-detail">
-			<div class="img">
-			<div class="container slider">
-			    <img ng-repeat="slide in slides" class="slide"
-			         ng-src="{{slide.images}}" width="800" height="400" display= "inline-block">
-			</div>
+		<div class="container slider">
+		    <img ng-repeat="slide in slides" class="slide slide-animation nonDraggableImage"
+		         ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()"
+		         ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.images}}" width="800" height="500" display= "inline-block">
+
+		    <a class="arrow prev" href="" ng-click="nextSlide()"></a>
+		    <a class="arrow next" href="" ng-click="prevSlide()"></a>
+		    <nav class="nav">
+		        <div class="wrapper">
+		            <ul class="dots">
+		                <li class="dot" ng-repeat="slide in slides">
+		                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+		                       ng-click="setCurrentSlideIndex($index);"></a></li>
+		            </ul>
+		        </div>
+		    </nav>
+		</div>
 				<div style=" margin-left: 220px;">
 					<h4 style="font-weight: bold;">{{detail.room_Rate.room_detail[0].desc}}</h4>
 				
@@ -39,5 +49,4 @@
 				</div>
 			</div>
 		</div>			
-	</div>
-</div>
+
