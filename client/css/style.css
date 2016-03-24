@@ -356,72 +356,60 @@ div.thumbnail > img {
     padding-top: 20px;
     padding-bottom: 50px;
 }
-/* ============================================================
-  PARALLAX SECTIONS
-============================================================ */
-section.module:last-child {
-   margin-bottom: 0;
-}
-section.module h2 {
-  margin-bottom: 40px;
-  font-family: "Roboto Slab", serif;
-  font-size: 30px;
-}
-section.module p {
-  margin-bottom: 40px;
-  font-size: 16px;
-  font-weight: 300;
-}
-section.module p:last-child {
-  margin-bottom: 0;
-}
-section.module.content {
-  padding: 40px 0;
-}
-section.module.parallax {
-  height: 400px;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-section.module.parallax h1 {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 48px;
-  line-height: 600px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-section.module.parallax-1 {
-  
-   /* background-image: url("../images/Pet-Friendly-Page.jpg");*/
-}
-section.module.parallax-2 {
-  background-image: url("../images/pet-friendly-apartments.jpg");
-}
-section.module.parallax-3 {
-  background-image: url("../images/western-hills-pet-friendly.jpg");
+.slider {
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    background: #e6e6e6;
+    border: 20px solid #FFF;
+    margin-top: 20px;
 }
 
-@media all and (min-width: 600px) {
-  section.module h2 {
-    font-size: 42px;
-  }
-  section.module p {
-    font-size: 20px;
-  }
-  section.module.parallax h1 {
-    font-size: 96px;
-  }
-}
-@media all and (min-width: 700px) {
-  section.module.parallax h1 {
-    font-size: 160px;
-  }
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
+.arrow {
+    position: absolute;
+    z-index: 1002;
+    display: block;
+    top: 50%;
+    margin-top: -35px;
+    width: 36px;
+    height: 71px;
+    outline: none;
+    cursor: pointer;
+    
+}
+
+.arrow.prev {
+    opacity: 0.2;
+    left: 20px;
+   
+    transition: 0.2s linear all;
+}
+
+.arrow.next {
+    opacity: 0.2;
+    right: 20px;
+    
+    transition: 0.2s linear all;
+}
+
+.arrow.prev:hover {
+    opacity: 1;
+    
+}
+
+.arrow.next:hover {
+    opacity: 1;
+    
+
+.nav .wrapper {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0 .8em;
+}

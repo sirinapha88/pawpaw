@@ -34,24 +34,30 @@ app.controller("HotelList",function($scope,cartService,hotelService, $rootScope,
 
 app.controller("HotelDetail", function($scope,cartService,$rootScope, $routeParams, $http, $location) {
     $scope.details = cartService.cart[1];
-    console.log(cartService.cart[1]);
-    console.log(cartService.cart[1][0].imgURL)
-    $scope.slides = cartService.cart[1][0].imgURL.photos;
+    console.log(cartService.cart[1][0].room_Rate.room_detail[0].detail);
+    var images = getPhoto(cartService.cart[1][0].imgURL.photos)
+    var detailToSplit = getDetail(cartService.cart[1][0].room_Rate.room_detail[0].detail)
+    console.log(detailToSplit)
+    $scope.slides = images;
+    $scope.displayDetail = detailToSplit
     
-    $scope.currentIndex = 0;
-
-    $scope.setCurrentSlideIndex = function (index) {
-        $scope.currentIndex = index;
-    };
-
-    $scope.isCurrentSlideIndex = function (index) {
-        return $scope.currentIndex === index;
-    };
-
     $scope.booked = function(id){
         $location.path('/booking');
     }  
 }); 
+
+function getPhoto(photos){
+    var photoArr = [];
+    for (var i = 0; i < photos.length; i++) {
+        photoArr.push({images: photos[i]});
+    }
+    return photoArr;
+}
+
+function getDetail(details){
+    var detail = details.split(/[.,]+/);
+    return detail;
+}
 
 
 app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){
