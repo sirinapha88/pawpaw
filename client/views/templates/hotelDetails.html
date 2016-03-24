@@ -1,32 +1,32 @@
 <div class="container-fluid">
 	<div class="description-hotel well" ng-repeat="detail in details">		
-			<h3 class="p-name">
-				<a href="">{{detail.name}}</a>
-			</h3>
-			<div class="price pull-right" >
-				<span class="pull-right">
-					<h3>{{detail.room_Rate.room_detail[0].rate.oneSize | currency}}</h3> 
-        			<button type="button" class="btn btn-info" style="width: 110px;" ng-click="booked(detail.id)">Book</button>
-        			<h4>Rating: {{detail.rating}}</h4>
-	        	</span>
-			</div>
-			<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}</p>
-			<p>Phone: {{detail.phone}}</p>
+		<h3 class="p-name">
+			<a href="">{{detail.name}}</a>
+		</h3>
+		<div class="price pull-right" >
+			<span class="pull-right">
+				<h3>{{detail.room_Rate.room_detail[0].rate.oneSize | currency}}</h3> 
+    			<button type="button" class="btn btn-info" style="width: 110px;" ng-click="booked(detail.id)">Book</button>
+    			<h4>Rating: {{detail.rating}}</h4>
+        	</span>
+		</div>
+		<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}</p>
+		<p>Phone: {{detail.phone}}</p>
 			
-			<div class="img-detail">
-				<div class="img">
-				<div class="container slider">
-				    <img ng-repeat="slide in slides" class="slide"
-				         ng-src="{{slide.images}}" width="800" height="400" display= "inline-block">
-				</div>
-					<!-- <img ng-src="{{detail.imgURL.photos[0]}}" width="300" height="200" display= "inline-block"> -->
-					<div style=" margin-left: 20px;">
-  						<h4 style="font-weight: bold;">{{detail.room_Rate.room_detail[0].desc}}</h4>
-					</div>
+		<div class="img-detail">
+			<div class="img">
+			<div class="container slider">
+			    <img ng-repeat="slide in slides" class="slide"
+			         ng-src="{{slide.images}}" width="800" height="400" display= "inline-block">
+			</div>
+				<div style=" margin-left: 220px;">
+					<h4 style="font-weight: bold;">{{detail.room_Rate.room_detail[0].desc}}</h4>
+				
 					<ul class="about-list" ng-repeat="display in displayDetail">
 						<li>{{display}}</li>
 					</ul>
 				</div>
-			</div>			
-		</div>
+			</div>
+		</div>			
 	</div>
+</div>

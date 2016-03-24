@@ -1,7 +1,7 @@
 <div class="petIMG" style="height: 700px">	
 	<div class="container-fluid">	
 		<div class="cout widget-query" >
-			<h1>Hotel search</h1>
+			<h1 style="margin-left: 15px;">Hotel search</h1>
 			<form >
 				<fieldset>
 				<div>
@@ -22,14 +22,32 @@
 		    	</fieldset>
 				<fieldset>
 					<label for="qf-0q-localised-check-in" >rooms</label>
-					<input id="rooms" type="number" value="1"  name="numRoom" ng-model="Hotels.numRoom"></input>				
+					<!-- <input id="rooms" type="number" value="1"  name="numRoom" ng-model="Hotels.numRoom"></input> -->	
+					<select ng-model="Hotels.numRoom" style="width: 60px;">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select>
 					<label for="qf-0q-localised-check-in" >Dog</label>
-					<input id="rooms" type="number" value="1" min="1" max="5"  name="numDog" ng-model="Hotels.numDog"></input>
-
+					<select ng-model="Hotels.numDog" style="width: 60px;">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>			
 					<label for="qf-0q-localised-check-in" >Cat</label>
+					<select ng-model="Hotels.numCat" style="width: 60px;">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>	
+					<!-- <input id="rooms" type="number" value="1" min="1" max="5"  name="numDog" ng-model="Hotels.numDog"></input> -->
+
+					
 					<input id="rooms" type="number" min="1" max="5"  name="numCat" ng-model="Hotles.numCat"></input>
 				</fieldset>		
-				<button class="btn btn-info" style="margin-left: 30px" ng-click="searchHotel(Hotels)">Search</button>
+				<button class="btn btn-info" style="margin-left: 30px; margin-top: 10px; width: 110px;" ng-click="searchHotel(Hotels)">Search</button>
 			</form>	
 		</div>  <!-- end div cout widget-query -->
 	</div> <!-- end div container-fluid -->
@@ -68,10 +86,3 @@
 	</section>
 </div>
 
-<!-- <div>
-  	<section class="module parallax parallax-3">
-    	<div class="container-fluid">
-     		<h1></h1>
-    	</div>
-  	</section>
-</div> -->
