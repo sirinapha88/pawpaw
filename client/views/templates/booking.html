@@ -54,12 +54,12 @@
 	  		<div class="thumbnail">
 		  		<img ng-src="{{detail.imgURL.photos[0]}}" alt="...">
 			    <div class="caption">
-			     	<h4 id='thumbnailLabel'>{{detail.name}}</h4>
+			     	<h4 style="color: green;">{{detail.name}}</h4>
 			      	<p>{{detail.address}}</p>
-			      	<p>{{detail.description}}</p>
-			      	<p>Check in: {{cusRequest.checkin}}</p>
-			      	<p>Check out: {{cusRequest.checkout}}</p>
-			      	<p>{{cusRequest.numRoom}} Room </p>
+			      	<p>{{detail.phone}}</p>
+			      	<p>Check in: {{cusRequest.checkin | date:'yyyy-MM-dd'}}</p>
+			      	<p>Check out: {{cusRequest.checkout | date:'yyyy-MM-dd'}}</p>
+			      	<p>{{cusRequest.numRoom}} {{detail.room_Rate.room_detail[0].room_type}} </p>
 			    </div>
 			</div>
 	  	</div>
