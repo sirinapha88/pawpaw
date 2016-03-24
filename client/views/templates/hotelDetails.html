@@ -1,11 +1,11 @@
 <div class="container-fluid">
-	<div class="description-hotel well" ng-repeat="detail in details">
-		
+	<div class="description-hotel well" ng-repeat="detail in details">		
 			<h3 class="p-name">
 				<a href="">{{detail.name}}</a>
 			</h3>
 			<div class="price pull-right" >
-				<span class="pull-right">{{detail.room_Rate.room_detail[0].rate[0]}} 
+				<span class="pull-right">
+					<h3>{{detail.room_Rate.room_detail[0].rate.oneSize | currency}}</h3> 
         			<button type="button" class="btn btn-info" ng-click="booked(detail.id)">Book</button>
         			<h4>Rating: {{detail.rating}}</h4>
 	        	</span>
@@ -17,11 +17,10 @@
 				<div class="img">
 					<img ng-src="{{detail.imgURL.photos[0]}}" width="300" height="200" display= "inline-block">
 					<div style="display:inline-block; margin-left: 20px;">
-  						<p style="font-size: 15px;">{{hotel.room_Rate.room_detail[0].desc}}</p>
+  						<p style="font-size: 15px;">{{detail.room_Rate.room_detail[0].desc}}</p>
 					</div>
 					<p>{{detail.room_Rate.room_detail[0].detail}}</p>
 				</div>
-			</div>
-			
+			</div>			
 		</div>
 	</div>
