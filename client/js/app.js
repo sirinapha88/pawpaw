@@ -30,9 +30,9 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 		templateUrl: "client/views/templates/booking.html",
 		controller: "BookingCtrl"
 	})
-	.when("/complete", {
-		templateUrl: "client/views/templates/complete.html",
-		controller: "Searching"
+	.when("/profile", {
+		templateUrl: "client/views/templates/profile.html",
+		controller: "LoginCtrl"
 	})
 	
 });

@@ -130,7 +130,6 @@ app.animation('.slide-animation', function () {
 app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
     $scope.cusRequest = requestService.request[0];
-    console.log(requestService.request[0])
     $scope.User = {};
     
     $scope.placeOrder = function(hotel){
@@ -141,7 +140,6 @@ app.controller("BookingCtrl", function($scope,cartService, requestService,$rootS
         }
         $http.post('/search/hotel', postData)
             .success(function(data) {
-
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;
@@ -164,17 +162,33 @@ app.controller('SignupCtrl', function ($scope, $http, $location) {
     }
 });
 
-app.controller('LoginCtrl', function ($scope, $http, $location) {
+app.controller('LoginCtrl', function ($scope, $http, $location, userService) {
     $scope.User = {};
     $scope.errorMessage = '';
+    $scope.UserDetail = [];
 
    	$scope.login = function() {
         $http.post('/login', $scope.User)
         	.success(function(data) {
-                console.log(data)
-                $location.path('/');
+                // $location.path('/profile');
             }).error(function(err) {
                 $scope.errorMessage = err;
             });
     };
+    // $http.get("/profile/").success(function(data){  
+    // console.log("this is  from profile") 
+    //     console.log(data);       
+    //     //     userService.cart.push(data);                
+    //     //     $location.path('/profile');
+    //     })
 });
+
+
+
+
+
+
+
+
+
+

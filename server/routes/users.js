@@ -44,7 +44,7 @@ router.post('/login', function(req,res){
       //bcrypt.compareSync will hash the plain text password and compare
       if(bcrypt.compareSync(req.body.password, user.password)) {
         res.cookie('userID', user.id, { signed: true });
-        res.redirect('/');
+        res.redirect('/profile');
       } else {
         res.redirect('/profile?error=Invalid Email or Password.');
       }
@@ -56,7 +56,19 @@ router.post('/login', function(req,res){
 });
 
 router.get('/profile', function(req,res){
+  console.log(req.signedCookies.userID) 
+    var id = req.signedCookies.userID;
+    // knex.('users').innerJoin('accounts', 'users.id', 'accounts.user_id')
+    knex.select('*').from('reservations').leftOuterJoin('users', 'reservations.id', 'users.user_id').
+    where({user_id:id}).then(function(user){
+      if(!user){
+        res.redirect('/users/login');
+      } else {
+        console.log(user)
+        res.json(user);
+      }
+    });
+  });
 
-});
 
 module.exports = router;
