@@ -23,22 +23,23 @@
 				<fieldset>
 					<label for="qf-0q-localised-check-in"  style="font-size: 12pt;">rooms</label>
 					<!-- <input id="rooms" type="number" value="1"  name="numRoom" ng-model="Hotels.numRoom"></input> -->	
-					<select ng-model="Hotels.numRoom" style="width: 60px;">
-						<option value="1">1</option>
+					{{Hotel.numRoom}}
+					<select ng-model="Hotels.numRoom" style="width: 60px;" ng-options="num as num.name for num in hotelRoomOptions">
+						<!-- <option value="1">1</option>
 						<option value="2">2</option>
-						<option value="3">3</option>
+						<option value="3">3</option> -->
 					</select>
 					<label for="qf-0q-localised-check-in" style="font-size: 12pt;">Dog</label>
-					<select ng-model="Hotels.numDog" style="width: 60px;">
-						<option value="1">1</option>
+					<select ng-model="Hotels.numDog" style="width: 60px;" ng-options="num as num.name for num in hotelRoomOptions">
+<!-- 						<option value="1">1</option>
 						<option value="2">2</option>
-						<option value="3">3</option>
+						<option value="3">3</option> -->
 					</select>			
 					<label for="qf-0q-localised-check-in" style="font-size: 12pt;">Cat</label>
-					<select ng-model="Hotels.numCat" style="width: 60px;">
-						<option value="1">1</option>
+					<select ng-model="Hotels.numCat" style="width: 60px;" ng-options="num.value as num.name for num in hotelRoomOptions">
+						<!-- <option value="1">1</option>
 						<option value="2">2</option>
-						<option value="3">3</option>
+						<option value="3">3</option> -->
 					</select>	
 					<!-- <input id="rooms" type="number" value="1" min="1" max="5"  name="numDog" ng-model="Hotels.numDog"></input> -->
 				</fieldset>		

@@ -59,12 +59,13 @@ router.get('/profile', function(req,res){
   console.log(req.signedCookies.userID) 
     var id = req.signedCookies.userID;
     // knex.('users').innerJoin('accounts', 'users.id', 'accounts.user_id')
-    knex.select('*').from('reservations').leftOuterJoin('users', 'reservations.id', 'users.user_id').
+    knex.select('*').from('reservations').leftOuterJoin('users', 'reservations.user_id', '=', 'users.id').
     where({user_id:id}).then(function(user){
+      console.log(user,"user");
       if(!user){
         res.redirect('/users/login');
       } else {
-        console.log(user)
+        
         res.json(user);
       }
     });

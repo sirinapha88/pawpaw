@@ -69,7 +69,7 @@
 			      	<p>{{detail.phone}}</p>
 			      	<p>Check in: {{cusRequest.checkin | date:'yyyy-MM-dd'}}</p>
 			      	<p>Check out: {{cusRequest.checkout | date:'yyyy-MM-dd'}}</p>
-			      	<p>{{cusRequest.numRoom}} {{detail.room_Rate.room_detail[0].room_type}} </p>
+			      	<p>{{cusRequest.numRoom.value}} {{detail.room_Rate.room_detail[0].room_type}} For: {{cusRequest.numDog.value}} Dog</p>
 			      	<div style="display:inline-block"; >
 			      		<p>Total to pay: </p>
 			      	</div>
@@ -77,6 +77,9 @@
 			      		<h3> {{detail.room_Rate.room_detail[0].rate.oneSize | currency:undefined:0}}</h3>
 			      	</div>
 			    </div>
+			    <div ng-controller="Example">
+			        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+				</div>
 			</div>
 	  	</div>
 	</div>

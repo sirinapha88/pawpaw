@@ -2,6 +2,17 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
     $scope.cart = [];
     $scope.request = [];
 
+    $scope.hotelRoomOptions = [
+        {name: 1,value: 1},
+        {name: 2,value: 2},
+        {name: 3,value: 3}
+    ];
+    $scope.Hotels = {};
+    $scope.Hotels.numRoom = $scope.hotelRoomOptions[0];
+    $scope.Hotels.numDog = $scope.hotelRoomOptions[0];
+    $scope.Hotels.numCat = $scope.hotelRoomOptions[0];
+    console.log($scope.Hotels);
+
 	$scope.searchHotel = function(query) {
         var city = query.city.split(',');
         requestService.request.push(query);
@@ -77,7 +88,6 @@ function getPhoto(photos){
 
 function getDetail(details){
     var detail = details.split(/[.,]+/);
-    console.log(detail)
     return detail;
 }
 
@@ -129,6 +139,7 @@ app.animation('.slide-animation', function () {
 
 app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
+    console.log(requestService.request[0])
     $scope.cusRequest = requestService.request[0];
     $scope.User = {};
     
@@ -145,6 +156,19 @@ app.controller("BookingCtrl", function($scope,cartService, requestService,$rootS
                 $scope.errorMessage = err;
             });
     }
+});
+
+app.controller("Example", function($scope, cartService) {
+    var address = cartService.cart[1];
+    console.log("in example")
+    console.log(address)
+    $scope.map = {
+        center: {
+                latitude: address[0].latitude,
+                longitude: address[0].longitude
+        },
+        zoom: 8
+    };
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {

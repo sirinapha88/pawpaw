@@ -1,4 +1,4 @@
-var app = angular.module("pawpawHotel", ["ngRoute", "ngResource","ngAutocomplete","ngAnimate"]);
+var app = angular.module("pawpawHotel", ["ngRoute", "ngResource","ngAutocomplete","ngAnimate","uiGmapgoogle-maps"]);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider){
 	$routeProvider

@@ -49,6 +49,9 @@ td {
 .module content {
     padding: -20px 0;
 }
+.angular-google-map-container {
+        height: 300px;
+}
 
 /*#sort{ 
   background-color: #fff;
