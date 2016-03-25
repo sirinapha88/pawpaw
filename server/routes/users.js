@@ -58,8 +58,7 @@ router.post('/login', function(req,res){
 router.get('/profile', function(req,res){
   console.log(req.signedCookies.userID) 
     var id = req.signedCookies.userID;
-    // knex.('users').innerJoin('accounts', 'users.id', 'accounts.user_id')
-    knex.select('*').from('reservations')
+    knex.select('*','users.name','hotels.name AS hotelName').from('reservations')
     .leftOuterJoin('users', 'reservations.user_id', '=', 'users.id')
     .leftOuterJoin('hotels','reservations.hotel_id', '=', 'hotels.id')
     .where({user_id:id}).then(function(user){

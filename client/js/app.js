@@ -32,7 +32,7 @@ app.config(function($routeProvider, $locationProvider, $httpProvider){
 	})
 	.when("/profile", {
 		templateUrl: "client/views/templates/profile.html",
-		controller: "LoginCtrl"
+		controller: "ProfileCtrl"
 	})
 	
 });

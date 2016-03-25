@@ -1,6 +1,7 @@
-app.controller("Searching", function($scope,cartService,requestService, $rootScope, $routeParams, $http, $location){
+app.controller("Searching", function($scope,cartService,requestService, userService, $rootScope, $routeParams, $http, $location){
     $scope.cart = [];
     $scope.request = [];
+    $scope.details = userService.UserDetail[0];
 
     $scope.hotelRoomOptions = [
         {name: 1,value: 1},
@@ -11,7 +12,7 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
     $scope.Hotels.numRoom = $scope.hotelRoomOptions[0];
     $scope.Hotels.numDog = $scope.hotelRoomOptions[0];
     $scope.Hotels.numCat = $scope.hotelRoomOptions[0];
-    console.log($scope.Hotels);
+    
 
 	$scope.searchHotel = function(query) {
         var city = query.city.split(',');
@@ -22,6 +23,15 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
             $location.path('/Hotels');
 		})
     };
+
+    $scope.getProfile = function(){
+        $http.get("/profile/").success(function(data){  
+        // console.log("this is  from profile") 
+        // console.log(data);       
+            userService.cart.push(data);                
+        //     $location.path('/profile');
+        })
+    }
 });
 
 app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
@@ -125,7 +135,7 @@ app.animation('.slide-animation', function () {
 
 app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
-    console.log(requestService.request[0])
+    // console.log(requestService.request[0])
     $scope.cusRequest = requestService.request[0];
     $scope.User = {};
     
@@ -146,8 +156,6 @@ app.controller("BookingCtrl", function($scope,cartService, requestService,$rootS
 
 app.controller("Example", function($scope, cartService) {
     var address = cartService.cart[1];
-    console.log("in example")
-    console.log(address)
     $scope.map = {
         center: {
                 latitude: address[0].latitude,
@@ -171,7 +179,7 @@ app.controller('SignupCtrl', function ($scope, $http, $location) {
     $scope.register = function() {
         $http.post('/signup', $scope.User)
         	.success(function(data) {
-                console.log(data)
+                $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;
@@ -180,32 +188,46 @@ app.controller('SignupCtrl', function ($scope, $http, $location) {
     }
 });
 
-app.controller('LoginCtrl', function ($scope, $http, $location, userService) {
+app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, userService) {
     $scope.User = {};
     $scope.errorMessage = '';
-    $scope.UserDetail = [];
+    $scope.details = userService.UserDetail[0];
 
    	$scope.login = function() {
         $http.post('/login', $scope.User)
         	.success(function(data) {
                 userService.UserDetail.push(data)
-                console.log(userService)
+                $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;
             });
          $scope.isUserLoggedIn = true;   
     };
-    // $http.get("/profile/").success(function(data){  
-    // console.log("this is  from profile") 
-    //     console.log(data);       
-    //     //     userService.cart.push(data);                
-    //     //     $location.path('/profile');
-    //     })
+    
 });
 
-app.controller('NavCtrl', function($scope, $http, $location, userService){
+app.controller('ProfileCtrl', function($scope, $http, $location, userService){
+     $scope.details = userService.UserDetail[0];
+     
+});
+
+app.controller('NavCtrl', function($scope, $http, $location,userService){
+   
+    
     $scope.isUserLoggedIn = false;
+
+    $scope.$on('user-logged-in', function() {
+        console.log("HEARD LOG IN EVENT");
+        $scope.isUserLoggedIn = true;
+        console.log(userService.UserDetail[0])
+         $scope.details = userService.UserDetail[0];
+
+    });
+
+    $scope.$on('user-logged-out', function() {
+        $scope.isUserLoggedIn = false;        
+    });
 });
 
 
