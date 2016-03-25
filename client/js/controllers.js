@@ -22,10 +22,6 @@ app.controller("Searching", function($scope,cartService,requestService, $rootSco
             $location.path('/Hotels');
 		})
     };
-    // $http.get("/gHotel").success(function(data){
-    // 	console.log("this is from controller " + data);
-    // 	$scope.gHotels = data;
-    // });	
 });
 
 app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
