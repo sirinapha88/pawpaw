@@ -34,16 +34,16 @@ router.post('/hotel',function(req,res,next){
   knex("users").where('email', req.body.user.email).first().then(function(user){
     if(!user) {
       var hash = bcrypt.hashSync(req.body.user.password, 8);
-      knex("users").insert({
+      knex("users").returning('id').insert({
           name: req.body.user.name,
           phone: req.body.user.phone,
           email: req.body.user.email,
           password: hash
         },'id').then(function(id){
-          console.log(id);
+          console.log(id)
           knex("reservations").insert
             ({
-              user_id: req.body.user.id,
+              user_id: id[0],
               hotel_id: req.body.hotel[0].id,
               room_type: req.body.hotel[0].room_Rate.room_detail[0].room_type, 
               rate_paid: req.body.hotel[0].room_Rate.room_detail[0].rate.oneSize,
