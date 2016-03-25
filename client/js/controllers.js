@@ -87,51 +87,41 @@ function getDetail(details){
     return detail;
 }
 
-// function getDesc(desc){
-//      console.log(desc.length)
-//     var detail;
-//     for(var i = 0; i<desc.length; i++){
-//          detail = desc[i].room_Rate.room_detail[0].desc.split(/[.,]+/);
-//     }
-//     return detail;
-// }
-
 app.animation('.slide-animation', function () {
-        return {
-            beforeAddClass: function (element, className, done) {
-                var scope = element.scope();
+    return {
+        beforeAddClass: function (element, className, done) {
+            var scope = element.scope();
 
-                if (className == 'ng-hide') {
-                    var finishPoint = element.parent();
-                    if(scope.direction !== 'right') {
-                        finishPoint = -finishPoint;
-                    }
-                    TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
+            if (className == 'ng-hide') {
+                var finishPoint = element.parent();
+                if(scope.direction !== 'right') {
+                    finishPoint = -finishPoint;
                 }
-                else {
-                    done();
-                }
-            },
-            removeClass: function (element, className, done) {
-                var scope = element.scope();
-
-                if (className == 'ng-hide') {
-                    element.removeClass('ng-hide');
-
-                    var startPoint = element.parent();
-                    if(scope.direction === 'right') {
-                        startPoint = -startPoint;
-                    }
-
-                    TweenMax.fromTo(element, 0.5, { left: startPoint }, {left: 0, onComplete: done });
-                }
-                else {
-                    done();
-                }
+                TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
             }
-        };
-    });
+            else {
+                done();
+            }
+        },
+        removeClass: function (element, className, done) {
+            var scope = element.scope();
 
+            if (className == 'ng-hide') {
+                element.removeClass('ng-hide');
+
+                var startPoint = element.parent();
+                if(scope.direction === 'right') {
+                    startPoint = -startPoint;
+                }
+
+                TweenMax.fromTo(element, 0.5, { left: startPoint }, {left: 0, onComplete: done });
+            }
+            else {
+                done();
+            }
+        }
+    };
+});
 
 app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
@@ -165,6 +155,13 @@ app.controller("Example", function($scope, cartService) {
         },
         zoom: 8
     };
+    $scope.marker = [
+        {
+            idKey: 1,
+            latitude: 46.042356,
+            longitude: 14.487859
+        }
+    ];
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {
@@ -179,6 +176,7 @@ app.controller('SignupCtrl', function ($scope, $http, $location) {
             }).error(function(err) {
                 $scope.errorMessage = err;
             });
+            $scope.isUserLoggedIn = true;
     }
 });
 
@@ -190,10 +188,13 @@ app.controller('LoginCtrl', function ($scope, $http, $location, userService) {
    	$scope.login = function() {
         $http.post('/login', $scope.User)
         	.success(function(data) {
-                // $location.path('/profile');
+                userService.UserDetail.push(data)
+                console.log(userService)
+                $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;
             });
+         $scope.isUserLoggedIn = true;   
     };
     // $http.get("/profile/").success(function(data){  
     // console.log("this is  from profile") 
@@ -201,6 +202,10 @@ app.controller('LoginCtrl', function ($scope, $http, $location, userService) {
     //     //     userService.cart.push(data);                
     //     //     $location.path('/profile');
     //     })
+});
+
+app.controller('NavCtrl', function($scope, $http, $location, userService){
+    $scope.isUserLoggedIn = false;
 });
 
 
