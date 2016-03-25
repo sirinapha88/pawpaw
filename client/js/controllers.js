@@ -212,7 +212,7 @@ app.controller('ProfileCtrl', function($scope, $http, $location, userService){
      
 });
 
-app.controller('NavCtrl', function($scope, $http, $location,userService){
+app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userService){
    
     
     $scope.isUserLoggedIn = false;
@@ -228,6 +228,10 @@ app.controller('NavCtrl', function($scope, $http, $location,userService){
     $scope.$on('user-logged-out', function() {
         $scope.isUserLoggedIn = false;        
     });
+    $scope.logout = function(){
+        $rootScope.$broadcast('user-logged-out');
+        $location.path('/');
+    }
 });
 
 

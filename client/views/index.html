@@ -21,7 +21,7 @@
           	<ul class='nav navbar-nav navbar-right' ng-controller="NavCtrl">
               	<li><a ng-href="/#/login" class='loginButton' ng-show="!isUserLoggedIn"><strong>Sign in</strong></a>
               	<li><a ng-href="/#/profile" ng-show="isUserLoggedIn"><strong>{{details[0].name}}</strong></a>
-              	<li><a ng-href="/#/logout" ng-show="isUserLoggedIn"><strong>Log out</strong></a>
+              	<li><a ng-click="logout()" ng-show="isUserLoggedIn"><strong>Log out</strong></a>
               	<li><a ng-href="/#/signup" class='loginButton' ng-show="!isUserLoggedIn"><strong>Sign up</strong></a></li>
             </ul>
         </div>
