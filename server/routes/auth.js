@@ -21,7 +21,9 @@ router.get('/facebook/callback',
 );
 
 router.get('/logout', function(req, res){
-  res.clearCookie('userID');
+	console.log("in logout ")
+	console.log(res.clearCookie)
+  res.clearCookie('id');
   res.redirect('/');
 });
 

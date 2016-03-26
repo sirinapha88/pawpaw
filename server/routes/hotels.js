@@ -47,7 +47,7 @@ router.post('/hotel',function(req,res,next){
               hotel_id: req.body.hotel[0].id,
               room_type: req.body.hotel[0].room_Rate.room_detail[0].room_type, 
               rate_paid: req.body.hotel[0].room_Rate.room_detail[0].rate.oneSize,
-              pet_type: req.body.request.numDog,
+              pet_type: req.body.request.numDog.value,
               checkin: req.body.request.checkin,
               checkout: req.body.request.checkout,
             }).catch(function(error) {
@@ -56,6 +56,7 @@ router.post('/hotel',function(req,res,next){
             })
           })
     } else {
+      console.log("About to create reservation")
       console.log(req.body)
       knex("reservations").insert
       ({
@@ -63,10 +64,13 @@ router.post('/hotel',function(req,res,next){
         hotel_id: req.body.hotel[0].id,
         room_type: req.body.hotel[0].room_Rate.room_detail[0].room_type, 
         rate_paid: req.body.hotel[0].room_Rate.room_detail[0].rate.oneSize,
-        pet_type: req.body.request.numDog,
+        pet_type: req.body.request.numDog.value,
         checkin: req.body.request.checkin,
         checkout: req.body.request.checkout,
-      })
+      }).catch(function(error) {
+             console.log("err")
+             console.log(error)
+       })
     }
   }).then(function(){
     res.redirect('/#/complete');

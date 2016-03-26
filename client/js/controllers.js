@@ -133,7 +133,7 @@ app.animation('.slide-animation', function () {
     };
 });
 
-app.controller("BookingCtrl", function($scope,cartService, requestService,$rootScope, $routeParams, $http, $location){
+app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestService,userService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
     // console.log(requestService.request[0])
     $scope.cusRequest = requestService.request[0];
@@ -147,6 +147,9 @@ app.controller("BookingCtrl", function($scope,cartService, requestService,$rootS
         }
         $http.post('/search/hotel', postData)
             .success(function(data) {
+                userService.UserDetail.push($scope.User)
+                console.log(userService)
+                $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
             }).error(function(err) {
                 $scope.errorMessage = err;
@@ -199,10 +202,11 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
                 userService.UserDetail.push(data)
                 $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
+                $route.reload();
             }).error(function(err) {
                 $scope.errorMessage = err;
             });
-         $scope.isUserLoggedIn = true;   
+         $scope.isUserLoggedIn = false;   
     };
     
 });
@@ -222,7 +226,6 @@ app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userServ
         $scope.isUserLoggedIn = true;
         console.log(userService.UserDetail[0])
          $scope.details = userService.UserDetail[0];
-
     });
 
     $scope.$on('user-logged-out', function() {
@@ -230,7 +233,9 @@ app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userServ
     });
     $scope.logout = function(){
         $rootScope.$broadcast('user-logged-out');
-        $location.path('/');
+        $http.get('/auth/logout').success(function(data){
+            $location.path('/');
+        })
     }
 });
 
