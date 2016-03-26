@@ -77,9 +77,9 @@
 			      	</div>
 			    </div>
 			    <div ng-controller="Example">
-			        <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-			        <ui-gmap-markers models="marker" coords="'self'" icon="'icon'" idKey="'idKey'"></ui-gmap-markers>
-        			
+			        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+			        <ui-gmap-marker  coords="marker.coords" idKey="marker.idKey"></ui-gmap-marker>
+        			</ui-gmap-google-map>
 				</div>
 			</div>
 	  	</div>

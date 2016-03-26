@@ -13,39 +13,31 @@ app.controller("Searching", function($scope,cartService,requestService, userServ
     $scope.Hotels.numDog = $scope.hotelRoomOptions[0];
     $scope.Hotels.numCat = $scope.hotelRoomOptions[0];
     
-
 	$scope.searchHotel = function(query) {
         var city = query.city.split(',');
         requestService.request.push(query);
 		$http.get("/search/" + city).success(function(data){   
-        // console.log(data);       
             cartService.cart.push(data);				
             $location.path('/Hotels');
 		})
     };
 
     $scope.getProfile = function(){
-        $http.get("/profile/").success(function(data){  
-        // console.log("this is  from profile") 
-        // console.log(data);       
+        $http.get("/profile/").success(function(data){    
             userService.cart.push(data);                
-        //     $location.path('/profile');
         })
     }
 });
 
 app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
     $scope.hotels = cartService.cart[0];
-    // var descToSpit = getDesc(cartService.cart[0])
     $location.path('/Hotels');
     $scope.hotelDetail = [];
-    // $scope.hotelDesc = descToSpit;
     
     $scope.getHotel = function(id){
         $http.get("/search/hotel/" + id).success(function(data){
             cartService.cart.push(data);
-            // console.log(cartService.cart)
-             $location.path('/hotel/:' + id);
+            $location.path('/hotel/:' + id);
         })      
     };
 });
@@ -57,27 +49,27 @@ app.controller("HotelDetail", function($scope,cartService,$rootScope, $routePara
     $scope.slides = images;
     $scope.displayDetail = detailToSplit;
 
-     $scope.direction = 'left';
-        $scope.currentIndex = 0;
+    $scope.direction = 'left';
+    $scope.currentIndex = 0;
 
-        $scope.setCurrentSlideIndex = function (index) {
-            $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
-            $scope.currentIndex = index;
-        };
+    $scope.setCurrentSlideIndex = function (index) {
+        $scope.direction = (index > $scope.currentIndex) ? 'left' : 'right';
+        $scope.currentIndex = index;
+    };
 
-        $scope.isCurrentSlideIndex = function (index) {
-            return $scope.currentIndex === index;
-        };
+    $scope.isCurrentSlideIndex = function (index) {
+        return $scope.currentIndex === index;
+    };
 
-        $scope.prevSlide = function () {
-            $scope.direction = 'left';
-            $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
-        };
+    $scope.prevSlide = function () {
+        $scope.direction = 'left';
+        $scope.currentIndex = ($scope.currentIndex < $scope.slides.length - 1) ? ++$scope.currentIndex : 0;
+    };
 
-        $scope.nextSlide = function () {
-            $scope.direction = 'right';
-            $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
-        };
+    $scope.nextSlide = function () {
+        $scope.direction = 'right';
+        $scope.currentIndex = ($scope.currentIndex > 0) ? --$scope.currentIndex : $scope.slides.length - 1;
+    };
     
     $scope.booked = function(id){
         $location.path('/booking');
@@ -135,7 +127,6 @@ app.animation('.slide-animation', function () {
 
 app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestService,userService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
-    // console.log(requestService.request[0])
     $scope.cusRequest = requestService.request[0];
     $scope.User = {};
     
@@ -164,15 +155,15 @@ app.controller("Example", function($scope, cartService) {
                 latitude: address[0].latitude,
                 longitude: address[0].longitude
         },
-        zoom: 8
+        zoom: 13
     };
-    $scope.marker = [
-        {
-            idKey: 1,
-            latitude: 46.042356,
-            longitude: 14.487859
-        }
-    ];
+    $scope.marker = {
+        coords: {
+            latitude: address[0].latitude,
+            longitude: address[0].longitude
+        },
+           idKey: 1   
+        }; 
 });
 
 app.controller('SignupCtrl', function ($scope, $http, $location) {
@@ -208,7 +199,6 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
             });
          $scope.isUserLoggedIn = false;   
     };
-    
 });
 
 app.controller('ProfileCtrl', function($scope, $http, $location, userService){
@@ -217,8 +207,6 @@ app.controller('ProfileCtrl', function($scope, $http, $location, userService){
 });
 
 app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userService){
-   
-    
     $scope.isUserLoggedIn = false;
 
     $scope.$on('user-logged-in', function() {

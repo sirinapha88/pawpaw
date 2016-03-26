@@ -51,16 +51,15 @@ router.post('/hotel',function(req,res,next){
               checkin: req.body.request.checkin,
               checkout: req.body.request.checkout,
             }).catch(function(error) {
-             console.log("err")
-             console.log(error)
+                console.log("err")
+                console.log(error)
             })
           })
     } else {
-      console.log("About to create reservation")
-      console.log(req.body)
+      console.log(user)
       knex("reservations").insert
       ({
-        user_id: req.body.user.id,
+        user_id: user.id,
         hotel_id: req.body.hotel[0].id,
         room_type: req.body.hotel[0].room_Rate.room_detail[0].room_type, 
         rate_paid: req.body.hotel[0].room_Rate.room_detail[0].rate.oneSize,
@@ -68,12 +67,12 @@ router.post('/hotel',function(req,res,next){
         checkin: req.body.request.checkin,
         checkout: req.body.request.checkout,
       }).catch(function(error) {
-             console.log("err")
-             console.log(error)
+          console.log("err")
+          console.log(error)
        })
     }
   }).then(function(){
-    res.redirect('/#/complete');
+    res.redirect('/');
   });
 });
 
