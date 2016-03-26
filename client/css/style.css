@@ -116,7 +116,7 @@ select{
     padding-top: 2px;
     padding-bottom: 2px;
 }
-.loginButton{
+#loginButton{
     color: white;
     font-size: 15px;
     margin-top: 42%;
