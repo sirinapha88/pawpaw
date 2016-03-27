@@ -6,7 +6,7 @@
 			<form >
 				<fieldset>
 				<div>
-		      		<input class="form-control fa fa-map-marker" name="city" placeholder="Enter your address" type="text" ng-autocomplete="Hotels.city"></input>
+		      		<input class="form-control fa fa-map-marker" name="city" placeholder="Enter your address" type="text" ng-autocomplete="Hotels.city" required autofocus></input>
 				</div>
 
 					<label for="qf-0q-destination">Destination, hotel, landmark or address</label>
@@ -14,9 +14,9 @@
 				<fieldset>
 					<div class="form-inline" role="form">
 						<label for="qf-0q-localised-check-in" style="font-size: 12pt;">Check in</label>
-		                <input type='date' class="date form-control fa fa-calendar-o" name="checkin" ng-model="Hotels.checkin" placeholder="MM/DD/YYYY"/>
+		                <input type='date' class="date form-control fa fa-calendar-o" name="checkin" ng-model="Hotels.checkin" placeholder="MM/DD/YYYY"/ required autofocus>
 						<label for="qf-0q-localised-check-in" style="font-size: 12pt;">Check out</label>
-		                <input type='date' class="date form-control fa fa-calendar-o" name="checkout" ng-model="Hotels.checkout" placeholder="MM/DD/YYYY"/>            
+		                <input type='date' class="date form-control fa fa-calendar-o" name="checkout" ng-model="Hotels.checkout" placeholder="MM/DD/YYYY"/ required autofocus>            
 		            </div>
 		    	</fieldset>
 				<fieldset>

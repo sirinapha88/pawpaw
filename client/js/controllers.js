@@ -27,6 +27,11 @@ app.controller("HotelList",function($scope,cartService, $rootScope, $routeParams
     $scope.hotels = cartService.cart[0];
     $location.path('/Hotels');
     $scope.hotelDetail = [];
+    $scope.order = 'price';
+    
+    $scope.active = function(x) {
+        return x == $scope.order ? 'active' : '';
+    }
     
     $scope.getHotel = function(id){
         $http.get("/search/hotel/" + id).success(function(data){

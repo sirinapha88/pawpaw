@@ -146,7 +146,7 @@ title{
 
 .widget-query{
     background: rgb(211,211,211); /* The Fallback */
-    background: rgba(211,211,211, 0.3); 
+    background: rgba(211,211,211, 0.5); 
     box-shadow: 0 0 12px 5px grey;
     min-width: 600px !important;
     max-width: 600px;
@@ -189,10 +189,36 @@ input{
 #mainImg{
     width: 1150px;
 }
-/*#navbar{
-    margin-bottom: 0px;
-}*/
 
+.listHotel{
+  width: 80%;
+  margin-left: 300px;
+}
+
+.hotelRow{
+  /*border: 2px ridge;*/
+  margin-top: 20px;
+}
+.fixImage{
+  position : fixed; 
+  padding: 5px 0 0 5px; 
+  height: 250px; 
+  width: 200px;
+  margin-left: 40px;
+  background-color: white;
+  border: none;
+}
+.btn-group button{
+  height: 50px;
+  /*background-color: white;*/
+  color: green;
+  font-weight: 600;
+}
+#tools-menu{
+  margin-bottom: -15px; 
+  margin-top: 5px;
+  width: 101%;
+}
 #eventName {
   width: 400px;
   height: 38px;
@@ -215,6 +241,8 @@ input{
 div.thumbnail {
   float: left;
 }
+
+
 
 #Logo {
   height: 45.5px;
