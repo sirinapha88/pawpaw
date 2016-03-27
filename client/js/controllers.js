@@ -21,12 +21,6 @@ app.controller("Searching", function($scope,cartService,requestService, userServ
             $location.path('/Hotels');
 		})
     };
-
-    $scope.getProfile = function(){
-        $http.get("/profile/").success(function(data){    
-            userService.cart.push(data);                
-        })
-    }
 });
 
 app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
@@ -138,8 +132,6 @@ app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestSer
         }
         $http.post('/search/hotel', postData)
             .success(function(data) {
-                userService.UserDetail.push($scope.User)
-                console.log(userService)
                 $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
             }).error(function(err) {
@@ -193,7 +185,7 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
                 userService.UserDetail.push(data)
                 $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
-                $route.reload();
+                // $route.reload();
             }).error(function(err) {
                 $scope.errorMessage = err;
             });
@@ -202,18 +194,20 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
 });
 
 app.controller('ProfileCtrl', function($scope, $http, $location, userService){
+    console.log("This is from ProfileCtrl")
+    console.log(userService.UserDetail[0])
      $scope.details = userService.UserDetail[0];
      
 });
 
-app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userService){
+app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userService,requestService){
     $scope.isUserLoggedIn = false;
+    $scope.request = [];
 
     $scope.$on('user-logged-in', function() {
         console.log("HEARD LOG IN EVENT");
-        $scope.isUserLoggedIn = true;
-        console.log(userService.UserDetail[0])
-         $scope.details = userService.UserDetail[0];
+        $scope.isUserLoggedIn = true;      
+        $scope.details = userService.UserDetail[0];
     });
 
     $scope.$on('user-logged-out', function() {
@@ -223,6 +217,12 @@ app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userServ
         $rootScope.$broadcast('user-logged-out');
         $http.get('/auth/logout').success(function(data){
             $location.path('/');
+        })
+    }
+
+    $scope.getProfile = function(){
+        $http.get("/profile/").success(function(data){    
+            $location.path('/profile');              
         })
     }
 });

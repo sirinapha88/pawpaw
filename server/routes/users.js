@@ -44,7 +44,7 @@ router.post('/login', function(req,res){
       //bcrypt.compareSync will hash the plain text password and compare
       if(bcrypt.compareSync(req.body.password, user.password)) {
         res.cookie('userID', user.id, { signed: true });
-        res.redirect('/profile');
+        res.json(user);
       } else {
         res.redirect('/profile?error=Invalid Email or Password.');
       }
@@ -65,7 +65,8 @@ router.get('/profile', function(req,res){
       console.log(user,"user");
       if(!user){
         res.redirect('/users/login');
-      } else {        
+      } else {  
+        console.log(user)      
         res.json(user);
       }
     });

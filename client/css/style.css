@@ -3,7 +3,7 @@ body {
   background: white;  
   color: #4e4e4e;
   line-height: 135%;
-  font-family: arial,helvetica,sans-serif;
+  font-family: helvetica;
 }
 
 .navbar {
@@ -52,26 +52,6 @@ td {
 .angular-google-map-container {
         height: 300px;
 }
-
-/*#sort{ 
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 10px;
-  padding: 10px 0;
-  position: relative;
-  z-index: 2;
-}
-#basic-sort {
-    display: block;
-}
-.offscreen {
-    position: absolute;
-    left: -999em;
-}
-#basic-sort select {
-    width: 100%;
-}
-*/
 
 select{
   border: 1px solid #ccc;
@@ -137,7 +117,7 @@ select{
     
 }
 
-.widget-carousel-title-1{
+/*.widget-carousel-title-1{
     display: block!important;
     font-size: 26px;
     font-weight: normal;
@@ -146,7 +126,7 @@ select{
     padding: 0px 8px 12px;
     color: #4e4e4e;
     line-height: 30px;
-}
+}*/
 title{
    text-align: center;
    display: block;
@@ -154,40 +134,43 @@ title{
 }
 
 .widget-query{
-    background-color: opacity 0.4;
+    background: rgb(211,211,211); /* The Fallback */
+    background: rgba(211,211,211, 0.3); 
     box-shadow: 0 0 12px 5px white;
-    /*min-width: 300px !important;*/
-    max-width: 1000px;
+    min-width: 500px !important;
+    max-width: 500px;
     outline: none;
-    color: white;
     position: relative;
     top: 250px;
-    margin-left: 10%;
+    margin-left: 900px;
     padding-top: 10px;
     padding-bottom: 10px;
    
 }
 .cont {
-    background-color: #f5f4f0;
     border-radius: 4px;
     border: 1px solid #ccc;
 
 }
 
-.widget-query fieldset {
+.widget-query fieldset,h1 {
     border-bottom: 1px solid #ccc;
     border-color: black;
+    color: black;
     box-shadow: 0 1px #f5f4f0;
     padding: 7px 15px 6px;
     position: relative;
 }
 
- .hotel-wrap {
+ /*.hotel-wrap {
     border: 3px solid #fff;
     border-radius: 4px;
     box-shadow: 0px 1px 0 #ccc;
     position: relative;
 
+}*/
+input{
+  background-color: white;
 }
 
 
@@ -222,7 +205,7 @@ div.thumbnail {
 }
 
 #Logo {
-  height: 43.5px;
+  height: 45.5px;
 }
 
 div.thumbnail > img {
