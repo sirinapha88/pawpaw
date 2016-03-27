@@ -1,20 +1,20 @@
+// This service for all the hotels list that will display in Hotels.htmls
 app.service('cartService', function(){
   	return {
     	cart: []
   	};
 });
-
+// This service from the form that user's looking for hotel.
 app.service('requestService', function(){
     return {
       request: []
     };
 });
 
-
-app.service('hotelService', function(){
-  	return {
-    	hotelDetail: []
-  	};
+app.service('userService',function(){
+  return{
+    UserDetail:[]
+  }
 });
 
 app.service('loginService', function ($location,$http) {
@@ -27,8 +27,3 @@ app.service('loginService', function ($location,$http) {
         }   
 });
 
-app.service('userService',function(){
-  return{
-    UserDetail:[]
-  }
-})

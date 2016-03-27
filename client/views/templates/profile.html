@@ -1,25 +1,30 @@
-<div class="container-fluid" >
-	<div class="description-hotel well" ng-repeat="detail in details">		
-		<h3 class="p-name">
-			<a href="" style="margin-left: 20px;">{{detail.hotelName}}</a>
-		</h3>  			
-    			<div ng-show="{{detail.rating}} < 4" style="margin-top: 10px; margin-left: 15px;">
-					<img ng-src="https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png">
-				</div>
-				<div ng-show="{{detail.rating}} == 4" style="margin-top: 10px; margin-left: 15px;">
-					<img ng-src="https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png">
-				</div>
-				<div ng-show="{{detail.rating}} > 4 && {{detail.rating}} < 5" style="margin-top: 10px; margin-left: 15px;">
-					<img ng-src="https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png">
-				</div>
-				<div ng-show="{{detail.rating}} == 5" style="margin-top: 10px; margin-left: 15px;">
-					<img ng-src="https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png">
-				</div>
-		<p style="margin-left: 20px;">{{detail.address}}, {{detail.city}}, {{detail.zipcode}}&nbsp; Tel: {{detail.phone}}</p>
-			<img ng-src="{{detail.imgURL.photos[0]}}" style="width:800px; height:500px; margin-bottom: 20px;">
-			<p>Check in: {{detail.checkin | date:'yyyy-MM-dd'}} Check out: {{detail.checkout | date:'yyyy-MM-dd'}}</p>
-			<p>Room: {{detail.room_type}}</p>
-	
+<div class="container-fluid" style="margin-top: 10px;">
+	<div class="row" ng-repeat="detail in details">
+  		<div class="col-md-6 well">
+  			<img ng-src="{{detail.imgURL.photos[0]}}" style="width:700px; height:400px; margin-bottom: 20px;">
+  		</div>
+		<div class="col-md-6">
+	  		<h3 class="p-name">
+				<a href="" style="margin-left: 20px;">{{detail.hotelName}}</a>
+			 			
+			<div ng-show="{{detail.rating}} < 4" style="display: inline;">
+				<img ng-src="https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png">
 			</div>
-		</div>			
+			<div ng-show="{{detail.rating}} == 4" style="display: inline;">
+				<img ng-src="https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png">
+			</div>
+			<div ng-show="{{detail.rating}} > 4 && {{detail.rating}} < 5" style="display: inline;">
+				<img ng-src="https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png">
+			</div>
+			</h3> 
+			<div ng-show="{{detail.rating}} == 5" style="display: inline;">
+				<img ng-src="https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png">
+			</div>
+			<p style="margin-left: 20px;">{{detail.address}}, {{detail.city}}, {{detail.zipcode}}&nbsp; Tel: {{detail.phone}}</p>
+			<p style="margin-left: 20px;">Check in date: {{detail.checkin | date:'yyyy-MM-dd'}} </p>
+			<p style="margin-left: 20px;">Check out date: {{detail.checkout | date:'yyyy-MM-dd'}}</p>
+			<p style="margin-left: 20px;">Room details: {{detail.room_type}}</p>
+	  </div>
+	</div>
+</div>
 

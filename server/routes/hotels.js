@@ -31,15 +31,21 @@ router.get('/hotel/:id', function(req, res) {
 });
 
 router.post('/hotel',function(req,res,next){
+  var payload = [];
   knex("users").where('email', req.body.user.email).first().then(function(user){
     if(!user) {
       var hash = bcrypt.hashSync(req.body.user.password, 8);
+      // currentUser = req.body.user;
       knex("users").returning('*').insert({
           name: req.body.user.name,
           phone: req.body.user.phone,
           email: req.body.user.email,
+          zipcode: req.body.user.zipcode,
           password: hash
         },'*').then(function(user){
+          res.cookie('userID', user[0].id, { signed: true });
+          res.json(user[0]);
+
           knex("reservations").insert
             ({
               user_id: user[0].id,
@@ -53,10 +59,14 @@ router.post('/hotel',function(req,res,next){
                 console.log("err")
                 console.log(error)
             })
-            // console.log(user)
+
+            console.log("Booking new User is:")
+
           })
           console.log("created new user")
     } else {
+      res.json(user)
+      console.log("Booking: User found and value is")
       console.log(user)
       knex("reservations").insert
       ({
@@ -71,11 +81,11 @@ router.post('/hotel',function(req,res,next){
           console.log("err")
           console.log(error)
        })
-      console.log("found the existing user")
-      console.log(user)
-      res.json(user)
     }
-  });
+  })
+  console.log("Done saving, returning json")
+  //console.log(payload)
+  //res.send(payload)
 });
 
 module.exports = router;

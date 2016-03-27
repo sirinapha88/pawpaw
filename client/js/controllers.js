@@ -23,7 +23,7 @@ app.controller("Searching", function($scope,cartService,requestService, userServ
     };
 });
 
-app.controller("HotelList",function($scope,cartService,hotelService, $rootScope, $routeParams, $http, $location){
+app.controller("HotelList",function($scope,cartService, $rootScope, $routeParams, $http, $location){
     $scope.hotels = cartService.cart[0];
     $location.path('/Hotels');
     $scope.hotelDetail = [];
@@ -122,7 +122,9 @@ app.animation('.slide-animation', function () {
 app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestService,userService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
     $scope.cusRequest = requestService.request[0];
-    $scope.User = {};
+    $scope.User = userService.UserDetail[0];
+    // $scope.User = {};
+
     
     $scope.placeOrder = function(hotel){
         var postData = {
@@ -132,6 +134,9 @@ app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestSer
         }
         $http.post('/search/hotel', postData)
             .success(function(data) {
+                console.log("in bookingCtrl")
+                console.log(data)
+                userService.UserDetail.push(data);
                 $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
             }).error(function(err) {
@@ -140,7 +145,8 @@ app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestSer
     }
 });
 
-app.controller("Example", function($scope, cartService) {
+// This controller for google map
+app.controller("MapCtrl", function($scope, cartService) {
     var address = cartService.cart[1];
     $scope.map = {
         center: {
@@ -195,14 +201,16 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
 
 app.controller('ProfileCtrl', function($scope, $http, $location, userService){
     console.log("This is from ProfileCtrl")
-    console.log(userService.UserDetail[0])
-     $scope.details = userService.UserDetail[0];
+    console.log(userService.UserDetail)
+     $scope.details = userService.UserDetail[1];
      
 });
 
 app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userService,requestService){
     $scope.isUserLoggedIn = false;
     $scope.request = [];
+    $scope.UserDetail = [];
+    $scope.details = userService.UserDetail[1];
 
     $scope.$on('user-logged-in', function() {
         console.log("HEARD LOG IN EVENT");
@@ -213,15 +221,20 @@ app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userServ
     $scope.$on('user-logged-out', function() {
         $scope.isUserLoggedIn = false;        
     });
+
     $scope.logout = function(){
         $rootScope.$broadcast('user-logged-out');
         $http.get('/auth/logout').success(function(data){
             $location.path('/');
         })
+         userService.UserDetail = [];
     }
 
     $scope.getProfile = function(){
-        $http.get("/profile/").success(function(data){    
+        $http.get("/profile/").success(function(data){  
+            console.log("this from getprofile") 
+            console.log(data)
+            userService.UserDetail.push(data);
             $location.path('/profile');              
         })
     }
