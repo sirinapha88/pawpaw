@@ -10,6 +10,7 @@ var User = function(){
 
 router.get('/facebook',
 	passport.authenticate('facebook'), function(req, res){
+		console.log("in Facebook")
 		console.log(res);
 });
 

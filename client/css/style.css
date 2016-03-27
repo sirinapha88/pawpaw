@@ -74,6 +74,10 @@ select{
 #signup-form {
   height: 700px;
 }
+ #booking {
+  height: 700px;
+}
+
 
 .container-fluid {
   margin: 0 8%;
@@ -96,7 +100,14 @@ select{
     padding-top: 2px;
     padding-bottom: 2px;
 }
-#loginButton{
+.loginButton{
+    color: white;
+    font-size: 15px;
+    margin-top: 42%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#logoutButton{
     color: white;
     font-size: 15px;
     margin-top: 42%;
@@ -136,13 +147,14 @@ title{
 .widget-query{
     background: rgb(211,211,211); /* The Fallback */
     background: rgba(211,211,211, 0.3); 
-    box-shadow: 0 0 12px 5px white;
-    min-width: 500px !important;
-    max-width: 500px;
+    box-shadow: 0 0 12px 5px grey;
+    min-width: 600px !important;
+    max-width: 600px;
     outline: none;
     position: relative;
     top: 250px;
-    margin-left: 900px;
+    margin-left: 850px;
+    margin-top: 80px;
     padding-top: 10px;
     padding-bottom: 10px;
    
@@ -177,9 +189,9 @@ input{
 #mainImg{
     width: 1150px;
 }
-#navbar{
+/*#navbar{
     margin-bottom: 0px;
-}
+}*/
 
 #eventName {
   width: 400px;

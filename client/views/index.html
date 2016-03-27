@@ -19,10 +19,10 @@
     		</div>
               
           	<ul class='nav navbar-nav navbar-right' ng-controller="NavCtrl">
-              	<li><a ng-href="/#/login" id='loginButton' ng-show="!isUserLoggedIn"><strong>Sign in</strong></a>
-              	<li><a ng-click="getProfile()" ng-show="isUserLoggedIn"><strong>{{details.name}}</strong></a>
-              	<li><a ng-click="logout()" ng-show="isUserLoggedIn"><strong>Log out</strong></a>
-              	<li><a ng-href="/#/signup" id='loginButton' ng-show="!isUserLoggedIn"><strong>Sign up</strong></a></li>
+              	<li><a ng-href="/#/login" class='loginButton' ng-show="!isUserLoggedIn"><strong>Sign in</strong></a>
+              	<li><a ng-click="getProfile()" class='loginButton' ng-show="isUserLoggedIn"><strong>{{details.name}}</strong></a>
+              	<li><a ng-click="logout()" id="logoutButton" ng-show="isUserLoggedIn"><strong>Log out</strong></a>
+              	<li><a ng-href="/#/signup" class='loginButton' ng-show="!isUserLoggedIn"><strong>Sign up</strong></a></li>
             </ul>
         </div>
     </nav>
