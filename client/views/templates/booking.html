@@ -1,8 +1,8 @@
-<div class="container-fluid">
+<div class="container-fluid" style="width: 100%;">
 	<div class="row">
-	  	<div class="col-xs-12 col-sm-6 col-md-8">
+	  	<div class="col-md-6">
 	  		<fieldset class="login-module" style="margin-top: 20px; margin-bottom: 20px;">
-	  			<a href="/#/login" >Sign in to book faster <span class="icon icon-expand" aria-hidden="true"></span></a>
+	  			<a href="/#/login" >Sign in to book faster <span class="icon icon-expand" aria-hidden="true" ></span></a>
 	  		</fieldset>
 	  		<form method='post'>
 		  		<div class="form-group">
@@ -41,7 +41,7 @@
 					<fieldset>
 						<label for="code" >Security code</label>
 						<input id="rooms" type="text" name="code" style="width: 40px;"ng-model="User.code"></input>
-						<label for="qf-0q-localised-check-in" >Expiration date*</label>
+						<label for="qf-0q-localised-check-in" required>Expiration date*</label>
 						
 						<select>
 							<option class="service-small">Month</option>
@@ -58,7 +58,7 @@
 			    </div>
 		    </form>
 	  	</div>
-	  	<div class="col-xs-6 col-md-4" ng-repeat="detail in details">
+	  	<div class="col-md-6" ng-repeat="detail in details">
 	  	<h3>Room details</h3>
 	  		<div class="thumbnail">
 		  		<img ng-src="{{detail.imgURL.photos[0]}}" alt="...">
