@@ -1,7 +1,7 @@
-app.controller("Searching", function($scope,cartService,requestService, userService, $rootScope, $routeParams, $http, $location){
+app.controller("Searching", function($scope,$route,cartService,requestService, userService, $rootScope, $routeParams, $http, $location){
+    
     $scope.cart = [];
     $scope.request = [];
-    $scope.details = userService.UserDetail[0];
 
     $scope.hotelRoomOptions = [
         {name: 1,value: 1},
@@ -127,11 +127,12 @@ app.animation('.slide-animation', function () {
 app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestService,userService,$rootScope, $routeParams, $http, $location){
     $scope.details = cartService.cart[1];
     $scope.cusRequest = requestService.request[0];
-    $scope.User = userService.UserDetail[0];
+    $scope.User = userService.currentUser;
     // $scope.User = {};
 
     
     $scope.placeOrder = function(hotel){
+        // userService.UserDetail = [];
         var postData = {
             user: $scope.User,
             hotel: cartService.cart[1],
@@ -141,9 +142,10 @@ app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestSer
             .success(function(data) {
                 console.log("in bookingCtrl")
                 console.log(data)
-                userService.UserDetail.push(data);
+                userService.currentUser = data;
+                // userService.UserDetail.push(data);
                 $rootScope.$broadcast('user-logged-in');
-                $location.path('/');
+                $location.path('/complete');
             }).error(function(err) {
                 $scope.errorMessage = err;
             });
@@ -188,12 +190,12 @@ app.controller('SignupCtrl', function ($scope, $http, $location) {
 app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, userService) {
     $scope.User = {};
     $scope.errorMessage = '';
-    $scope.details = userService.UserDetail[0];
+    $scope.details = userService.currentUser;
 
    	$scope.login = function() {
         $http.post('/login', $scope.User)
         	.success(function(data) {
-                userService.UserDetail.push(data)
+                userService.currentUser = data;
                 $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
                 // $route.reload();
@@ -205,22 +207,20 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
 });
 
 app.controller('ProfileCtrl', function($scope, $http, $location, userService){
-    console.log("This is from ProfileCtrl")
-    console.log(userService.UserDetail)
-     $scope.details = userService.UserDetail[1];
-     
+    console.log(userService.bookings)
+    $scope.details = userService.bookings;
 });
 
 app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userService,requestService){
     $scope.isUserLoggedIn = false;
     $scope.request = [];
     $scope.UserDetail = [];
-    $scope.details = userService.UserDetail[1];
+    $scope.details = userService.currentUser;
 
     $scope.$on('user-logged-in', function() {
         console.log("HEARD LOG IN EVENT");
         $scope.isUserLoggedIn = true;      
-        $scope.details = userService.UserDetail[0];
+        $scope.details = userService.currentUser;
     });
 
     $scope.$on('user-logged-out', function() {
@@ -236,14 +236,16 @@ app.controller('NavCtrl', function($rootScope, $scope, $http, $location,userServ
     }
 
     $scope.getProfile = function(){
+        userService.bookings = [];
         $http.get("/profile/").success(function(data){  
             console.log("this from getprofile") 
             console.log(data)
-            userService.UserDetail.push(data);
+            userService.bookings = data;
             $location.path('/profile');              
         })
     }
 });
+
 
 
 

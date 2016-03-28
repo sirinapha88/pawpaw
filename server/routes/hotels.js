@@ -45,7 +45,6 @@ router.post('/hotel',function(req,res,next){
         },'*').then(function(user){
           res.cookie('userID', user[0].id, { signed: true });
           res.json(user[0]);
-
           knex("reservations").insert
             ({
               user_id: user[0].id,
@@ -65,6 +64,7 @@ router.post('/hotel',function(req,res,next){
           })
           console.log("created new user")
     } else {
+      res.cookie('userID', user.id, { signed: true });
       res.json(user)
       console.log("Booking: User found and value is")
       console.log(user)

@@ -55,14 +55,14 @@ td {
 
 select{
   border: 1px solid #ccc;
-    border-radius: 2px;
-    box-shadow: 0 1px #f5f4f0;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    color: #4e4e4e;
-    font-size: 1.1em;
-    margin: 3px 0;
-    padding: 5px 10px 4px 7px;
+  border-radius: 2px;
+  box-shadow: 0 1px #f5f4f0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  color: #4e4e4e;
+  font-size: 1.1em;
+  margin: 3px 0;
+  padding: 5px 10px 4px 7px;
 }
 
 
@@ -196,6 +196,10 @@ input{
   color: green;
   font-weight: 600;
 }
+hr.style4 {
+  border-top: 1px dotted #8c8b8b;
+}
+
 #tools-menu{
   margin-bottom: -15px; 
   margin-top: 5px;
@@ -227,7 +231,18 @@ div.thumbnail {
   float: left;
 }
 
-
+label{
+  font-size: 15px;
+}
+.selected{
+  width: 70px;
+  font-size: 12px;
+  font-family: helvetica;
+}
+h1 h2 h3{
+  font-family: helvetica;
+  font-weight: 600;
+}
 
 #Logo {
   height: 45.5px;

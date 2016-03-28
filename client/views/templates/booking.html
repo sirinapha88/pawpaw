@@ -42,13 +42,12 @@
 						<label for="code" >Security code</label>
 						<input id="rooms" type="text" name="code" style="width: 40px;"ng-model="User.code"></input>
 						<label for="qf-0q-localised-check-in" required>Expiration date*</label>
-						
-						<select>
-							<option class="service-small">Month</option>
+						<select class="selected">
+							<option>Month</option>
 							 <option ng-repeat="month in [1,2,3,4,5,6,7,8,9,10,11,12]">{{ month }}</option>
 						</select>
-						<select class="form-group">
-							<option style="font-size: 5px;">Year</option>
+						<select class="selected">
+							<option>Year</option>
 							 <option ng-repeat="year in [2016,2017,2018,2019,2020,2021,2022,2023,2024,2025]">{{ year }}</option>
 						</select>						
 					</fieldset>
@@ -64,12 +63,14 @@
 		  		<img ng-src="{{detail.imgURL.photos[0]}}" alt="...">
 			    <div class="caption">
 			     	<h4 style="color: green;">{{detail.name}}</h4>
+			     	<hr class="style4">
 			      	<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}</p>
-			      	<p>{{detail.phone}}</p>
-			      	<p>Check in: {{cusRequest.checkin | date:'yyyy-MM-dd'}}</p>
-			      	<p>Check out: {{cusRequest.checkout | date:'yyyy-MM-dd'}}</p>
-			      	<p>{{cusRequest.numRoom.value}} {{detail.room_Rate.room_detail[0].room_type}} For: {{cusRequest.numDog.value}} Dog</p>
-			      	<div style="display:inline-block"; >
+			      	<p>Telephone: {{detail.phone}}</p>
+			      	<hr class="style4">
+			      	<p>Check in: {{cusRequest.checkin | date:'yyyy-MM-dd'}}</p><hr class="style4">
+			      	<p>Check out: {{cusRequest.checkout | date:'yyyy-MM-dd'}}</p><hr class="style4">
+			      	<p>{{cusRequest.numRoom.value}} {{detail.room_Rate.room_detail[0].room_type}} For: {{cusRequest.numDog.value}} Dog</p><hr class="style4">
+			      	<div style="display:inline-block;" >
 			      		<p>Total to pay: </p>
 			      	</div>
 			      	<div style="display:inline-block;">

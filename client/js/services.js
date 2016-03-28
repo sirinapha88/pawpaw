@@ -13,7 +13,9 @@ app.service('requestService', function(){
 
 app.service('userService',function(){
   return{
-    UserDetail:[]
+    UserDetail:[],
+    currentUser:{},
+    bookings: []
   }
 });
 
