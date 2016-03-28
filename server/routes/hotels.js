@@ -16,12 +16,10 @@ var Hotels = function () {
 };
 
 router.get('/:searchString', function(req,res){
-
   var hotelSearch = req.params.searchString.split(',');
   Hotels().where({city:hotelSearch[0]}).then(function(data){
     res.json(data);
   })
-  
 });
 
 router.get('/hotel/:id', function(req, res) {
@@ -35,7 +33,6 @@ router.post('/hotel',function(req,res,next){
   knex("users").where('email', req.body.user.email).first().then(function(user){
     if(!user) {
       var hash = bcrypt.hashSync(req.body.user.password, 8);
-      // currentUser = req.body.user;
       knex("users").returning('*').insert({
           name: req.body.user.name,
           phone: req.body.user.phone,
@@ -58,9 +55,6 @@ router.post('/hotel',function(req,res,next){
                 console.log("err")
                 console.log(error)
             })
-
-            console.log("Booking new User is:")
-
           })
           console.log("created new user")
     } else {
@@ -84,8 +78,6 @@ router.post('/hotel',function(req,res,next){
     }
   })
   console.log("Done saving, returning json")
-  //console.log(payload)
-  //res.send(payload)
 });
 
 module.exports = router;

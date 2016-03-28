@@ -119,15 +119,7 @@ select{
     padding-top: 2px;
     padding-bottom: 2px;
 }
-/*#logout{
-    color: white;
-    background-color: #93c54b;
-    font-size: 15px;
-    margin-top: 40%;
-    margin-right: 8%;
-    padding-top: 2px;
-    padding-bottom: 2px;
-}*/
+
 .container-queryform .widget-query {
     width: 100%;    
 }
@@ -147,7 +139,7 @@ title{
     outline: none;
     position: relative;
     top: 250px;
-    margin-left: 850px;
+    margin-left: 900px;
     margin-top: 80px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -171,7 +163,6 @@ title{
 input{
   background-color: white;
 }
-
 
 #mainImg{
     width: 1150px;
@@ -202,7 +193,6 @@ input{
 }
 hr.style4 {
   border-top: 1px dotted #8c8b8b;
-
 }
 
 #tools-menu{
@@ -230,7 +220,6 @@ hr.style4 {
     margin-bottom: 20px;
     width: 100%;
 }
-
 
 div.thumbnail {
   float: left;
@@ -272,7 +261,6 @@ div.thumbnail > img {
     padding-top: 2px;
     padding-bottom: 2px;
 }
-
 
 #footer{
     color: white;
@@ -350,12 +338,6 @@ div.thumbnail > img {
     background-image: url("../images/paddle_next_fff.png");
 }
 
-
-
-/*---------------------------------------------------------
-NAV
----------------------------------------------------------*/
-
 .navImg {
     text-align: center;
     display: block;
@@ -419,5 +401,4 @@ NAV
 
 .dots .dot a.active {
     border-color: #FFF;
-    /*background-color: transparent;*/
 }

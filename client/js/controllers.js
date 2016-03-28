@@ -14,6 +14,8 @@ app.controller("Searching", function($scope,$route,cartService,requestService, u
     $scope.Hotels.numCat = $scope.hotelRoomOptions[0];
     
 	$scope.searchHotel = function(query) {
+        requestService.request = [];
+        cartService.cart = [];
         var city = query.city.split(',');
         requestService.request.push(query);
 		$http.get("/search/" + city).success(function(data){   
