@@ -9,8 +9,12 @@ body {
 .navbar {
     border-radius: 0;
     margin-bottom: 0;
-    padding-bottom: 0.5em;
+    padding-bottom: 1.6em;
     background: #90C830;
+    font-size: 15px;
+}
+.navbar li{
+  margin-top: 10px;
 }
 .petIMG{
   background-image: url("../images/pet-friendly-apartments.jpg");
@@ -81,7 +85,7 @@ select{
 
 
 .container-fluid {
-  margin: 0 8%;
+  margin: 0 5%;
 }
 #displayFormat {
  display: block;
