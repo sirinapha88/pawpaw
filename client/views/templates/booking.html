@@ -31,11 +31,11 @@
 					<h3>Payment details</h3>
 					<div class="form-group">
 		                <label for="exampleInputPassword1">Cardholder name</label>
-		                <input type="text" name="Cardholder_name" class="form-control" id="exampleInputPassword1" placeholder="Cardholder name" ng-model="User.Cardholder_name" required>
+		                <input type="text" name="Cardholder_name" class="form-control" id="exampleInputPassword1" placeholder="Cardholder name" ng-model="User.Cardholder_name" required autofocus>
 		            </div>
 		            <div class="form-group">
 		                <label for="exampleInputPassword1">Debit/Credit card number</label>
-		                <input type="text" name="card_number" class="form-control" id="exampleInputPassword1" placeholder="Debit/Credit card number" ng-model="User.card_number" required>
+		                <input type="text" name="card_number" class="form-control" id="exampleInputPassword1" placeholder="Debit/Credit card number" ng-model="User.card_number" required autofocus>
 		            </div>				
 					</fieldset>
 					<fieldset>
@@ -57,24 +57,19 @@
 			    </div>
 		    </form>
 	  	</div>
-	  	<div class="col-md-6" ng-repeat="detail in details">
-	  	<h3>Room details</h3>
-	  		<div class="thumbnail">
-		  		<img ng-src="{{detail.imgURL.photos[0]}}" alt="...">
-			    <div class="caption">
+	  	<div class="col-md-4" ng-repeat="detail in details">
+	  	<p style="font-size: 20px; font-weight: bold; color:green; margin-top: 20px;">Room details</p>	  		
+		  		<img ng-src="{{detail.imgURL.photos[0]}}" style="width: 500px; height: 300px;">
+			    
 			     	<h4 style="color: green;">{{detail.name}}</h4>
-			     	<hr class="style4">
-			      	<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}</p>
-			      	<p>Telephone: {{detail.phone}}</p>
+			      	<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}  Tel: {{detail.phone}}</p>
+			      	<div class="caption" style="line-height: 70%">
 			      	<hr class="style4">
 			      	<p>Check in: {{cusRequest.checkin | date:'yyyy-MM-dd'}}</p><hr class="style4">
 			      	<p>Check out: {{cusRequest.checkout | date:'yyyy-MM-dd'}}</p><hr class="style4">
-			      	<p>{{cusRequest.numRoom.value}} {{detail.room_Rate.room_detail[0].room_type}} For: {{cusRequest.numDog.value}} Dog</p><hr class="style4">
-			      	<div style="display:inline-block;" >
-			      		<p>Total to pay: </p>
-			      	</div>
-			      	<div style="display:inline-block;">
-			      		<h3> {{detail.room_Rate.room_detail[0].rate.oneSize | currency:undefined:0}}</h3>
+			      	<p>{{cusRequest.numRoom.value}} {{detail.room_Rate.room_detail[0].room_type}} -- {{cusRequest.numDog.value}} Dog</p><hr class="style4">
+			      	<div style="display:inline-block; color:red; font-weight: bold; font-size: 20px;" >
+			      		<p>Total to pay:  {{detail.room_Rate.room_detail[0].rate.oneSize | currency:undefined:0}}</h3>
 			      	</div>
 			    </div>
 			    <div ng-controller="MapCtrl">
@@ -82,7 +77,7 @@
 			        <ui-gmap-marker  coords="marker.coords" idKey="marker.idKey"></ui-gmap-marker>
         			</ui-gmap-google-map>
 				</div>
-			</div>
+			
 	  	</div>
 	</div>
 </div>

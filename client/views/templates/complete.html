@@ -1,36 +1,11 @@
 <div class="container-fluid" id="signup-form" style="margin-top: 10px;">
-	<h2>Thank you for choosing petbesthotels.com</h2>
-	<div class="row" ng-repeat="detail in details">
-  		<div class="col-md-6 well">
-  			<img ng-src="{{detail.imgURL.photos[0]}}" style="width:650px; height:400px; margin-bottom: 20px;">
-  		</div>
+	<div class="row">
+		<div class="col-md-6 well"style="margin-top: 100px; font-weight: bold;">
+			<h2>Thank you for choosing petbesthotels.com</h2>
+		</div>
 		<div class="col-md-6">
-	  		<h3 class="p-name">
-				<a href="" style="margin-left: 20px; margin-right: 10px; display: inline; float: left;">{{detail.hotelName}}</a>			 			
-				<div ng-show="{{detail.rating}} < 4">
-					<img ng-src="https://s3-media1.fl.yelpcdn.com/assets/2/www/img/5ef3eb3cb162/ico/stars/v1/stars_3_half.png">
-				</div>
-				<div ng-show="{{detail.rating}} == 4" >
-					<img ng-src="https://s3-media4.fl.yelpcdn.com/assets/2/www/img/c2f3dd9799a5/ico/stars/v1/stars_4.png">
-				</div>
-				<div ng-show="{{detail.rating}} > 4 && {{detail.rating}} < 5">
-					<img ng-src="https://s3-media2.fl.yelpcdn.com/assets/2/www/img/99493c12711e/ico/stars/v1/stars_4_half.png">
-				</div>		 
-				<div ng-show="{{detail.rating}} == 5">
-					<img ng-src="https://s3-media1.fl.yelpcdn.com/assets/2/www/img/f1def11e4e79/ico/stars/v1/stars_5.png">
-				</div>
-			</h3>
-			<p style="margin-left: 20px;">{{detail.address}}, {{detail.city}}, {{detail.zipcode}}&nbsp; Tel: {{detail.phone}}</p><hr class="style4">
-			<p style="margin-left: 20px; font-weight: bold; font-size: 17px;">Check in date: {{detail.checkin | date:'yyyy-MM-dd'}}</p>
-			<p style="margin-left: 20px; font-weight: bold; font-size: 17px;">Check out date: {{detail.checkout | date:'yyyy-MM-dd'}}</p><hr class="style4">
-			<p style="margin-left: 20px;">Room details: {{detail.room_type}}</p>
-
-	       	<!-- <div > -->
-		        <!-- <ui-gmap-google-map center='{latitude:detail.latitude, longitude:details.longitude}' zoom='13'>
-		        <ui-gmap-marker  coords='{latitude:detail.latitude, longitude:details.longitude}' idKey='1'></ui-gmap-marker>
-				</ui-gmap-google-map> -->
-			<!-- </div> -->
-	  </div>
+			<img src="/client/images/thankyou-dogcat.jpg" alt="...">	
+		</div>
 	</div>
-</div>
-
+	
+	
