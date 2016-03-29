@@ -2,15 +2,15 @@ var express 		      = require("express"),
 	  app 			        = express(),
 	  bodyParser 		    = require("body-parser"),
 	  morgan      	    = require("morgan"),
-	  Yelp              = require('yelp');
+	  Yelp              = require('yelp'),
 	  path 			        = require('path'),
 	  knex 			        = require('../db/knex'),
 	  passport 		      = require('passport'),
-	  FacebookStrategy	= require('passport-facebook').Strategy;
-	  config            = require('../oauth.js');
-    var cookieParser = require('cookie-parser');
-    var google = require('google');
-    var request = require('request');
+	  FacebookStrategy	= require('passport-facebook').Strategy,
+	  config            = require('../oauth.js'),
+    cookieParser      = require('cookie-parser'),
+    google            = require('google'),
+    request           = require('request');
 	  require('dotenv').load();
 
 var Users = function () {
@@ -68,7 +68,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.use(passport.session());
 
-// app.use('/gHotel', gHotel);
 app.use('/search', hotelRoute);
 app.use('/auth', auth);
 app.use('/', users);

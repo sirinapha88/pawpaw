@@ -20,14 +20,16 @@ router.post('/signup', function(req,res,next){
         name: req.body.name,
         email: req.body.email,
         password: hash
-      }, 'id').then(function(id) {
-        res.cookie('userID', id[0], { signed: true });
-        res.redirect('/');
+      }, '*').then(function(user) {
+        res.cookie('userID', user[0].id, { signed: true });
+        console.log("In sign up")
+        console.log(user);
+        res.json(user);
       });
     } 
     else {
       res.status(409);
-      res.redirect('login?error=You have already signed up. Please login.');
+      res.redirect('/login');
     }
   });
 });
@@ -38,20 +40,17 @@ router.get('/login', function(req,res){
 
 router.post('/login', function(req,res){
   Users().where({
-    email: req.body.email,
-  }).first().then(function(user){
-    if(user) {
-      //bcrypt.compareSync will hash the plain text password and compare
-      if(bcrypt.compareSync(req.body.password, user.password)) {
+          email: req.body.email,
+    }).first().then(function(user){
+      if(user) {
+        //bcrypt.compareSync will hash the plain text password and compare
+        bcrypt.compareSync(req.body.password, user.password) 
         res.cookie('userID', user.id, { signed: true });
-        res.json(user);
-      } else {
-        res.redirect('/profile?error=Invalid Email or Password.');
+        res.json(user);      
       }
-    }
-    else {
-      res.redirect('/signup?error=Invalid Email or Password.');
-    }
+      else {
+        res.redirect('/signup');
+      }
   });
 });
 

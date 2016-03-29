@@ -173,13 +173,17 @@ app.controller("MapCtrl", function($scope, cartService) {
         }; 
 });
 
-app.controller('SignupCtrl', function ($scope, $http, $location) {
+app.controller('SignupCtrl', function ($scope, userService, $http, $location,$rootScope) {
     $scope.User = {};
     $scope.errorMessage = '';
+    $scope.details = userService.currentUser;
 
     $scope.register = function() {
         $http.post('/signup', $scope.User)
         	.success(function(data) {
+                console.log("in sign up fron endv")
+                console.log(data)
+                userService.currentUser = data;
                 $rootScope.$broadcast('user-logged-in');
                 $location.path('/');
             }).error(function(err) {
