@@ -7,7 +7,6 @@ var express 		      = require("express"),
 	  knex 			        = require('../db/knex'),
 	  passport 		      = require('passport'),
 	  FacebookStrategy	= require('passport-facebook').Strategy,
-	  config            = require('../oauth.js'),
     cookieParser      = require('cookie-parser'),
     google            = require('google'),
     request           = require('request');
