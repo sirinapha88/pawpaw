@@ -1,6 +1,7 @@
 <div class="petIMG" style="height: 700px">	
-	<div class="container-fluid">	
-		<div class="widget-query">
+	<div class="container-fluid">
+	
+		<div class="pull-right widget-query">
 
 			<h1 style="margin-left: 15px; font-weight: 400;">Hotel search</h1>
 			<form >
@@ -29,14 +30,13 @@
 					</select>			
 					<label for="qf-0q-localised-check-in" style="font-size: 12pt;">Cat</label>
 					<select ng-model="Hotels.numCat" style="width: 80px;" ng-options="num.value as num.name for num in hotelRoomOptions">
-						<!-- <option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option> -->
+						
 					</select>	
 				</fieldset>		
 				<button class="btn btn-info" style="margin-left: 80px; margin-top: 10px; width: 110px;" ng-click="searchHotel(Hotels)">Search</button>
 			</form>	
 		</div>  <!-- end div cout widget-query -->
+		
 	</div> <!-- end div container-fluid -->
 </div>
 <!-- <div class="seperate"></div> -->

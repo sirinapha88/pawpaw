@@ -135,12 +135,12 @@ title{
     background: rgba(211,211,211, 0.5); 
     box-shadow: 0 0 12px 5px grey;
     min-width: 600px !important;
-    max-width: 600px;
+    max-width: 650px;
     outline: none;
     position: relative;
-    top: 250px;
-    margin-left: 900px;
-    margin-top: 80px;
+    top: 50px;
+    /*margin-left: auto;*/
+    margin-right: -200px;
     padding-top: 10px;
     padding-bottom: 10px;
    
