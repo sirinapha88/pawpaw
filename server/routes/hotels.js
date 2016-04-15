@@ -15,6 +15,7 @@ var Hotels = function () {
   return knex('hotels');
 };
 
+
 router.get('/:searchString', function(req,res){
   var hotelSearch = req.params.searchString.split(',');
   Hotels().where({city:hotelSearch[0]}).then(function(data){
@@ -29,7 +30,7 @@ router.get('/hotel/:id', function(req, res) {
 });
 
 router.post('/hotel',function(req,res,next){
-  var payload = [];
+  
   knex("users").where('email', req.body.user.email).first().then(function(user){
     if(!user) {
       var hash = bcrypt.hashSync(req.body.user.password, 8);

@@ -130,7 +130,8 @@ app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestSer
     $scope.details = cartService.cart[1];
     $scope.cusRequest = requestService.request[0];
     $scope.User = userService.currentUser;
-    // $scope.User = {};
+   
+    $scope.nightStay = days_between(requestService.request[0].checkin,requestService.request[0].checkout);
 
     
     $scope.placeOrder = function(hotel){
@@ -154,6 +155,22 @@ app.controller("BookingCtrl", function($rootScope,$scope,cartService, requestSer
     }
 });
 
+function days_between(date1, date2) {
+
+    // The number of milliseconds in one day
+    var ONE_DAY = 1000 * 60 * 60 * 24
+
+    // Convert both dates to milliseconds
+    var date1_ms = date1.getTime()
+    var date2_ms = date2.getTime()
+
+    // Calculate the difference in milliseconds
+    var difference_ms = Math.abs(date1_ms - date2_ms)
+
+    // Convert back to days and return
+    return Math.round(difference_ms/ONE_DAY)
+
+}
 // This controller for google map
 app.controller("MapCtrl", function($scope, cartService) {
     var address = cartService.cart[1];
@@ -211,7 +228,7 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
          $scope.isUserLoggedIn = false;   
     };
 
-    
+
 
 });
 
