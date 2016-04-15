@@ -72,7 +72,7 @@
 			      		<p>Total to pay:  {{detail.room_Rate.room_detail[0].rate.oneSize | currency:undefined:0}}</h3>
 			      	</div>
 			    </div>
-			    <div ng-controller="MapCtrl">
+			    <div ng-controller="MapCtrl" style="padding-bottom: 10px;">
 			        <ui-gmap-google-map center='map.center' zoom='map.zoom'>
 			        <ui-gmap-marker  coords="marker.coords" idKey="marker.idKey"></ui-gmap-marker>
         			</ui-gmap-google-map>

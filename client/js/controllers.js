@@ -210,6 +210,9 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
             });
          $scope.isUserLoggedIn = false;   
     };
+
+    
+
 });
 
 app.controller('ProfileCtrl', function($scope, $http, $location, userService){

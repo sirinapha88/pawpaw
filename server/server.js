@@ -40,14 +40,14 @@ passport.use(new FacebookStrategy({
         if(err)
           done(err);
         if(user[0]) {
-          console.log(user[0]);
+          // console.log(user[0]);
           
           return done(null, user[0]);
         } else {
           Users().insert({facebook_id: profile.id, name: profile.displayName, email: profile.emails}).then(function() {
             Users().where({facebook_id: profile.id}).then(function(data) {
               console.log("data from facebook");
-              console.log(data);
+              // console.log(data);
               return done(null, data[0]);
             });
           });

@@ -285,6 +285,12 @@ div.thumbnail > img {
     padding-top: 20px;
     padding-bottom: 50px;
 }
+
+.mapDetail{
+  margin-top: 100px;
+  margin-left: 50px;
+  
+}
 .slider {
     width: 800px;
     height: 500px;
@@ -293,6 +299,7 @@ div.thumbnail > img {
     background: #e6e6e6;
     border: 20px solid #FFF;
     margin-top: 20px;
+    margin-left: 30px;
 }
 
 .slide {
