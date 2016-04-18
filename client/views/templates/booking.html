@@ -65,13 +65,15 @@
 			      	<p>{{detail.address}}, {{detail.city}}, {{detail.zipcode}}  Tel: {{detail.phone}}</p>
 			      	<div class="caption" style="line-height: 70%">
 			      	<hr class="style4">
-			      	<p>Check in: {{cusRequest.checkin | date:'yyyy-MM-dd'}}</p><hr class="style4">
-			      	<p>Check out: {{cusRequest.checkout | date:'yyyy-MM-dd'}}</p><hr class="style4">
+			      	<p>Check in: {{cusRequest.checkin | date:'yyyy-MM-dd'}} &nbsp;  &verbar; &nbsp; 
+			      		Check out: {{cusRequest.checkout | date:'yyyy-MM-dd'}}
+		      		</p><hr class="style4">
 
-			      	<p>{{nightStay}} Night stay</p>
-			      	<p>{{cusRequest.numRoom.value}} {{detail.room_Rate.room_detail[0].room_type}} -- {{cusRequest.numDog.value}} Dog</p><hr class="style4">
+			      	<p>{{nightStay}} Night stay &nbsp; &nbsp;
+			      	{{cusRequest.numRoom.value}} {{detail.room_Rate.room_detail[0].room_type}} -- {{cusRequest.numDog.value}} Dog</p><hr class="style4">
+			      	<p>Average nightly rate {{detail.room_Rate.room_detail[0].rate.oneSize | currency}}</p><hr class="style4">
 			      	<div style="display:inline-block; color:red; font-weight: bold; font-size: 20px;" >
-			      		<p>Total to pay:  {{detail.room_Rate.room_detail[0].rate.oneSize * nightStay | currency:undefined:0}}</h3>
+			      		<p>Total to pay:  {{detail.room_Rate.room_detail[0].rate.oneSize * nightStay | currency}}</h3>
 			      	</div>
 			    </div>
 			    <div ng-controller="MapCtrl" style="padding-bottom: 10px;">
