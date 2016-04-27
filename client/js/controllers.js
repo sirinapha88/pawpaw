@@ -18,9 +18,15 @@ app.controller("Searching", function($scope,$route,cartService,requestService, u
         cartService.cart = [];
         var city = query.city.split(',');
         requestService.request.push(query);
-		$http.get("/search/" + city).success(function(data){   
-            cartService.cart.push(data);				
-            $location.path('/Hotels');
+		$http.get("/search/" + city).success(function(data){  
+            console.log(data) 
+            if(data.length == 0){
+                 $location.path('/noHotels'); 
+            } else{   
+                cartService.cart.push(data);              
+                $location.path('/Hotels');  
+            }
+            
 		})
     };
 });
