@@ -2,9 +2,9 @@
   <div class="col-md-2"></div>
   <div class="col-md-4">
     <h4 id='fb-signup'> LOGIN USING FACEBOOK: </h4>
-    <a href="/auth/facebook">
-      <img id='fb-btn' src='http://www.bon-app.com/bonapp2/images/social-media/facebook-login-button.png'>
-    </a>
+    <!-- <a href="/auth/facebook"> -->
+      <img ng-click="loginFB()" id='fb-btn' src='http://www.bon-app.com/bonapp2/images/social-media/facebook-login-button.png'>
+    <!-- </a> -->
   </div>
   <div class="col-md-4" ng-controller="LoginCtrl">
     <form id='login-form' method='POST'>

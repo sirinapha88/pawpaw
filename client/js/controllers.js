@@ -234,8 +234,15 @@ app.controller('LoginCtrl', function ($rootScope, $scope, $http, $location, user
          $scope.isUserLoggedIn = false;   
     };
 
-
-
+    $scope.loginFB = function(){
+        $http.get('/auth/facebook')
+        console.log("got data from facebook")
+            // userService.currentUser = data;
+            $rootScope.$broadcast('user-logged-in');
+            $location.path('/');
+        
+        // $scope.isUserLoggedIn = false;   
+    };
 });
 
 app.controller('ProfileCtrl', function($scope, $http, $location, userService){
